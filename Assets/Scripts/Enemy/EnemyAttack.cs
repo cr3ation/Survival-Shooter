@@ -9,7 +9,7 @@ public class EnemyAttack : MonoBehaviour
 
 
     Animator anim;                              // Reference to the animator component.
-    GameObject player;                          // Reference to the player GameObject.
+    GameObject fanton;                          // Reference to the player GameObject.
     PlayerHealth playerHealth;                  // Reference to the player's health.
     EnemyHealth enemyHealth;                    // Reference to this enemy's health.
     bool playerInRange;                         // Whether player is within the trigger collider and can be attacked.
@@ -19,8 +19,8 @@ public class EnemyAttack : MonoBehaviour
     void Awake()
     {
         // Setting up the references.
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerHealth = player.GetComponent<PlayerHealth>();
+        fanton = GameObject.FindGameObjectWithTag("Fanton");
+        playerHealth = fanton.GetComponent<PlayerHealth>();
         enemyHealth = GetComponent<EnemyHealth>();
         anim = GetComponent<Animator>();
     }
@@ -29,7 +29,7 @@ public class EnemyAttack : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         // If the entering collider is the player...
-        if (other.gameObject == player)
+        if (other.gameObject == fanton)
         {
             // ... the player is in range.
             playerInRange = true;
@@ -40,7 +40,7 @@ public class EnemyAttack : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         // If the exiting collider is the player...
-        if (other.gameObject == player)
+        if (other.gameObject == fanton)
         {
             // ... the player is no longer in range.
             playerInRange = false;

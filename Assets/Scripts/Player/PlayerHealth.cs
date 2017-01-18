@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
     PlayerMovement playerMovement;                              // Reference to the player's movement.
     PlayerShooting playerShooting;                              // Reference to the PlayerShooting script.
     bool isDead;                                                // Whether the player is dead.
-    bool damaged;                                               // True when the player gets damaged.
+    bool damaged = false;                                       // True when the player gets damaged.
 
 
     void Awake()
