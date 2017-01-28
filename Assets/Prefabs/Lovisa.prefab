@@ -429,6 +429,7 @@ GameObject:
   - component: {fileID: 136327377477450516}
   - component: {fileID: 82367874673111320}
   - component: {fileID: 114878141011766472}
+  - component: {fileID: 114082122927457752}
   m_Layer: 0
   m_Name: Lovisa
   m_TagString: Player
@@ -2340,6 +2341,21 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114082122927457752
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1344513674508908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d7fc1a0f30f3154abd5379115bb2719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePerPunch: 20
+  timeBetweenPunches: 0.15
+  range: 100
+  PunchAnimation: {fileID: 0}
 --- !u!114 &114878141011766472
 MonoBehaviour:
   m_ObjectHideFlags: 1
