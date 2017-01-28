@@ -2076,8 +2076,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1344513674508908}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.8112, y: 0, z: 0.66733}
+  m_LocalRotation: {x: 0, y: 0.9652222, z: -0, w: -0.2614311}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.6673074, y: 1.6673094, z: 1.6673094}
   m_Children:
   - {fileID: 4449061695647606}
@@ -2091,7 +2091,7 @@ Transform:
   - {fileID: 4075773602406050}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 210.31, z: 0}
 --- !u!4 &4858252117346150
 Transform:
   m_ObjectHideFlags: 1
@@ -2241,7 +2241,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!82 &82367874673111320
 AudioSource:
@@ -2352,6 +2352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  rotationSpeed: 10
 --- !u!136 &136327377477450516
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -2361,10 +2362,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.31
-  m_Height: 1.5
+  m_Radius: 0.35
+  m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0.91, z: 0}
+  m_Center: {x: 0, y: 0.77, z: 0}
 --- !u!137 &137089582584820428
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

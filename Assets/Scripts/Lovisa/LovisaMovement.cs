@@ -3,6 +3,7 @@
 public class LovisaMovement : MonoBehaviour
 {
     public float speed = 6f;            // The speed that the player will move at.
+    public float rotationSpeed = 1f;
 
     Vector3 movement;                   // The vector to store the direction of the player's movement.
     Animator anim;                      // Reference to the animator component.
@@ -23,6 +24,9 @@ public class LovisaMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Update the timer
+        timer += Time.deltaTime;
+        
         // Store the input axes.
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
@@ -35,7 +39,6 @@ public class LovisaMovement : MonoBehaviour
         
         // Animate the player.
         Animating(h, v);
-        timer += Time.deltaTime;
     }
 
     void Move(float h, float v)
@@ -55,11 +58,11 @@ public class LovisaMovement : MonoBehaviour
         // If no key is pressed, do not rotate.
         if (h == 0 & v == 0) { return; }
 
-        // Create a quaternion (rotation) based on looking down the vector from the player to the mouse.
+        // Create a quaternion (rotation) based on looking down the vector
         Quaternion newRotation = Quaternion.LookRotation(movement);
 
         // Set the player's rotation to this new rotation.
-        playerRigidbody.MoveRotation(newRotation);
+        transform.rotation= Quaternion.Slerp(transform.rotation, newRotation, rotationSpeed * Time.deltaTime);
     }
 
     void Animating(float h, float v)

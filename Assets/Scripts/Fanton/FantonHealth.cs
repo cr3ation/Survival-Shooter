@@ -27,7 +27,6 @@ public class FantonHealth : MonoBehaviour
         anim = GetComponent<Animator>();
         fantonAudio = GetComponent<AudioSource>();
         fantonMovement = GetComponent<FantonMovement>();
-        var player = GameObject.FindGameObjectWithTag("Player");
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
         // Set the initial health of the player.
