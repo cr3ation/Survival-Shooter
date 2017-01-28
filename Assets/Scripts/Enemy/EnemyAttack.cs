@@ -10,7 +10,7 @@ public class EnemyAttack : MonoBehaviour
 
     Animator anim;                              // Reference to the animator component.
     GameObject fanton;                          // Reference to the player GameObject.
-    PlayerHealth playerHealth;                  // Reference to the player's health.
+    FantonHealth fantonHealth;                  // Reference to the player's health.
     EnemyHealth enemyHealth;                    // Reference to this enemy's health.
     bool playerInRange;                         // Whether player is within the trigger collider and can be attacked.
     float timer;                                // Timer for counting up to the next attack.
@@ -20,7 +20,7 @@ public class EnemyAttack : MonoBehaviour
     {
         // Setting up the references.
         fanton = GameObject.FindGameObjectWithTag("Fanton");
-        playerHealth = fanton.GetComponent<PlayerHealth>();
+        fantonHealth = fanton.GetComponent<FantonHealth>();
         enemyHealth = GetComponent<EnemyHealth>();
         anim = GetComponent<Animator>();
     }
@@ -61,7 +61,7 @@ public class EnemyAttack : MonoBehaviour
         }
 
         // If the player has zero or less health...
-        if (playerHealth.currentHealth <= 0)
+        if (fantonHealth.currentHealth <= 0)
         {
             // ... tell the animator the player is dead.
             anim.SetTrigger("PlayerDead");
@@ -75,10 +75,10 @@ public class EnemyAttack : MonoBehaviour
         timer = 0f;
 
         // If the player has health to lose...
-        if (playerHealth.currentHealth > 0)
+        if (fantonHealth.currentHealth > 0)
         {
             // ... damage the player.
-            playerHealth.TakeDamage(attackDamage);
+            fantonHealth.TakeDamage(attackDamage);
         }
     }
 }

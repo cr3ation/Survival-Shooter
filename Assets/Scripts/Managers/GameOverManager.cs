@@ -2,7 +2,7 @@
 
 public class GameOverManager : MonoBehaviour
 {
-    public PlayerHealth playerHealth;
+    public FantonHealth fantonHealth;
 
 
     Animator anim;
@@ -16,7 +16,7 @@ public class GameOverManager : MonoBehaviour
 
     void Update()
     {
-        if (playerHealth.currentHealth <= 0)
+        if (fantonHealth.currentHealth <= 0)
         {
             anim.SetTrigger("GameOver");
         }

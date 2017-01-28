@@ -1059,7 +1059,8 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114549170729395712, guid: de66631b88813e64ab63dce05cb04ff2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: de66631b88813e64ab63dce05cb04ff2, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1344884223
@@ -1438,7 +1439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c9e0011c2ed97428a4efc03b455359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: {fileID: 1170104711}
+  fantonHealth: {fileID: 1669807693}
 --- !u!1 &1594215681
 GameObject:
   m_ObjectHideFlags: 0
@@ -1585,6 +1586,29 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1635958641}
+--- !u!1 &1669807692 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1865742801888466, guid: de66631b88813e64ab63dce05cb04ff2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1253256102}
+--- !u!114 &1669807693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1669807692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e18833d795b1ff4597139cde863f35b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 0
+  healthSlider: {fileID: 1197552159}
+  damageImage: {fileID: 450085726}
+  deathClip: {fileID: 8300000, guid: d36a393bca4582043982db9089e1694f, type: 3}
+  flashSpeed: 5
+  flashColour: {r: 1, g: 0, b: 0, a: 0.1}
 --- !u!1001 &1699246617
 Prefab:
   m_ObjectHideFlags: 0

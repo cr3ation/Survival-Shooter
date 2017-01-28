@@ -6,13 +6,13 @@ public class FantonMovement : MonoBehaviour
     private Transform target;
     private int waypointIndex = 0;
 
-    PlayerHealth playerHealth;
+    FantonHealth fantonHealth;
     UnityEngine.AI.NavMeshAgent nav;
 
     void Awake()
     {
-        var player = GameObject.FindGameObjectWithTag("Player").transform;
-        playerHealth = player.GetComponent<PlayerHealth>();
+        var player = GameObject.FindGameObjectWithTag("Fanton").transform;
+        fantonHealth = player.GetComponent<FantonHealth>();
 
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
@@ -25,7 +25,7 @@ public class FantonMovement : MonoBehaviour
 
     void Update()
     {
-        if (playerHealth.currentHealth > 0 && waypointIndex < Waypoints.points.Length)
+        if (fantonHealth.currentHealth > 0 && waypointIndex < Waypoints.points.Length)
         {
             nav.SetDestination(target.position);
             if (Vector3.Distance(transform.position, target.position) <= 2f)
@@ -34,7 +34,7 @@ public class FantonMovement : MonoBehaviour
             }
         }
         else
-        {
+        { 
             nav.enabled = false;
         }
     }
@@ -44,7 +44,11 @@ public class FantonMovement : MonoBehaviour
        if (waypointIndex < Waypoints.points.Length - 1)
        {
             waypointIndex++;
-            target = Waypoints.points[waypointIndex];
+       }
+        else
+        {
+            waypointIndex = 0;
         }
+        target = Waypoints.points[waypointIndex];
     }
 }

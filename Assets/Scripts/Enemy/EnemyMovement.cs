@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemyMovement : MonoBehaviour
 {
     Transform player;
-    PlayerHealth playerHealth;
+    FantonHealth fantonHealth;
     EnemyHealth enemyHealth;
     UnityEngine.AI.NavMeshAgent nav;
 
@@ -12,7 +12,7 @@ public class EnemyMovement : MonoBehaviour
     void Awake ()
     {
         player = GameObject.FindGameObjectWithTag ("Fanton").transform;
-        playerHealth = player.GetComponent <PlayerHealth> ();
+        fantonHealth = player.GetComponent <FantonHealth> ();
         enemyHealth = GetComponent <EnemyHealth> ();
         nav = GetComponent <UnityEngine.AI.NavMeshAgent> ();
     }
@@ -20,7 +20,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Update ()
     {
-        if(enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0)
+        if(enemyHealth.currentHealth > 0 && fantonHealth.currentHealth > 0)
         {
             nav.SetDestination (player.position);
         }
