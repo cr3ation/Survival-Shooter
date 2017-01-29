@@ -48,6 +48,7 @@ public class EnemyHealth : MonoBehaviour
             return;
 
         // Play the hurt sound effect.
+        enemyAudio.Stop();
         enemyAudio.Play();
 
         // Reduce the current health by the amount of damage sustained.
