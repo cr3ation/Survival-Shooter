@@ -10,6 +10,7 @@ public class LovisaPunching : MonoBehaviour
     float timer;                                    // A timer to determine when to fire.
     Animator anim;
     LovisaMovement lovisaMovement;
+    Rigidbody rigidBody;
     GameObject closestEnemy;
 
     void Awake()
@@ -17,6 +18,7 @@ public class LovisaPunching : MonoBehaviour
         // Create a layer mask for the Shootable layer.
         anim = GetComponent<Animator>();
         lovisaMovement = GetComponent<LovisaMovement>();
+        rigidBody = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -30,11 +32,26 @@ public class LovisaPunching : MonoBehaviour
         // Add the time since Update was last called to the timer.
         timer += Time.deltaTime;
 
+        // If punching animation is activated. Rotate toward cloases enemy
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Punch") && distanceToEnemy <= range)
+        {
+            var lookPos = closestEnemy.transform.position - transform.position;
+            lookPos.y = 0;
+            var rotation = Quaternion.LookRotation(lookPos);
+            rigidBody.rotation = Quaternion.Slerp(transform.rotation, rotation, 30 * Time.deltaTime);
+        }
+
+
         // If the Fire1 button is being press and it's time to fire...
         if (Input.GetButton("Fire1") && distanceToEnemy <= range && timer >= timeBetweenPunches)
         {
             // ... punch the enemy.
             Shoot();
+        }
+        else if (Input.GetButton("Fire1"))
+        {
+            // Just do the move
+            anim.SetBool("IsPunching", true);
         }
         if (!Input.GetButton("Fire1"))
         {

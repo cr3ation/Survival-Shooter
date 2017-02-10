@@ -2354,8 +2354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePerPunch: 20
   timeBetweenPunches: 0.15
-  range: 100
-  PunchAnimation: {fileID: 0}
+  range: 2
 --- !u!114 &114878141011766472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2367,7 +2366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 049f04140be5da442a4846ba541f410c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 7
   rotationSpeed: 10
 --- !u!136 &136327377477450516
 CapsuleCollider:
