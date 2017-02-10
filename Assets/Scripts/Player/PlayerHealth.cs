@@ -19,8 +19,8 @@ public class PlayerHealth : MonoBehaviour
     PlayerShooting playerShooting;                              // Reference to the PlayerShooting script.
     GameObject fanton;
     FantonHealth fantonHealth;
-    bool isDead = false;                                                // Whether the player is dead.
-    bool damaged = false;                                       // True when the player gets damaged.
+    bool isDead = false;                                        // Whether the player is dead.
+
 
 
     void Awake()
