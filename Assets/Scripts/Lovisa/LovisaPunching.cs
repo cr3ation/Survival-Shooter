@@ -5,13 +5,18 @@ public class LovisaPunching : MonoBehaviour
 {
     public int damagePerPunch = 20;                 // The damage inflicted by each bullet.
     public float timeBetweenPunches = 0.15f;        // The time between each shot.
-    public float range = 50f;                       // The distance the gun can fire.
+    public float range = 3f;                        // The distance the gun can fire.
+    public float rotationRange = 4f;                // The distance to an enemy when player starts to rotate
+
 
     float timer;                                    // A timer to determine when to fire.
-    Animator anim;
-    LovisaMovement lovisaMovement;
-    Rigidbody rigidBody;
-    GameObject closestEnemy;
+    float distanceToEnemy;                          // Distance to the closest enemy
+    float rotationSpeed = 10f;                      // Speen in witch to rotate
+    Animator anim;                                  // Reference to the anomator controller object
+    LovisaMovement lovisaMovement;                  // Reference to the LovsaMovement object
+    Rigidbody rigidBody;                            // Reference to the rigidBody object
+    GameObject closestEnemy;                        // Refrencee to the closest enemy
+    
 
     void Awake()
     {
@@ -23,24 +28,18 @@ public class LovisaPunching : MonoBehaviour
 
     void Update()
     {
-        // Find closest enemy
-        closestEnemy = FindClosestEnemy();
-        // Distance to closest enemy
-        var distanceToEnemy = Vector3.Distance(closestEnemy.transform.position, transform.position);
-        Debug.Log("Distance: " + distanceToEnemy);
-
         // Add the time since Update was last called to the timer.
         timer += Time.deltaTime;
 
-        // If punching animation is activated. Rotate toward cloases enemy
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Punch") && distanceToEnemy <= range)
-        {
-            var lookPos = closestEnemy.transform.position - transform.position;
-            lookPos.y = 0;
-            var rotation = Quaternion.LookRotation(lookPos);
-            rigidBody.rotation = Quaternion.Slerp(transform.rotation, rotation, 30 * Time.deltaTime);
-        }
+        // Find closest enemy
+        closestEnemy = FindClosestEnemy();
+        
+        // Distance to closest enemy
+        distanceToEnemy = Vector3.Distance(closestEnemy.transform.position, transform.position);
+        Debug.Log("Distance: " + distanceToEnemy);
 
+        // Rotate player toward enemy if nessecery 
+        Rotate();
 
         // If the Fire1 button is being press and it's time to fire...
         if (Input.GetButton("Fire1") && distanceToEnemy <= range && timer >= timeBetweenPunches)
@@ -79,8 +78,22 @@ public class LovisaPunching : MonoBehaviour
         }
     }
 
-    // Find the name of the closest enemy
+    /// <summary>
+    /// Rotates player towards the closest enemy if needed.
+    /// </summary>
+    void Rotate()
+    {
+        // If punching animation is activated. Rotate toward cloases enemy
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Punch") && distanceToEnemy <= rotationRange)
+        {
+            var lookPos = closestEnemy.transform.position - transform.position;
+            lookPos.y = 0;
+            var rotation = Quaternion.LookRotation(lookPos);
+            rigidBody.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+        }
+    }
 
+    // Find the name of the closest enemy
     GameObject FindClosestEnemy()
     {
         GameObject[] gos;
