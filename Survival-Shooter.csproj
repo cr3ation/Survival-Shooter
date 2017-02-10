@@ -120,6 +120,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fonts\LuckiestGuy\LICENSE.txt" />
+    <None Include="Assets\Models\Buildings\Palm Trees\Shaders\WavingDoublePassCullBackface.shader" />
+    <None Include="Assets\Models\Buildings\Palm Trees\Shaders\WavingDoublePassNoCullBackface.shader" />
     <None Include="Assets\TutorialInfo\Fonts\LICENSE.txt" />
     <None Include="Assets\_CompletedAssets\SampleAssets\Effects\ImageEffects\Shaders\ChromaticAberrationShader.shader" />
     <None Include="Assets\_CompletedAssets\SampleAssets\Effects\ImageEffects\Shaders\ColorCorrectionCurves.shader" />

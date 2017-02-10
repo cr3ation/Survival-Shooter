@@ -11,6 +11,7 @@ public class LovisaMovement : MonoBehaviour
     int floorMask;                      // A layer mask so that a ray can be cast just at gameobjects on the floor layer.
     float timer;
 
+
     void Awake()
     {
         // Create a layer mask for the floor layer.
@@ -19,6 +20,7 @@ public class LovisaMovement : MonoBehaviour
         // Set up references.
         anim = GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody>();
+
     }
 
 
@@ -51,6 +53,7 @@ public class LovisaMovement : MonoBehaviour
 
         // Move the player to it's current position plus the movement.
         playerRigidbody.MovePosition(transform.position + movement);
+
     }
 
     void Turning(float h, float v)
