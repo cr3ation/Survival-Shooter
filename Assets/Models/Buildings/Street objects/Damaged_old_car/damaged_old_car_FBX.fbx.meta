@@ -3,12 +3,41 @@ guid: 2a8380ea794c0944fb353134ffa78e14
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
+    100000: Camera
+    100002: car_damage_level1
+    100004: car_damage_level2
+    100006: car_damage_level3
+    100008: car_damage_level4
+    100010: car_damage_level5
+    100012: car_damage_level6
+    100014: //RootNode
+    400000: Camera
+    400002: car_damage_level1
+    400004: car_damage_level2
+    400006: car_damage_level3
+    400008: car_damage_level4
+    400010: car_damage_level5
+    400012: car_damage_level6
+    400014: //RootNode
+    2300000: car_damage_level1
+    2300002: car_damage_level2
+    2300004: car_damage_level3
+    2300006: car_damage_level4
+    2300008: car_damage_level5
+    2300010: car_damage_level6
+    3300000: car_damage_level1
+    3300002: car_damage_level2
+    3300004: car_damage_level3
+    3300006: car_damage_level4
+    3300008: car_damage_level5
+    3300010: car_damage_level6
     4300000: car_damage_level4
     4300002: car_damage_level2
     4300004: car_damage_level1
     4300006: car_damage_level3
     4300008: car_damage_level5
     4300010: car_damage_level6
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 2
