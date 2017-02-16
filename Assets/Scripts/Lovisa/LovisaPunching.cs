@@ -33,10 +33,17 @@ public class LovisaPunching : MonoBehaviour
 
         // Find closest enemy
         closestEnemy = FindClosestEnemy();
-        
+
         // Distance to closest enemy
-        distanceToEnemy = Vector3.Distance(closestEnemy.transform.position, transform.position);
-        Debug.Log("Distance: " + distanceToEnemy);
+        if (closestEnemy != null)
+        {
+            distanceToEnemy = Vector3.Distance(closestEnemy.transform.position, transform.position);
+            Debug.Log("Distance: " + distanceToEnemy);
+        }
+        else
+        {
+            distanceToEnemy = 10000000f;
+        }
 
         // Rotate player toward enemy if nessecery 
         Rotate();
