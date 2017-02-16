@@ -120,6 +120,7 @@
     <Compile Include="Assets\Scripts\Fanton\FantonHealth.cs" />
     <Compile Include="Assets\Scripts\Fanton\FantonMovement.cs" />
     <Compile Include="Assets\Scripts\Lovisa\LovisaMovement.cs" />
+    <Compile Include="Assets\Scripts\Lovisa\LovisaPunching.cs" />
     <Compile Include="Assets\Scripts\Managers\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\Managers\GameOverManager.cs" />
     <Compile Include="Assets\Scripts\Managers\ScoreManager.cs" />

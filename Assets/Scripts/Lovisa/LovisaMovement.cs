@@ -25,11 +25,16 @@ public class LovisaMovement : MonoBehaviour
     }
 
 
-    void FixedUpdate()
+    void Update()
     {
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Punch"))
+        {
+            return;
+        }
+
         // Update the timer
         timer += Time.deltaTime;
-        
+
         // Store the input axes.
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
