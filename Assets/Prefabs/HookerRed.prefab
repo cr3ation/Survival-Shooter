@@ -543,7 +543,7 @@ GameObject:
   - component: {fileID: 114455610138759458}
   - component: {fileID: 114704924193868086}
   m_Layer: 0
-  m_Name: Hooker-Red
+  m_Name: HookerRed
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

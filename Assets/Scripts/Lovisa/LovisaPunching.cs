@@ -81,7 +81,10 @@ public class LovisaPunching : MonoBehaviour
         if (enemyHealth != null)
         {
             // ... the enemy should take damage.
-            enemyHealth.TakeDamage(damagePerPunch, closestEnemy.transform.position);
+            // TODO: change hitpoint to be where the actual hit was (hight and place)
+            Vector3 hitPoint = closestEnemy.transform.position;
+            hitPoint.y = 1.2f;
+            enemyHealth.TakeDamage(damagePerPunch, hitPoint);
         }
     }
 
