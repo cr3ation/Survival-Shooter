@@ -559,7 +559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fantonHealth: {fileID: 1669807693}
-  enemy: {fileID: 1452985989678192, guid: 67abe6aa8c66ebc419174937af7de41e, type: 2}
+  enemy: {fileID: 1269671088263020, guid: 50d123eca63b76849963848f1aa6ce37, type: 2}
   spawnTime: 5
   spawnPoints:
   - {fileID: 251578933}
