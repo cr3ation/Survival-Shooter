@@ -1533,8 +1533,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1865742801888466}
-  m_LocalRotation: {x: 0, y: 0.8461933, z: -0, w: -0.532876}
-  m_LocalPosition: {x: -18.3, y: 0, z: 23.493}
+  m_LocalRotation: {x: -0, y: -0.10626421, z: 0, w: -0.994338}
+  m_LocalPosition: {x: -22.3, y: 0, z: 16.73}
   m_LocalScale: {x: 1.52123, y: 1.5212303, z: 1.5212303}
   m_Children:
   - {fileID: 4207347365126750}
@@ -1550,7 +1550,7 @@ Transform:
   - {fileID: 4970606850430298}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 244.4, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 372.2, z: 0}
 --- !u!4 &4249742626942218
 Transform:
   m_ObjectHideFlags: 1
@@ -2315,7 +2315,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5aa219604470c7a43a6db1e87b45a3ab, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.825
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2324,9 +2324,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 70
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -2353,7 +2353,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2371,7 +2371,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -2428,6 +2428,13 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   damageImage: {fileID: 0}
   deathClip: {fileID: 8300000, guid: d36a393bca4582043982db9089e1694f, type: 3}
+  damageTakenClips:
+  - {fileID: 8300000, guid: 5aa219604470c7a43a6db1e87b45a3ab, type: 3}
+  - {fileID: 8300000, guid: 712c411e4248e9c41abf30ea393761d5, type: 3}
+  - {fileID: 8300000, guid: 44fc8cb3d19c30b4facdcc74cc7ae78d, type: 3}
+  - {fileID: 8300000, guid: c5cca528906d26f4d853c8b6748c8ebe, type: 3}
+  - {fileID: 8300000, guid: 9c1dcb3c07427f34090e1d7f2b69183d, type: 3}
+  - {fileID: 8300000, guid: e8e64fc55c613fc47ab9483c7120e88f, type: 3}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
 --- !u!136 &136366615772200522
