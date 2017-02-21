@@ -9,12 +9,13 @@ public class FantonHealth : MonoBehaviour
     public Slider healthSlider;                                 // Reference to the UI's health bar.
     public Image damageImage;                                   // Reference to an image to flash on the screen on being hurt.
     public AudioClip deathClip;                                 // The audio clip to play when the player dies.
+    public AudioClip[] damageTakenClips;                        // The audio clips played when the player takes damage.
     public float flashSpeed = 5f;                               // The speed the damageImage will fade at.
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);     // The colour the damageImage is set to, to flash.
 
 
     Animator anim;                                              // Reference to the Animator component.
-    AudioSource fantonAudio;                                    // Reference to the AudioSource component.
+    AudioSource audioSource;                                    // Reference to the AudioSource component.
     FantonMovement fantonMovement;                              // Reference to the fanton's movement.
     UnityEngine.AI.NavMeshAgent nav;
     bool isDead;                                                // Whether the player is dead.
@@ -25,7 +26,7 @@ public class FantonHealth : MonoBehaviour
     {
         // Setting up the references.
         anim = GetComponent<Animator>();
-        fantonAudio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         fantonMovement = GetComponent<FantonMovement>();
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
@@ -48,7 +49,6 @@ public class FantonHealth : MonoBehaviour
             // ... transition the colour back to clear.
             damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
         }
-
         // Reset the damaged flag.
         damaged = false;
     }
@@ -65,10 +65,12 @@ public class FantonHealth : MonoBehaviour
         // Set the health bar's value to the current health.
         healthSlider.value = currentHealth;
 
-        // Play the hurt sound effect.
-        if (!fantonAudio.isPlaying)
+        // Play the hurt sound effects
+        if (!audioSource.isPlaying)
         {
-            fantonAudio.Play();
+            var i = Random.Range(0, damageTakenClips.Length);
+            audioSource.clip = damageTakenClips[i];
+            audioSource.Play();
         }
 
         // If the player has lost all it's health and the death flag hasn't been set yet...
@@ -92,8 +94,8 @@ public class FantonHealth : MonoBehaviour
         // anim.SetTrigger("Die");
 
         // Set the audiosource to play the death clip and play it (this will stop the hurt sound from playing).
-        fantonAudio.clip = deathClip;
-        fantonAudio.Play();
+        audioSource.clip = deathClip;
+        audioSource.Play();
 
         // Turn off the movement
         fantonMovement.enabled = false;
