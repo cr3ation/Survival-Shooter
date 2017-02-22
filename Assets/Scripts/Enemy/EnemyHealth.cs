@@ -56,6 +56,7 @@ public class EnemyHealth : MonoBehaviour
 
         // Set the position of the particle system to where the hit was sustained.
         hitParticles.transform.position = hitPoint;
+        hitParticles.transform.rotation = Random.rotation;//new Vector3(0, -5, 0);//playerPos;
 
         // And play the particles.
         hitParticles.Play();
