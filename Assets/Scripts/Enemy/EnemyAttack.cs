@@ -8,12 +8,14 @@ public class EnemyAttack : MonoBehaviour
     public int attackDamage = 10;               // The amount of health taken away per attack.
 
 
+    UnityEngine.AI.NavMeshAgent nav;            // Reference to the NavMeshAgent connected to the enemy.
     Animator anim;                              // Reference to the animator component.
     GameObject fanton;                          // Reference to the player GameObject.
     FantonHealth fantonHealth;                  // Reference to the player's health.
     EnemyHealth enemyHealth;                    // Reference to this enemy's health.
     bool playerInRange;                         // Whether player is within the trigger collider and can be attacked.
     float timer;                                // Timer for counting up to the next attack.
+    float walk_speed;
 
 
     void Awake()
@@ -23,6 +25,8 @@ public class EnemyAttack : MonoBehaviour
         fantonHealth = fanton.GetComponent<FantonHealth>();
         enemyHealth = GetComponent<EnemyHealth>();
         anim = GetComponent<Animator>();
+        nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        walk_speed = nav.speed;
     }
 
 
@@ -67,8 +71,11 @@ public class EnemyAttack : MonoBehaviour
             anim.SetTrigger("PlayerDead");
         }
 
-        if(timer > 0.5)
+        if(timer > 2.5)
+        {
             anim.SetBool("Punching", false);
+            nav.speed = walk_speed;
+        }
 
     }
 
@@ -86,5 +93,7 @@ public class EnemyAttack : MonoBehaviour
         }
 
         anim.SetBool("Punching", true);
+        if (this.name == "Boss")
+            nav.speed = 0.1f;
     }
 }
