@@ -427,7 +427,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1257183636754952
 GameObject:
   m_ObjectHideFlags: 1
@@ -2373,9 +2373,9 @@ MonoBehaviour:
   scoreValue: 10
   deathClip: {fileID: 8300000, guid: a69a4049cf2d53446a81a358a6897364, type: 3}
   damageTakenClips:
-  - {fileID: 8300000, guid: 0846233c7897d5c45ba367c3adbc144b, type: 3}
-  - {fileID: 8300000, guid: 4d3adbe575057324285b840f9fb9828c, type: 3}
-  - {fileID: 8300000, guid: 6eef124fca905e4419eeb8f18f975f59, type: 3}
+  - {fileID: 8300000, guid: 1d6bd4f25d06c26409456e4f57990978, type: 3}
+  - {fileID: 8300000, guid: e8047841dc46e7e4087dd1c3a242e90d, type: 3}
+  - {fileID: 8300000, guid: 976870362dff3f945a071943a6a654c7, type: 3}
 --- !u!114 &114794712563831278
 MonoBehaviour:
   m_ObjectHideFlags: 1

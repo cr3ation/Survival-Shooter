@@ -2414,10 +2414,12 @@ MonoBehaviour:
   currentHealth: 0
   sinkSpeed: 2.5
   scoreValue: 10
-  deathClip: {fileID: 8300000, guid: 1260cfec4d4597846b6739efc5d68cd6, type: 3}
+  deathClip: {fileID: 8300000, guid: 24b84197f1db4644b9c319527f34071b, type: 3}
   damageTakenClips:
-  - {fileID: 8300000, guid: 1a1c3c5b19002aa4a8116c991b725fd9, type: 3}
-  - {fileID: 8300000, guid: 24b84197f1db4644b9c319527f34071b, type: 3}
+  - {fileID: 8300000, guid: 5d481c83d80efca48a993c1852e78733, type: 3}
+  - {fileID: 8300000, guid: 976870362dff3f945a071943a6a654c7, type: 3}
+  - {fileID: 8300000, guid: ddac5916a499e2f49bba50c24c040e57, type: 3}
+  - {fileID: 8300000, guid: e389ec6544df8114f899f77496ee3350, type: 3}
 --- !u!135 &135089620315877720
 SphereCollider:
   m_ObjectHideFlags: 1
