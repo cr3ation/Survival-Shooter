@@ -2289,7 +2289,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 02e6208ec76314158a9f548f51fe9f11, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.41
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2390,7 +2390,10 @@ MonoBehaviour:
   currentHealth: 0
   sinkSpeed: 2.5
   scoreValue: 10
-  deathClip: {fileID: 0}
+  deathClip: {fileID: 8300000, guid: e920ef0c211362844a444156c743313f, type: 3}
+  damageTakenClips:
+  - {fileID: 8300000, guid: 1a1c3c5b19002aa4a8116c991b725fd9, type: 3}
+  - {fileID: 8300000, guid: 24b84197f1db4644b9c319527f34071b, type: 3}
 --- !u!114 &114494507178886874
 MonoBehaviour:
   m_ObjectHideFlags: 1
