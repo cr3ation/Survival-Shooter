@@ -66,6 +66,10 @@ public class EnemyAttack : MonoBehaviour
             // ... tell the animator the player is dead.
             anim.SetTrigger("PlayerDead");
         }
+
+        if(timer > 0.5)
+            anim.SetBool("Punching", false);
+
     }
 
 
@@ -80,5 +84,7 @@ public class EnemyAttack : MonoBehaviour
             // ... damage the player.
             fantonHealth.TakeDamage(attackDamage);
         }
+
+        anim.SetBool("Punching", true);
     }
 }

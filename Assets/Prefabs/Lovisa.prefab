@@ -2355,7 +2355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePerPunch: 20
   timeBetweenPunches: 0.18
-  range: 5
+  range: 2.5
   rotationRange: 4
 --- !u!114 &114878141011766472
 MonoBehaviour:

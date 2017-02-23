@@ -50,36 +50,16 @@ public class LovisaPunching : MonoBehaviour
             distanceToEnemy = 10000000f;
         }
 
-        /*
-        // Rotate player toward enemy if nessecery 
-        Rotate();
-
-        // If the Fire1 button is being press and it's time to fire...
-        if (Input.GetButton("Fire1") && distanceToEnemy <= range && timer >= timeBetweenPunches)
-        {
-            // ... punch the enemy.
-            Shoot();
-        }
-        else if (Input.GetButton("Fire1"))
-        {
-            // Just do the move
-            anim.SetBool("IsPunching", true);
-        }
-        if (!Input.GetButton("Fire1"))
-        {
-            anim.SetBool("IsPunching", false);
-        }*/
-
         // If the punch-button is pressed and a punch is not performed at the moment
-        if (Input.GetKey("space") && !is_punching)
+        if (Input.GetButton("Fire1") && !is_punching)
         {
-            Shoot(false);
+                Shoot(false);
             is_punching = true;
             lovisaMovement.speed = 2f;
             anim.SetBool("IsPunching", true);
         }
         // If a punching animation is already performed
-        else if (Input.GetKey("space") && timer >= timeBetweenPunches)
+        else if (Input.GetButton("Fire1") && timer >= timeBetweenPunches)
         {
             Shoot(true);
         }
@@ -133,7 +113,6 @@ public class LovisaPunching : MonoBehaviour
                 if (enemyHealth != null)
                 {
                     // ... the enemy should take damage.
-                    // TODO: change hitpoint to be where the actual hit was (hight and place)
                     Vector3 hitPoint = closestEnemy.transform.position;
                     if (closestEnemy.name == "Boss")
                         hitPoint.y = 2.5f;
