@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
     public float sinkSpeed = 2.5f;              // The speed at which the enemy sinks through the floor when dead.
     public int scoreValue = 10;                 // The amount added to the player's score when the enemy dies.
     public AudioClip deathClip;                 // The sound to play when the enemy dies.
+    public AudioClip[] damageTakenClips;        // The audio clips played when the player takes damage.
 
 
     Animator anim;                              // Reference to the animator.
@@ -49,6 +50,8 @@ public class EnemyHealth : MonoBehaviour
 
         // Play the hurt sound effect.
         enemyAudio.Stop();
+        var i = Random.Range(0, damageTakenClips.Length);
+        enemyAudio.clip = damageTakenClips[i];
         enemyAudio.Play();
 
         // Reduce the current health by the amount of damage sustained.
