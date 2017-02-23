@@ -1528,23 +1528,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 17
       objectReference: {fileID: 0}
-    - target: {fileID: 195962923502028222, guid: 0e6116079a151f34cafebbdb3c485c84,
-        type: 2}
-      propertyPath: m_Speed
-      value: 2.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4785495783260008, guid: 0e6116079a151f34cafebbdb3c485c84, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.6032834
-      objectReference: {fileID: 0}
-    - target: {fileID: 4785495783260008, guid: 0e6116079a151f34cafebbdb3c485c84, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.6032825
-      objectReference: {fileID: 0}
-    - target: {fileID: 4785495783260008, guid: 0e6116079a151f34cafebbdb3c485c84, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.6032825
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e6116079a151f34cafebbdb3c485c84, type: 2}
   m_IsPrefabParent: 0
@@ -2474,6 +2457,16 @@ Prefab:
     - target: {fileID: 4852984344028630, guid: 300bba49a80d30e4c9e11fad614cc85f, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114082122927457752, guid: 300bba49a80d30e4c9e11fad614cc85f,
+        type: 2}
+      propertyPath: timeBetweenPunches
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 82367874673111320, guid: 300bba49a80d30e4c9e11fad614cc85f,
+        type: 2}
+      propertyPath: m_Volume
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 300bba49a80d30e4c9e11fad614cc85f, type: 2}
