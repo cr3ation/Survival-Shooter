@@ -2132,7 +2132,7 @@ MonoBehaviour:
   currentHealth: 0
   sinkSpeed: 2.5
   scoreValue: 50
-  deathClip: {fileID: 0}
+  deathClip: {fileID: 8300000, guid: 39b412c1c56790d47987bafc045ab187, type: 3}
   damageTakenClips:
   - {fileID: 8300000, guid: 5d481c83d80efca48a993c1852e78733, type: 3}
   - {fileID: 8300000, guid: 976870362dff3f945a071943a6a654c7, type: 3}
