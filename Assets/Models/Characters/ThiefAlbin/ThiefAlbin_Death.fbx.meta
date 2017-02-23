@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 1438fac7cccaf4b45a852e314c1af14c
-timeCreated: 1487875115
+guid: f5df0e0c29b792f429e2221821defe82
+timeCreated: 1487877255
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -168,7 +168,7 @@ ModelImporter:
       name: Death
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 138
+      lastFrame: 68
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -187,7 +187,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.8768116
+        functionName: StartSinking
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
