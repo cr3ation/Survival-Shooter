@@ -2018,9 +2018,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bfcde8a78ca342a43ae515ba05bc91ff, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.41
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2133,7 +2133,12 @@ MonoBehaviour:
   sinkSpeed: 2.5
   scoreValue: 50
   deathClip: {fileID: 0}
-  damageTakenClips: []
+  damageTakenClips:
+  - {fileID: 8300000, guid: 5d481c83d80efca48a993c1852e78733, type: 3}
+  - {fileID: 8300000, guid: 976870362dff3f945a071943a6a654c7, type: 3}
+  - {fileID: 8300000, guid: ddac5916a499e2f49bba50c24c040e57, type: 3}
+  - {fileID: 8300000, guid: e389ec6544df8114f899f77496ee3350, type: 3}
+  - {fileID: 8300000, guid: e8ef70c40f8f49c4f9cf031d9d79bf14, type: 3}
 --- !u!114 &114817749176347770
 MonoBehaviour:
   m_ObjectHideFlags: 1
