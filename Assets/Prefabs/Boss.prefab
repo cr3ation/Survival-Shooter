@@ -429,10 +429,10 @@ GameObject:
   - component: {fileID: 4235625722323670}
   - component: {fileID: 95848306184413618}
   - component: {fileID: 54247925010696230}
-  - component: {fileID: 195465150422844474}
-  - component: {fileID: 135414330903854558}
   - component: {fileID: 136811753894908180}
+  - component: {fileID: 135414330903854558}
   - component: {fileID: 82361650740738228}
+  - component: {fileID: 195465150422844474}
   - component: {fileID: 114317503345827086}
   - component: {fileID: 114474311399857962}
   - component: {fileID: 114817749176347770}
@@ -1258,7 +1258,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1393358835538766}
   m_LocalRotation: {x: -0, y: 0.92248803, z: -0, w: 0.3860258}
-  m_LocalPosition: {x: -1.0303, y: 0.03, z: 46.35}
+  m_LocalPosition: {x: -1.0303, y: 0, z: 46.35}
   m_LocalScale: {x: 2.1292243, y: 2.1292248, z: 2.1292248}
   m_Children:
   - {fileID: 4158140239199456}
@@ -2002,12 +2002,12 @@ Rigidbody:
   m_GameObject: {fileID: 1393358835538766}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: Infinity
+  m_AngularDrag: Infinity
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!82 &82361650740738228
 AudioSource:
