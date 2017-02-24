@@ -16,6 +16,7 @@ public class EnemyHealth : MonoBehaviour
     CapsuleCollider capsuleCollider;            // Reference to the capsule collider.
     bool isDead;                                // Whether the enemy is dead.
     bool isSinking;                             // Whether the enemy has started sinking through the floor.
+    float timer;
 
 
     void Awake()
@@ -25,6 +26,8 @@ public class EnemyHealth : MonoBehaviour
         enemyAudio = GetComponent<AudioSource>();
         hitParticles = GetComponentInChildren<ParticleSystem>();
         capsuleCollider = GetComponent<CapsuleCollider>();
+
+        timer = 100;
 
         // Setting the current health when the enemy first spawns.
         currentHealth = startingHealth;
@@ -38,6 +41,13 @@ public class EnemyHealth : MonoBehaviour
             // ... move the enemy down by the sinkSpeed per second.
             transform.Translate(-Vector3.up * sinkSpeed * Time.deltaTime);
         }
+
+        timer += Time.deltaTime;
+        if (timer < 0.3)
+            anim.SetLayerWeight(2, Mathf.Lerp(0, 1, timer * 3));
+        else
+            anim.SetLayerWeight(2, Mathf.Lerp(1, 0, (timer - 1.3f)/2));
+
     }
 
 
@@ -47,6 +57,9 @@ public class EnemyHealth : MonoBehaviour
         if (isDead)
             // ... no need to take damage so exit the function.
             return;
+
+        if(timer > 1)
+            timer = 0;
 
         // Play the hurt sound effect.
         enemyAudio.Stop();

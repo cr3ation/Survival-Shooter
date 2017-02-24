@@ -15,6 +15,8 @@ public class EnemyAttack : MonoBehaviour
     EnemyHealth enemyHealth;                    // Reference to this enemy's health.
     bool playerInRange;                         // Whether player is within the trigger collider and can be attacked.
     float timer;                                // Timer for counting up to the next attack.
+    float anim_timer;
+    float prev_anim_timer;
     float walk_speed;
 
 
@@ -27,6 +29,7 @@ public class EnemyAttack : MonoBehaviour
         anim = GetComponent<Animator>();
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
         walk_speed = nav.speed;
+        anim_timer = 0;
     }
 
 
@@ -63,6 +66,23 @@ public class EnemyAttack : MonoBehaviour
             // ... attack.
             Attack();
         }
+
+        if(playerInRange)
+        {
+            anim.SetLayerWeight(1, Mathf.Lerp(0, 1, anim_timer));
+            anim_timer += Time.deltaTime;
+            prev_anim_timer = anim_timer;
+        }
+        else if(anim_timer > 0.01)
+        {
+            anim.SetLayerWeight(1, Mathf.Lerp(0, 1, prev_anim_timer - anim_timer + 1));
+            anim_timer -= Time.deltaTime;
+        }
+        //else
+        //{
+        //  anim.SetLayerWeight(1, Mathf.Lerp(0, 1, anim_timer * 5));
+        //anim_timer -= Time.deltaTime;
+        //}
 
         // If the player has zero or less health...
         if (fantonHealth.currentHealth <= 0)
