@@ -26,7 +26,7 @@ public class LovisaMovement : MonoBehaviour
             return;
         }
 
-        // Update the timer
+        // Update the punchTimer
         timer += Time.deltaTime;
 
         // Store the input axes.

@@ -10,7 +10,7 @@ namespace CompleteProject
         public float range = 100f;                      // The distance the gun can fire.
 
 
-        float timer;                                    // A timer to determine when to fire.
+        float timer;                                    // A punchTimer to determine when to fire.
         Ray shootRay = new Ray();                       // A ray from the gun end forwards.
         RaycastHit shootHit;                            // A raycast hit to get information about what was hit.
         int shootableMask;                              // A layer mask so the raycast only hits things on the shootable layer.
@@ -38,7 +38,7 @@ namespace CompleteProject
 
         void Update ()
         {
-            // Add the time since Update was last called to the timer.
+            // Add the time since Update was last called to the punchTimer.
             timer += Time.deltaTime;
 
 #if !MOBILE_INPUT
@@ -56,7 +56,7 @@ namespace CompleteProject
                 Shoot();
             }
 #endif
-            // If the timer has exceeded the proportion of timeBetweenBullets that the effects should be displayed for...
+            // If the punchTimer has exceeded the proportion of timeBetweenBullets that the effects should be displayed for...
             if(timer >= timeBetweenBullets * effectsDisplayTime)
             {
                 // ... disable the effects.
@@ -76,7 +76,7 @@ namespace CompleteProject
 
         void Shoot ()
         {
-            // Reset the timer.
+            // Reset the punchTimer.
             timer = 0f;
 
             // Play the gun shot audioclip.

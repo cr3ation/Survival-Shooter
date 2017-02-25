@@ -25,7 +25,7 @@ public class GameOverManager : MonoBehaviour
             // ... tell the animator the game is over.
             anim.SetTrigger("GameOver");
 
-            // .. increment a timer to count up to restarting.
+            // .. increment a punchTimer to count up to restarting.
             restartTimer += Time.deltaTime;
 
             // .. if it reaches the restart delay...
