@@ -607,7 +607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fantonHealth: {fileID: 1669807693}
   enemy: {fileID: 1818423832634682, guid: 50d123eca63b76849963848f1aa6ce37, type: 2}
-  spawnTime: 10
+  spawnTime: 100
   spawnPoints:
   - {fileID: 251578933}
   - {fileID: 85813328}
@@ -637,7 +637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fantonHealth: {fileID: 1669807693}
   enemy: {fileID: 1836062177112846, guid: 5730f69c689438249bb2ebf26cea8122, type: 2}
-  spawnTime: 15
+  spawnTime: 100
   spawnPoints:
   - {fileID: 1028710499}
 --- !u!114 &298996644
@@ -653,7 +653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fantonHealth: {fileID: 1669807693}
   enemy: {fileID: 1237340691061106, guid: 0e6116079a151f34cafebbdb3c485c84, type: 2}
-  spawnTime: 5
+  spawnTime: 100
   spawnPoints:
   - {fileID: 1028710499}
   - {fileID: 251578933}
@@ -1470,10 +1470,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 16
       objectReference: {fileID: 0}
-    - target: {fileID: 1237340691061106, guid: 0e6116079a151f34cafebbdb3c485c84, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e6116079a151f34cafebbdb3c485c84, type: 2}
   m_IsPrefabParent: 0
@@ -1724,15 +1720,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4247305614708456, guid: de66631b88813e64ab63dce05cb04ff2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -18.85
+      value: -18.874
       objectReference: {fileID: 0}
     - target: {fileID: 4247305614708456, guid: de66631b88813e64ab63dce05cb04ff2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.014
       objectReference: {fileID: 0}
     - target: {fileID: 4247305614708456, guid: de66631b88813e64ab63dce05cb04ff2, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 23.56
+      value: 23.569
       objectReference: {fileID: 0}
     - target: {fileID: 4247305614708456, guid: de66631b88813e64ab63dce05cb04ff2, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1764,16 +1760,6 @@ Prefab:
       propertyPath: damageImage
       value: 
       objectReference: {fileID: 450085726}
-    - target: {fileID: 195609853338961748, guid: de66631b88813e64ab63dce05cb04ff2,
-        type: 2}
-      propertyPath: avoidancePriority
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114321126230050602, guid: de66631b88813e64ab63dce05cb04ff2,
-        type: 2}
-      propertyPath: startingHealth
-      value: 1000
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de66631b88813e64ab63dce05cb04ff2, type: 2}
   m_IsPrefabParent: 0
@@ -2747,19 +2733,19 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 6d3de5fda39e5c245ab1022c403ce84e, type: 2}
     - target: {fileID: 4688709189334796, guid: 8b1fcbe327f2a374e8e7d40da3e1ff1e, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.27020022
+      value: -0.27020025
       objectReference: {fileID: 0}
     - target: {fileID: 4688709189334796, guid: 8b1fcbe327f2a374e8e7d40da3e1ff1e, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.65344614
+      value: 0.6534462
       objectReference: {fileID: 0}
     - target: {fileID: 4688709189334796, guid: 8b1fcbe327f2a374e8e7d40da3e1ff1e, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.653446
+      value: 0.6534461
       objectReference: {fileID: 0}
     - target: {fileID: 4688709189334796, guid: 8b1fcbe327f2a374e8e7d40da3e1ff1e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.2702004
+      value: 0.27020043
       objectReference: {fileID: 0}
     - target: {fileID: 23671085089713304, guid: 8b1fcbe327f2a374e8e7d40da3e1ff1e,
         type: 2}

@@ -91,7 +91,7 @@ public class EnemyAttack : MonoBehaviour
             anim.SetTrigger("PlayerDead");
         }
 
-        if(timer > 2.5)
+        if(timer > 2.5 && this.name.Contains("Boss"))
         {
             anim.SetBool("Punching", false);
             nav.speed = walk_speed;
@@ -111,9 +111,12 @@ public class EnemyAttack : MonoBehaviour
             // ... damage the player.
             fantonHealth.TakeDamage(attackDamage);
         }
-
-        anim.SetBool("Punching", true);
-        if (this.name == "Boss")
+        
+        if(this.name.Contains("Boss"))
+        {
+            anim.SetBool("Punching", true);
             nav.speed = 0.1f;
+        }
+
     }
 }

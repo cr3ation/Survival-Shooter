@@ -43,10 +43,17 @@ public class EnemyHealth : MonoBehaviour
         }
 
         timer += Time.deltaTime;
-        if (timer < 0.3)
-            anim.SetLayerWeight(2, Mathf.Lerp(0, 1, timer * 3));
-        else
-            anim.SetLayerWeight(2, Mathf.Lerp(1, 0, (timer - 1.3f)/2));
+
+        // Change the opacity of the animation layer that contains the hit-animation
+        if(!this.name.Contains("Boss"))
+        {
+            if (timer < 0.3)
+                anim.SetLayerWeight(2, Mathf.Lerp(0, 1, timer * 3));
+            else
+                anim.SetLayerWeight(2, Mathf.Lerp(1, 0, (timer - 1.3f) / 2));
+        }
+
+
 
     }
 

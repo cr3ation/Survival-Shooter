@@ -14,7 +14,6 @@ public class FantonHealth : MonoBehaviour
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);     // The colour the damageImage is set to, to flash.
 
 
-    Animator anim;                                              // Reference to the Animator component.
     AudioSource audioSource;                                    // Reference to the AudioSource component.
     FantonMovement fantonMovement;                              // Reference to the fanton's movement.
     UnityEngine.AI.NavMeshAgent nav;
@@ -25,7 +24,6 @@ public class FantonHealth : MonoBehaviour
     void Awake()
     {
         // Setting up the references.
-        anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         fantonMovement = GetComponent<FantonMovement>();
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
