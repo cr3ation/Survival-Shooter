@@ -1,0 +1,21 @@
+# Wavefront material library
+# Sun Nov 12 23:23:22 2000
+# Created with Viewpoint Interchange www.viewpoint.com
+
+newmtl trombone_brass
+  Ka 0 0 0
+  Kd 0.878431 0.662745 0.152941
+  Ks 0.752941 0.752941 0.752941
+  illum 2
+
+newmtl trombone_silver
+  Ka 0 0 0
+  Kd 0.756863 0.811765 0.843137
+  Ks 0.501961 0.501961 0.501961
+  illum 2
+
+newmtl trombone_brass
+  Ka 0 0 0
+  Kd 0.854902 0.643137 0.145098
+  Ks 0.752941 0.752941 0.752941
+  illum 2

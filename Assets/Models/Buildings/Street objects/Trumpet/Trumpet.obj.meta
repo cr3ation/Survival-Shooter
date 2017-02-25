@@ -1,0 +1,164 @@
+fileFormatVersion: 2
+guid: f15fe70f20190434f91ec95dabc79da1
+timeCreated: 1487987632
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Subdivision_Surface_Cloth_Surface_Sweep
+    100002: Subdivision_Surface_Cloth_Surface_Sweep_MeshPart0
+    100004: Subdivision_Surface_Cloth_Surface_Sweep_MeshPart1
+    100006: Subdivision_Surface_Cloth_Surface_Sweep_MeshPart2
+    100008: Subdivision_Surface_Cloth_Surface_Sweep_MeshPart3
+    100010: Subdivision_Surface_fingers_Finger_button_1_Tube
+    100012: Subdivision_Surface_fingers_Finger_button_1_Tube_Cylinder
+    100014: Subdivision_Surface_fingers_Finger_button_1_Tube_Cylinder1
+    100016: Subdivision_Surface_fingers_Finger_button_2_Tube1
+    100018: Subdivision_Surface_fingers_Finger_button_2_Tube1_Cylinder2
+    100020: Subdivision_Surface_fingers_Finger_button_2_Tube1_Cylinder3
+    100022: Subdivision_Surface_fingers_Finger_button_3_Tube2
+    100024: Subdivision_Surface_fingers_Finger_button_3_Tube2_Cylinder4
+    100026: Subdivision_Surface_fingers_Finger_button_3_Tube2_Cylinder5
+    100028: Subdivision_Surface_Mouthpiece
+    100030: Subdivision_Surface_Mouthpiece_Cap_1
+    100032: Subdivision_Surface_Mouthpiece_Rounding
+    100034: Subdivision_Surface_Mouthpiece_Rounding_Cap_2
+    100036: //RootNode
+    400000: Subdivision_Surface_Cloth_Surface_Sweep
+    400002: Subdivision_Surface_Cloth_Surface_Sweep_MeshPart0
+    400004: Subdivision_Surface_Cloth_Surface_Sweep_MeshPart1
+    400006: Subdivision_Surface_Cloth_Surface_Sweep_MeshPart2
+    400008: Subdivision_Surface_Cloth_Surface_Sweep_MeshPart3
+    400010: Subdivision_Surface_fingers_Finger_button_1_Tube
+    400012: Subdivision_Surface_fingers_Finger_button_1_Tube_Cylinder
+    400014: Subdivision_Surface_fingers_Finger_button_1_Tube_Cylinder1
+    400016: Subdivision_Surface_fingers_Finger_button_2_Tube1
+    400018: Subdivision_Surface_fingers_Finger_button_2_Tube1_Cylinder2
+    400020: Subdivision_Surface_fingers_Finger_button_2_Tube1_Cylinder3
+    400022: Subdivision_Surface_fingers_Finger_button_3_Tube2
+    400024: Subdivision_Surface_fingers_Finger_button_3_Tube2_Cylinder4
+    400026: Subdivision_Surface_fingers_Finger_button_3_Tube2_Cylinder5
+    400028: Subdivision_Surface_Mouthpiece
+    400030: Subdivision_Surface_Mouthpiece_Cap_1
+    400032: Subdivision_Surface_Mouthpiece_Rounding
+    400034: Subdivision_Surface_Mouthpiece_Rounding_Cap_2
+    400036: //RootNode
+    2300000: Subdivision_Surface_Cloth_Surface_Sweep_MeshPart0
+    2300002: Subdivision_Surface_Cloth_Surface_Sweep_MeshPart1
+    2300004: Subdivision_Surface_Cloth_Surface_Sweep_MeshPart2
+    2300006: Subdivision_Surface_Cloth_Surface_Sweep_MeshPart3
+    2300008: Subdivision_Surface_fingers_Finger_button_1_Tube
+    2300010: Subdivision_Surface_fingers_Finger_button_1_Tube_Cylinder
+    2300012: Subdivision_Surface_fingers_Finger_button_1_Tube_Cylinder1
+    2300014: Subdivision_Surface_fingers_Finger_button_2_Tube1
+    2300016: Subdivision_Surface_fingers_Finger_button_2_Tube1_Cylinder2
+    2300018: Subdivision_Surface_fingers_Finger_button_2_Tube1_Cylinder3
+    2300020: Subdivision_Surface_fingers_Finger_button_3_Tube2
+    2300022: Subdivision_Surface_fingers_Finger_button_3_Tube2_Cylinder4
+    2300024: Subdivision_Surface_fingers_Finger_button_3_Tube2_Cylinder5
+    2300026: Subdivision_Surface_Mouthpiece
+    2300028: Subdivision_Surface_Mouthpiece_Cap_1
+    2300030: Subdivision_Surface_Mouthpiece_Rounding
+    2300032: Subdivision_Surface_Mouthpiece_Rounding_Cap_2
+    3300000: Subdivision_Surface_Cloth_Surface_Sweep_MeshPart0
+    3300002: Subdivision_Surface_Cloth_Surface_Sweep_MeshPart1
+    3300004: Subdivision_Surface_Cloth_Surface_Sweep_MeshPart2
+    3300006: Subdivision_Surface_Cloth_Surface_Sweep_MeshPart3
+    3300008: Subdivision_Surface_fingers_Finger_button_1_Tube
+    3300010: Subdivision_Surface_fingers_Finger_button_1_Tube_Cylinder
+    3300012: Subdivision_Surface_fingers_Finger_button_1_Tube_Cylinder1
+    3300014: Subdivision_Surface_fingers_Finger_button_2_Tube1
+    3300016: Subdivision_Surface_fingers_Finger_button_2_Tube1_Cylinder2
+    3300018: Subdivision_Surface_fingers_Finger_button_2_Tube1_Cylinder3
+    3300020: Subdivision_Surface_fingers_Finger_button_3_Tube2
+    3300022: Subdivision_Surface_fingers_Finger_button_3_Tube2_Cylinder4
+    3300024: Subdivision_Surface_fingers_Finger_button_3_Tube2_Cylinder5
+    3300026: Subdivision_Surface_Mouthpiece
+    3300028: Subdivision_Surface_Mouthpiece_Cap_1
+    3300030: Subdivision_Surface_Mouthpiece_Rounding
+    3300032: Subdivision_Surface_Mouthpiece_Rounding_Cap_2
+    4300000: Subdivision_Surface_Cloth_Surface_Sweep_MeshPart0
+    4300002: Subdivision_Surface_Cloth_Surface_Sweep_MeshPart1
+    4300004: Subdivision_Surface_Cloth_Surface_Sweep_MeshPart2
+    4300006: Subdivision_Surface_Cloth_Surface_Sweep_MeshPart3
+    4300008: Subdivision_Surface_fingers_Finger_button_1_Tube
+    4300010: Subdivision_Surface_fingers_Finger_button_1_Tube_Cylinder
+    4300012: Subdivision_Surface_fingers_Finger_button_1_Tube_Cylinder1
+    4300014: Subdivision_Surface_fingers_Finger_button_2_Tube1
+    4300016: Subdivision_Surface_fingers_Finger_button_2_Tube1_Cylinder2
+    4300018: Subdivision_Surface_fingers_Finger_button_2_Tube1_Cylinder3
+    4300020: Subdivision_Surface_fingers_Finger_button_3_Tube2
+    4300022: Subdivision_Surface_fingers_Finger_button_3_Tube2_Cylinder4
+    4300024: Subdivision_Surface_fingers_Finger_button_3_Tube2_Cylinder5
+    4300026: Subdivision_Surface_Mouthpiece
+    4300028: Subdivision_Surface_Mouthpiece_Cap_1
+    4300030: Subdivision_Surface_Mouthpiece_Rounding
+    4300032: Subdivision_Surface_Mouthpiece_Rounding_Cap_2
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

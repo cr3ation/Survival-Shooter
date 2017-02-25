@@ -94,6 +94,8 @@ public class EnemyHealth : MonoBehaviour
         // The enemy is dead.
         isDead = true;
 
+        timer = 10;
+
         // Turn the collider into a trigger so shots can pass through it.
         capsuleCollider.isTrigger = true;
 
