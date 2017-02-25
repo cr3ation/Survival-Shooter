@@ -7,14 +7,19 @@ public class FantonMovement : MonoBehaviour
     private int waypointIndex = 0;
 
     FantonHealth fantonHealth;
+    Animator anim;                      // Reference to the animator component.
     UnityEngine.AI.NavMeshAgent nav;
+
+    float timer;
 
     void Awake()
     {
         var player = GameObject.FindGameObjectWithTag("Fanton").transform;
         fantonHealth = player.GetComponent<FantonHealth>();
 
+        anim = GetComponent<Animator>();
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        timer = 0;
     }
 
     void Start()
@@ -25,6 +30,8 @@ public class FantonMovement : MonoBehaviour
 
     void Update()
     {
+        timer += Time.deltaTime;
+
         if (fantonHealth.currentHealth > 0 && waypointIndex < Waypoints.points.Length)
         {
             nav.SetDestination(target.position);
@@ -37,6 +44,9 @@ public class FantonMovement : MonoBehaviour
         { 
             nav.enabled = false;
         }
+
+        if(timer % 6 < 0.1)
+            anim.SetInteger("walk_animation", (int)(Random.value * 6));
     }
 
     void GetNextWaypoint()
@@ -50,5 +60,11 @@ public class FantonMovement : MonoBehaviour
             waypointIndex = 0;
         }
         target = Waypoints.points[waypointIndex];
+    }
+
+    // Move Fanton with the animation
+    void OnAnimatorMove()
+    {
+        nav.velocity = anim.deltaPosition / Time.deltaTime;
     }
 }

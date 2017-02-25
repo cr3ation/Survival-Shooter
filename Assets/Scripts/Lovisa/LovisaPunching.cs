@@ -14,7 +14,7 @@ public class LovisaPunching : MonoBehaviour
     float anim_timer;                               // A timer to control the punch animations.
     bool is_punching = false;                       // True during the punch
     float distanceToEnemy;                          // Distance to the closest enemy
-    float rotationSpeed = 10f;                      // Speen in witch to rotate
+    //float rotationSpeed = 10f;                      // Speen in witch to rotate
     Animator anim;                                  // Reference to the anomator controller object
     LovisaMovement lovisaMovement;                  // Reference to the LovsaMovement object
     Rigidbody rigidBody;                            // Reference to the rigidBody object
@@ -43,7 +43,7 @@ public class LovisaPunching : MonoBehaviour
         if (closestEnemy != null)
         {
             distanceToEnemy = Vector3.Distance(closestEnemy.transform.position, transform.position);
-            Debug.Log("Distance: " + distanceToEnemy);
+            //Debug.Log("Distance: " + distanceToEnemy);
         }
         else
         {
@@ -70,7 +70,7 @@ public class LovisaPunching : MonoBehaviour
             anim.SetLayerWeight(1, Mathf.Lerp(0, 1, anim_timer * 5));
         }
         // End the punching animation
-        else if (anim_timer > 0.6)
+        else if (anim_timer > 0.25f)
         {
             anim.SetLayerWeight(1, Mathf.Lerp(1, 0, (anim_timer - 0.6f) * 5));
 

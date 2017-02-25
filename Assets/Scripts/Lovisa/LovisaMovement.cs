@@ -8,19 +8,13 @@ public class LovisaMovement : MonoBehaviour
     Vector3 movement;                   // The vector to store the direction of the player's movement.
     Animator anim;                      // Reference to the animator component.
     UnityEngine.AI.NavMeshAgent nav;    // Reference to the NavMeshAgent connected to the player.
-    Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
-    int floorMask;                      // A layer mask so that a ray can be cast just at gameobjects on the floor layer.
     float timer;
 
 
     void Awake()
     {
-        // Create a layer mask for the floor layer.
-        floorMask = LayerMask.GetMask("Floor");
-
         // Set up references.
         anim = GetComponent<Animator>();
-        playerRigidbody = GetComponent<Rigidbody>();
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 

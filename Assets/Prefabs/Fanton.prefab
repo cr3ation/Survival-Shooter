@@ -1534,8 +1534,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1865742801888466}
   m_LocalRotation: {x: -0, y: -0.10626421, z: 0, w: -0.994338}
-  m_LocalPosition: {x: -22.3, y: 0, z: 16.73}
-  m_LocalScale: {x: 1.52123, y: 1.5212303, z: 1.5212303}
+  m_LocalPosition: {x: -18.874, y: 0.014, z: 23.569}
+  m_LocalScale: {x: 1.6868364, y: 1.6868366, z: 1.6868366}
   m_Children:
   - {fileID: 4207347365126750}
   - {fileID: 4139381603262916}
@@ -2423,7 +2423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e18833d795b1ff4597139cde863f35b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  startingHealth: 1000
   currentHealth: 0
   healthSlider: {fileID: 0}
   damageImage: {fileID: 0}
@@ -2992,8 +2992,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_Radius: 0.26
   m_Speed: 2
-  m_Acceleration: 8
-  avoidancePriority: 50
+  m_Acceleration: 8000
+  avoidancePriority: 1
   m_AngularSpeed: 120
   m_StoppingDistance: 1.2
   m_AutoTraverseOffMeshLink: 1
