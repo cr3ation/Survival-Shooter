@@ -12,18 +12,30 @@ public class VideoManager : MonoBehaviour {
     public MovieTexture[] movies;           // Array containg all the movies
 
     private MovieTexture movie;
-    private AudioSource audio;
+    private new AudioSource audio;
     private float restartTimer;
 
 	// Use this for initialization
 	void Start () {
         if (movies.Length > 0)
         {
+            // Stop the background music
             backgroundMusicAudioSource.Stop();
-            movie = movies[Random.Range(0, movies.Length)];
+
+            // Select a random video
+            var i = Random.Range(0, movies.Length);
+            movie = movies[i];
             GetComponent<RawImage>().texture = movie as MovieTexture;
+
+            // Get audio from video
             audio = GetComponent<AudioSource>();
             audio.clip = movie.audioClip;
+
+            // Stop playing. Needed if same video is loaded again.
+            movie.Stop();
+            audio.Stop();
+
+            // Start playing
             movie.Play();
             audio.Play();
         }
@@ -33,7 +45,7 @@ public class VideoManager : MonoBehaviour {
 	void Update () {
         if (movie.isPlaying) return;
 
-        // .. increment a punchTimer to count up to restarting.
+        // .. increment a restartTimer to count up to restarting.
         restartTimer += Time.deltaTime;
 
         // .. if it reaches the restart delay...
