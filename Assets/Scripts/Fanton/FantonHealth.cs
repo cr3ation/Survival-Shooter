@@ -35,6 +35,7 @@ public class FantonHealth : MonoBehaviour
 
     void Update()
     {
+        if (damageImage == null) return;
         // If the player has just been damaged...
         if (damaged)
         {
