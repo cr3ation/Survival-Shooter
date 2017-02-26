@@ -3,11 +3,11 @@
 public class GameOverManager : MonoBehaviour
 {
     public FantonHealth playerHealth;       // Reference to the player's health.
-    public float restartDelay = 5f;         // Time to wait before restarting the level
+    //public float restartDelay = 5f;         // Time to wait before restarting the level
 
 
     Animator anim;                          // Reference to the animator component.
-    float restartTimer;                     // Timer to count up to restarting the level
+    //float restartTimer;                     // Timer to count up to restarting the level
 
 
     void Awake()
@@ -26,14 +26,14 @@ public class GameOverManager : MonoBehaviour
             anim.SetTrigger("GameOver");
 
             // .. increment a punchTimer to count up to restarting.
-            restartTimer += Time.deltaTime;
+            //restartTimer += Time.deltaTime;
 
             // .. if it reaches the restart delay...
-            if (restartTimer >= restartDelay)
-            {
+            //if (restartTimer >= restartDelay)
+            //{
                 // .. then reload the currently loaded level.
-                UnityEngine.SceneManagement.SceneManager.LoadScene(0);
-            }
+            //    UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            //}
         }
     }
 }
