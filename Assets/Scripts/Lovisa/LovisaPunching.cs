@@ -28,6 +28,8 @@ public class LovisaPunching : MonoBehaviour
         lovisaMovement = GetComponent<LovisaMovement>();
         rigidBody = GetComponent<Rigidbody>();
         Cursor.visible = false;
+        animationTimer = 1000;
+        punchTimer = 1000;
     }
 
     void Update()
