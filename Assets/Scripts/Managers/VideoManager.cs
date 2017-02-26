@@ -51,8 +51,6 @@ public class VideoManager : MonoBehaviour {
         // .. if it reaches the restart delay...
         if (restartTimer >= restartDelay)
         {
-            movie = null;
-
             // .. then reload the currently loaded level.
             UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         }
