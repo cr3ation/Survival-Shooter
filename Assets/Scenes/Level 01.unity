@@ -603,7 +603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fantonHealth: {fileID: 1669807693}
   enemy: {fileID: 1818423832634682, guid: 50d123eca63b76849963848f1aa6ce37, type: 2}
-  spawnTime: 100
+  spawnTime: 5
   spawnPoints:
   - {fileID: 251578933}
   - {fileID: 85813328}
@@ -633,7 +633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fantonHealth: {fileID: 1669807693}
   enemy: {fileID: 1836062177112846, guid: 5730f69c689438249bb2ebf26cea8122, type: 2}
-  spawnTime: 100
+  spawnTime: 5
   spawnPoints:
   - {fileID: 1028710499}
 --- !u!114 &298996644
@@ -649,7 +649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fantonHealth: {fileID: 1669807693}
   enemy: {fileID: 1237340691061106, guid: 0e6116079a151f34cafebbdb3c485c84, type: 2}
-  spawnTime: 100
+  spawnTime: 5
   spawnPoints:
   - {fileID: 1028710499}
   - {fileID: 251578933}

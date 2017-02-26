@@ -15,5 +15,10 @@ public class ButtonManager : MonoBehaviour {
         Application.Quit();           
     }
 
+    void Start()
+    {
+        Cursor.visible = true;
+    }
+
 
 }
