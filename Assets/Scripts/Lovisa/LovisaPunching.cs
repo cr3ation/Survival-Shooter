@@ -10,12 +10,12 @@ public class LovisaPunching : MonoBehaviour
     public float rotationRange = 4f;                // The distance to an enemy when player starts to rotate
 
 
-    float timer;                                    // A timer to determine when to fire.
-    float anim_timer;                               // A timer to control the punch animations.
-    bool is_punching = false;                       // True during the punch
+    float punchTimer;                                    // A punchTimer to determine when to fire.
+    float animationTimer;                               // A punchTimer to control the punch animations.
+    //bool is_punching = false;                       // True during the punch
     float distanceToEnemy;                          // Distance to the closest enemy
     //float rotationSpeed = 10f;                      // Speen in witch to rotate
-    Animator anim;                                  // Reference to the anomator controller object
+    Animator animator;                                  // Reference to the anomator controller object
     LovisaMovement lovisaMovement;                  // Reference to the LovsaMovement object
     Rigidbody rigidBody;                            // Reference to the rigidBody object
     GameObject closestEnemy;                        // Refrencee to the closest enemy
@@ -24,18 +24,20 @@ public class LovisaPunching : MonoBehaviour
     void Awake()
     {
         // Create a layer mask for the Shootable layer.
-        anim = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         lovisaMovement = GetComponent<LovisaMovement>();
         rigidBody = GetComponent<Rigidbody>();
         Cursor.visible = false;
+        animationTimer = 1000;
+        punchTimer = 1000;
     }
 
     void Update()
     {
-        // Add the time since Update was last called to the timer.
-        timer += Time.deltaTime;
-        anim_timer += Time.deltaTime;
-
+        // Add the time since Update was last called to the punchTimer.
+        punchTimer += Time.deltaTime;
+        animationTimer += Time.deltaTime;
+        
         // Find closest enemy
         closestEnemy = FindClosestEnemy();
 
@@ -43,60 +45,51 @@ public class LovisaPunching : MonoBehaviour
         if (closestEnemy != null)
         {
             distanceToEnemy = Vector3.Distance(closestEnemy.transform.position, transform.position);
-            //Debug.Log("Distance: " + distanceToEnemy);
         }
         else
         {
             distanceToEnemy = 10000000f;
         }
 
-        // If the punch-button is pressed and a punch is not performed at the moment
-        if (Input.GetButton("Fire1") && !is_punching)
+        // If Lovisa is not punching at the moment, start punching.
+        if(Input.GetButton("Fire1") && !animator.GetBool("IsPunching"))
         {
-                Shoot(false);
-            is_punching = true;
+            Shoot();
+            animator.SetBool("IsPunching", true);
             lovisaMovement.speed = 2f;
-            anim.SetBool("IsPunching", true);
+            punchTimer = 0;
+            animationTimer = 0;
         }
-        // If a punching animation is already performed
-        else if (Input.GetButton("Fire1") && timer >= timeBetweenPunches)
+        // If the punching-animation is running, only cause damage.
+        else if(Input.GetButton("Fire1") && punchTimer >= timeBetweenPunches)
         {
-            Shoot(true);
+            Shoot();
+            // Reset the timer managing the damage.
+            punchTimer = 0;
         }
 
-        // Start the punching animation
-        if (anim_timer < 0.2f && is_punching)
+        // If the animationTimer has been set to zero, fade in the punching animation.
+        if (animationTimer < 0.25f)
         {
-            anim.SetLayerWeight(1, Mathf.Lerp(0, 1, anim_timer * 5));
+            animator.SetLayerWeight(1, Mathf.Lerp(0, 1, animationTimer * 5));
         }
-        // End the punching animation
-        else if (anim_timer > 0.25f)
+        // If Lovisa is still punching, keep the opacity of the punching animation to 1 by resetting the animationTimer.
+        else if(punchTimer < 0.25f)
         {
-            anim.SetLayerWeight(1, Mathf.Lerp(1, 0, (anim_timer - 0.6f) * 5));
+            animationTimer = 0.25f;
+        }
+        // If Lovisa is no longer punching, fade out the animation and reset her moving speed.
+        else
+        {
+            animator.SetLayerWeight(1, Mathf.Lerp(1, 0, (animationTimer - 0.25f) * 5));
+            animator.SetBool("IsPunching", false);
+            lovisaMovement.speed = 6f;
+        }
 
-            is_punching = false;
-            lovisaMovement.speed = 6;
-            anim.SetBool("IsPunching", false);
-        }
     }
 
-    void Shoot(bool only_damage)
+    void Shoot()
     {
-        // Play the gun shot audioclip.
-        // gunAudio.Play();
-        // Reset the animation timer.
-        if (!only_damage)
-        {
-            if (is_punching)
-                anim_timer = 0.2f;
-            else
-                anim_timer = 0f;
-        }
-
-        // Reset the punching (damage) timer.
-        timer = 0f;
-
-        //anim.SetBool("IsPunching", true);
 
         if (distanceToEnemy <= range)
         {
@@ -130,7 +123,7 @@ public class LovisaPunching : MonoBehaviour
     /*void Rotate()
     {
         // If punching animation is activated. Rotate toward cloases enemy
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Punch") && distanceToEnemy <= rotationRange)
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Punch") && distanceToEnemy <= rotationRange)
         {
             var lookPos = closestEnemy.transform.position - transform.position;
             lookPos.y = 0;

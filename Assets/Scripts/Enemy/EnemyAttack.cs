@@ -57,10 +57,10 @@ public class EnemyAttack : MonoBehaviour
 
     void Update()
     {
-        // Add the time since Update was last called to the timer.
+        // Add the time since Update was last called to the punchTimer.
         timer += Time.deltaTime;
 
-        // If the timer exceeds the time between attacks, the player is in range and this enemy is alive...
+        // If the punchTimer exceeds the time between attacks, the player is in range and this enemy is alive...
         if (timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
         {
             // ... attack.
@@ -80,8 +80,8 @@ public class EnemyAttack : MonoBehaviour
         }
         //else
         //{
-        //  anim.SetLayerWeight(1, Mathf.Lerp(0, 1, anim_timer * 5));
-        //anim_timer -= Time.deltaTime;
+        //  animator.SetLayerWeight(1, Mathf.Lerp(0, 1, animationTimer * 5));
+        //animationTimer -= Time.deltaTime;
         //}
 
         // If the player has zero or less health...
@@ -102,7 +102,7 @@ public class EnemyAttack : MonoBehaviour
 
     void Attack()
     {
-        // Reset the timer.
+        // Reset the punchTimer.
         timer = 0f;
 
         // If the player has health to lose...

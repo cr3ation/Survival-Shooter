@@ -51,10 +51,10 @@ namespace CompleteProject
 
         void Update ()
         {
-            // Add the time since Update was last called to the timer.
+            // Add the time since Update was last called to the punchTimer.
             timer += Time.deltaTime;
 
-            // If the timer exceeds the time between attacks, the player is in range and this enemy is alive...
+            // If the punchTimer exceeds the time between attacks, the player is in range and this enemy is alive...
             if(timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
             {
                 // ... attack.
@@ -72,7 +72,7 @@ namespace CompleteProject
 
         void Attack ()
         {
-            // Reset the timer.
+            // Reset the punchTimer.
             timer = 0f;
 
             // If the player has health to lose...
