@@ -45,7 +45,7 @@ public class FantonMovement : MonoBehaviour
             nav.enabled = false;
         }
 
-        if(timer % 6 < 0.1)
+        if(timer % 10 < 0.1)
             anim.SetInteger("walk_animation", (int)(Random.value * 6));
     }
 
