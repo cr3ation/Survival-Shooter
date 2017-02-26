@@ -23,12 +23,17 @@ public class VideoManager : MonoBehaviour {
             backgroundMusicAudioSource.Stop();
 
             // Select a random video
-            movie = movies[Random.Range(0, movies.Length)];
+            var i = Random.Range(0, movies.Length);
+            movie = movies[i];
             GetComponent<RawImage>().texture = movie as MovieTexture;
 
             // Get audio from video
             audio = GetComponent<AudioSource>();
             audio.clip = movie.audioClip;
+
+            // Stop playing. Needed if same video is loaded again.
+            movie.Stop();
+            audio.Stop();
 
             // Start playing
             movie.Play();
@@ -46,6 +51,8 @@ public class VideoManager : MonoBehaviour {
         // .. if it reaches the restart delay...
         if (restartTimer >= restartDelay)
         {
+            movie = null;
+
             // .. then reload the currently loaded level.
             UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         }
