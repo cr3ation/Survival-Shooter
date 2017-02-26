@@ -142,48 +142,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 26d313f5e3ea65248a642ab9eab9cc3c, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &21451473
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4886730111136828, guid: dc7a83070c207f94c995e6df79b49525, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -6.5022
-      objectReference: {fileID: 0}
-    - target: {fileID: 4886730111136828, guid: dc7a83070c207f94c995e6df79b49525, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4886730111136828, guid: dc7a83070c207f94c995e6df79b49525, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 27.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 4886730111136828, guid: dc7a83070c207f94c995e6df79b49525, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4886730111136828, guid: dc7a83070c207f94c995e6df79b49525, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4886730111136828, guid: dc7a83070c207f94c995e6df79b49525, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4886730111136828, guid: dc7a83070c207f94c995e6df79b49525, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4886730111136828, guid: dc7a83070c207f94c995e6df79b49525, type: 2}
-      propertyPath: m_RootOrder
-      value: 15
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: dc7a83070c207f94c995e6df79b49525, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &64345841
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,6 +541,7 @@ GameObject:
   - component: {fileID: 298996641}
   - component: {fileID: 298996643}
   - component: {fileID: 298996644}
+  - component: {fileID: 298996645}
   m_Layer: 0
   m_Name: EnemyManager
   m_TagString: Untagged
@@ -603,7 +562,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fantonHealth: {fileID: 1669807693}
   enemy: {fileID: 1818423832634682, guid: 50d123eca63b76849963848f1aa6ce37, type: 2}
-  spawnTime: 5
+  spawnTime: 10
   spawnPoints:
   - {fileID: 251578933}
   - {fileID: 85813328}
@@ -633,7 +592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fantonHealth: {fileID: 1669807693}
   enemy: {fileID: 1836062177112846, guid: 5730f69c689438249bb2ebf26cea8122, type: 2}
-  spawnTime: 5
+  spawnTime: 8
   spawnPoints:
   - {fileID: 1028710499}
 --- !u!114 &298996644
@@ -649,9 +608,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fantonHealth: {fileID: 1669807693}
   enemy: {fileID: 1237340691061106, guid: 0e6116079a151f34cafebbdb3c485c84, type: 2}
-  spawnTime: 5
+  spawnTime: 12
   spawnPoints:
   - {fileID: 1028710499}
+  - {fileID: 251578933}
+--- !u!114 &298996645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 298996640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a99222b1e4a384e923ac7e86efc709, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fantonHealth: {fileID: 1669807693}
+  enemy: {fileID: 1357493206454512, guid: dc7a83070c207f94c995e6df79b49525, type: 2}
+  spawnTime: 12
+  spawnPoints:
+  - {fileID: 85813328}
   - {fileID: 251578933}
 --- !u!1001 &357044316
 Prefab:
