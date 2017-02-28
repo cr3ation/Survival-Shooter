@@ -8,9 +8,12 @@ public class FantonMovement : MonoBehaviour
 
     FantonHealth fantonHealth;
     Animator anim;                      // Reference to the animator component.
+    int walkAnimation;
+    int idleAnimation;
     UnityEngine.AI.NavMeshAgent nav;
 
     float timer;
+    float previousTimer;
 
     void Awake()
     {
@@ -45,8 +48,32 @@ public class FantonMovement : MonoBehaviour
             nav.enabled = false;
         }
 
-        if(timer % 10 < 0.1)
-            anim.SetInteger("walk_animation", (int)(Random.value * 6));
+        // Randomize new walk and idle animations.
+        if (timer % 4 < 0.1)
+        {
+            walkAnimation = (int)(Random.value * 4);
+            idleAnimation = (int)(Random.value * 7);
+        }
+
+        anim.SetInteger("walkAnimation", walkAnimation);
+        anim.SetInteger("idleAnimation", idleAnimation);
+
+        // Blend in the Macarena animation layer.
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Dizzy"))
+        {
+            if (timer > 10)
+            {
+                timer = 0;
+                anim.SetTrigger("macarena");
+            }
+            anim.SetLayerWeight(1, Mathf.Lerp(0, 1, timer / 2));
+            previousTimer = timer;
+        }
+        // Blend out the Macarena animation layer.
+        else
+        {
+            anim.SetLayerWeight(1, Mathf.Lerp(1, 0, timer - previousTimer));
+        }
     }
 
     void GetNextWaypoint()

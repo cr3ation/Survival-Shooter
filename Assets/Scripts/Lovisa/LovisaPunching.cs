@@ -143,6 +143,7 @@ public class LovisaPunching : MonoBehaviour
         foreach (GameObject go in gos)
         {
             var curDistance = Vector3.Distance(go.transform.position, position);
+
             if (curDistance < distance)
             {
                 closest = go;

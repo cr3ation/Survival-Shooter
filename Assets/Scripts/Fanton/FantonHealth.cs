@@ -18,6 +18,7 @@ public class FantonHealth : MonoBehaviour
     FantonMovement fantonMovement;                              // Reference to the fanton's movement.
     UnityEngine.AI.NavMeshAgent nav;
     bool isDead;                                                // Whether the player is dead.
+    Animator animator;
     bool damaged = false;                                       // True when the player gets damaged.
 
 
@@ -27,6 +28,7 @@ public class FantonHealth : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         fantonMovement = GetComponent<FantonMovement>();
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        animator = GetComponent<Animator>();
 
         // Set the initial health of the player.
         currentHealth = startingHealth;
@@ -90,7 +92,7 @@ public class FantonHealth : MonoBehaviour
         // playerShooting.DisableEffects();
 
         // Tell the animator that the player is dead.
-        // animator.SetTrigger("Die");
+        animator.SetTrigger("Dead");
 
         // Set the audiosource to play the death clip and play it (this will stop the hurt sound from playing).
         audioSource.clip = deathClip;

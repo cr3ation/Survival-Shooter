@@ -15,8 +15,10 @@ public class VideoManager : MonoBehaviour {
     private new AudioSource audio;
     private float restartTimer;
 
-	// Use this for initialization
-	void Start () {
+    int vsyncprevious;
+
+    // Use this for initialization
+    void Start () {
         if (movies.Length > 0)
         {
             // Stop the background music
@@ -26,6 +28,9 @@ public class VideoManager : MonoBehaviour {
             var i = Random.Range(0, movies.Length);
             movie = movies[i];
             GetComponent<RawImage>().texture = movie as MovieTexture;
+
+            vsyncprevious = QualitySettings.vSyncCount;
+            QualitySettings.vSyncCount = 0;
 
             // Get audio from video
             audio = GetComponent<AudioSource>();
@@ -47,6 +52,8 @@ public class VideoManager : MonoBehaviour {
 
         // .. increment a restartTimer to count up to restarting.
         restartTimer += Time.deltaTime;
+
+        QualitySettings.vSyncCount = vsyncprevious;
 
         // .. if it reaches the restart delay...
         if (restartTimer >= restartDelay)
