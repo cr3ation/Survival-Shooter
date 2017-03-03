@@ -8,8 +8,9 @@ public class MenuManager : MonoBehaviour
 {
     public Canvas playerNameMenu;
     public Canvas quitMenu;
-    public Button startText;
-    public Button exitText;
+    public Button startButton;
+    public Button playerButton;
+    public Button exitButton;
 
     // Used by Player Preferences. Don't like strings :)
     private const string playerName = "PlayerName";
@@ -20,8 +21,9 @@ public class MenuManager : MonoBehaviour
         Cursor.visible = true;
         playerNameMenu = playerNameMenu.GetComponent<Canvas>();
         quitMenu = quitMenu.GetComponent<Canvas>();
-        startText = startText.GetComponent<Button>();
-        exitText = exitText.GetComponent<Button>();
+        startButton = startButton.GetComponent<Button>();
+        playerButton = playerButton.GetComponent<Button>();
+        exitButton = exitButton.GetComponent<Button>();
 
         // Disable popup menus
         playerNameMenu.enabled = false;
@@ -35,7 +37,7 @@ public class MenuManager : MonoBehaviour
         var name = PlayerPrefs.GetString(playerName);
         if (string.IsNullOrEmpty(name))
         {
-            EditPlayerName_Clicked();
+            PlayerName_Clicked();
             return;
         }
         SceneManager.LoadScene(newGameLevel);
@@ -43,10 +45,17 @@ public class MenuManager : MonoBehaviour
     #endregion
 
     #region Player name
-    public void EditPlayerName_Clicked()
+    /// <summary>
+    /// Opens the player name menu
+    /// </summary>
+    public void PlayerName_Clicked()
     {
         playerNameMenu.enabled = true;
         EnableStartMenu(false);
+
+        // Save player name
+        var name = PlayerPrefs.GetString(playerName);
+        if (!string.IsNullOrEmpty(name)) { playerNameMenu.GetComponentInChildren<InputField>().text = name; }
     }
 
     public void SavePlayerName_Clicked()
@@ -79,8 +88,8 @@ public class MenuManager : MonoBehaviour
     public void ExitGameNo_Clicked()
     {
         quitMenu.enabled = false;
-        startText.enabled = true;
-        exitText.enabled = true;
+        startButton.enabled = true;
+        exitButton.enabled = true;
     }
 
     /// <summary>
@@ -95,8 +104,9 @@ public class MenuManager : MonoBehaviour
     #region Helper functions
     private void EnableStartMenu(bool enabled)
     {
-        startText.enabled = enabled;
-        exitText.enabled = enabled;
+        startButton.enabled = enabled;
+        playerButton.enabled = enabled;
+        exitButton.enabled = enabled;
     }
 
     #endregion
