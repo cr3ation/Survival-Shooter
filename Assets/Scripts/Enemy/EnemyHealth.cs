@@ -58,7 +58,7 @@ public class EnemyHealth : MonoBehaviour
     }
 
 
-    public void TakeDamage(int amount, Vector3 hitPoint)
+    public void TakeDamage(int amount, float hitHeight)
     {
         // If the enemy is dead...
         if (isDead)
@@ -81,6 +81,8 @@ public class EnemyHealth : MonoBehaviour
         currentHealth -= amount;
 
         // Set the position of the particle system to where the hit was sustained.
+        Vector3 hitPoint = transform.position;
+        hitPoint.y = hitHeight;
         hitParticles.transform.position = hitPoint;
         hitParticles.transform.rotation = Random.rotation;//new Vector3(0, -5, 0);//playerPos;
 
@@ -100,6 +102,9 @@ public class EnemyHealth : MonoBehaviour
     {
         // The enemy is dead.
         isDead = true;
+
+        GameObject.Find("Lovisa").GetComponent<LovisaPunching>().currentRage += 10;
+        
 
         timer = 10;
 

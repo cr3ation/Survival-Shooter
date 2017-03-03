@@ -21,7 +21,8 @@ public class LovisaMovement : MonoBehaviour
 
     void Update()
     {
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Punch"))
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Punch") ||
+            anim.GetCurrentAnimatorStateInfo(0).IsTag("Kick"))
         {
             return;
         }
