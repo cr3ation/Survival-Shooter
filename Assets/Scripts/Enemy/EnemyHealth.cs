@@ -8,13 +8,13 @@ public class EnemyHealth : MonoBehaviour
     public int scoreValue = 10;                 // The amount added to the player's score when the enemy dies.
     public AudioClip deathClip;                 // The sound to play when the enemy dies.
     public AudioClip[] damageTakenClips;        // The audio clips played when the player takes damage.
+    bool isDead;                                // Whether the enemy is dead.
 
 
     Animator anim;                              // Reference to the animator.
     AudioSource enemyAudio;                     // Reference to the audio source.
     ParticleSystem hitParticles;                // Reference to the particle system that plays when the enemy is damaged.
     CapsuleCollider capsuleCollider;            // Reference to the capsule collider.
-    bool isDead;                                // Whether the enemy is dead.
     bool isSinking;                             // Whether the enemy has started sinking through the floor.
     float timer;
 
@@ -58,7 +58,7 @@ public class EnemyHealth : MonoBehaviour
     }
 
 
-    public void TakeDamage(int amount, Vector3 hitPoint)
+    public void TakeDamage(int amount, float hitHeight)
     {
         // If the enemy is dead...
         if (isDead)
@@ -81,6 +81,8 @@ public class EnemyHealth : MonoBehaviour
         currentHealth -= amount;
 
         // Set the position of the particle system to where the hit was sustained.
+        Vector3 hitPoint = transform.position;
+        hitPoint.y = hitHeight;
         hitParticles.transform.position = hitPoint;
         hitParticles.transform.rotation = Random.rotation;//new Vector3(0, -5, 0);//playerPos;
 
@@ -100,6 +102,9 @@ public class EnemyHealth : MonoBehaviour
     {
         // The enemy is dead.
         isDead = true;
+
+        GameObject.Find("Lovisa").GetComponent<LovisaPunching>().currentRage += 10;
+        
 
         timer = 10;
 
