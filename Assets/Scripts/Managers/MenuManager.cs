@@ -11,6 +11,9 @@ public class MenuManager : MonoBehaviour
     public Button startText;
     public Button exitText;
 
+    // Used by Player Preferences. Don't like strings :)
+    private const string playerName = "PlayerName";
+
 
     void Start()
     {
@@ -29,9 +32,10 @@ public class MenuManager : MonoBehaviour
     #region Start new game
     public void NewGame(string newGameLevel)
     {
-        if (true)
+        var name = PlayerPrefs.GetString(playerName);
+        if (string.IsNullOrEmpty(name))
         {
-            playerNameMenu.enabled = true;
+            EditPlayerName_Clicked();
             return;
         }
         SceneManager.LoadScene(newGameLevel);
@@ -42,15 +46,18 @@ public class MenuManager : MonoBehaviour
     public void EditPlayerName_Clicked()
     {
         playerNameMenu.enabled = true;
-        startText.enabled = false;
-        exitText.enabled = false;
+        EnableStartMenu(false);
     }
 
     public void SavePlayerName_Clicked()
     {
+        var name = playerNameMenu.GetComponentInChildren<InputField>().text;
+        if (!string.IsNullOrEmpty(playerName))
+        {
+            PlayerPrefs.SetString(playerName, name);
+        }
         playerNameMenu.enabled = false;
-        startText.enabled = true;
-        exitText.enabled = true;
+        EnableStartMenu(true);
     }
 
 
@@ -63,8 +70,7 @@ public class MenuManager : MonoBehaviour
     public void ExitGame_Clicked()
     {
         quitMenu.enabled = true;
-        startText.enabled = false;
-        exitText.enabled = false;
+        EnableStartMenu(false);
     }
 
     /// <summary>
@@ -83,6 +89,14 @@ public class MenuManager : MonoBehaviour
     public void ExitGameYes_Clicked()
     {
         Application.Quit();
+    }
+    #endregion
+
+    #region Helper functions
+    private void EnableStartMenu(bool enabled)
+    {
+        startText.enabled = enabled;
+        exitText.enabled = enabled;
     }
 
     #endregion
