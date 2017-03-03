@@ -2354,9 +2354,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagePerPunch: 20
+  damagePerKick: 50
   timeBetweenPunches: 0.2
   range: 5
+  kickRange: 4
   rotationRange: 4
+  rageSlider: {fileID: 0}
+  rageText: {fileID: 0}
+  currentRage: 0
 --- !u!114 &114878141011766472
 MonoBehaviour:
   m_ObjectHideFlags: 1
