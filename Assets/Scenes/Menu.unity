@@ -165,6 +165,52 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 16529610}
+--- !u!1001 &76497656
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 2ae922c7d8b784fc9aac6e923c5a88ab, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2ae922c7d8b784fc9aac6e923c5a88ab, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2ae922c7d8b784fc9aac6e923c5a88ab, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2ae922c7d8b784fc9aac6e923c5a88ab, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2ae922c7d8b784fc9aac6e923c5a88ab, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2ae922c7d8b784fc9aac6e923c5a88ab, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2ae922c7d8b784fc9aac6e923c5a88ab, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2ae922c7d8b784fc9aac6e923c5a88ab, type: 2}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2ae922c7d8b784fc9aac6e923c5a88ab, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 2ae922c7d8b784fc9aac6e923c5a88ab, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &138839602
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +256,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1180,7 +1226,7 @@ GameObject:
   - component: {fileID: 635145167}
   - component: {fileID: 635145166}
   m_Layer: 5
-  m_Name: ScoresTxt
+  m_Name: ScoresList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2513,6 +2559,10 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1371317407}
+--- !u!1 &1396714259 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 2ae922c7d8b784fc9aac6e923c5a88ab, type: 2}
+  m_PrefabInternal: {fileID: 76497656}
 --- !u!1001 &1418527677
 Prefab:
   m_ObjectHideFlags: 0
@@ -2570,7 +2620,7 @@ GameObject:
   - component: {fileID: 1470966289}
   - component: {fileID: 1470966288}
   m_Layer: 5
-  m_Name: PlayersNamesTxt
+  m_Name: PlayersNamesList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3642,6 +3692,7 @@ GameObject:
   - component: {fileID: 2098898769}
   - component: {fileID: 2098898768}
   - component: {fileID: 2098898767}
+  - component: {fileID: 2098898771}
   m_Layer: 5
   m_Name: HighscoreMenu
   m_TagString: Untagged
@@ -3724,6 +3775,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2098898771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2098898766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ec42f9320d4ee04ab5e5b91d816f49e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dreamloPrefab: {fileID: 1396714259}
+  playerNamesList: {fileID: 1470966288}
+  scoresList: {fileID: 635145166}
 --- !u!4 &2116157584 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4040266967310728, guid: 26d313f5e3ea65248a642ab9eab9cc3c,
