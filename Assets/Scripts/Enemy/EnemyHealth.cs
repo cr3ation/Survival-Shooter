@@ -52,9 +52,6 @@ public class EnemyHealth : MonoBehaviour
             else
                 anim.SetLayerWeight(2, Mathf.Lerp(1, 0, (timer - 1.3f) / 2));
         }
-
-
-
     }
 
 
@@ -104,7 +101,6 @@ public class EnemyHealth : MonoBehaviour
         isDead = true;
 
         GameObject.Find("Lovisa").GetComponent<LovisaPunching>().currentRage += 10;
-        
 
         timer = 10;
 
@@ -128,11 +124,14 @@ public class EnemyHealth : MonoBehaviour
         // Find the rigidbody component and make it kinematic (since we use Translate to sink the enemy).
         GetComponent<Rigidbody>().isKinematic = true;
 
-        // The enemy should no sink.
-        isSinking = true;
-
         // Increase the score by the enemy's score value.
         ScoreManager.score += scoreValue;
+
+        // Saves the score
+        PlayerPrefs.SetInt("SavedScore", ScoreManager.score);
+
+        // The enemy should no sink.
+        isSinking = true;
 
         // After 2 seconds destory the enemy.
         Destroy(gameObject, 2f);

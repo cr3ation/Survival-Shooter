@@ -5,45 +5,60 @@ using UnityEngine.UI;
 
 public class LeaderboardManager : MonoBehaviour {
 
-    public GameObject dreamloPrefab;
-    public Text playerNamesList;
-    public Text scoresList;
+    public bool addScores = false;                      // GET or POST & GET
+    public GameObject dreamloPrefab;                    // Reference to highscore prefab
+    public Text playerNamesList;                        // Reference to list with player names
+    public Text scoresList;                             // Reference to list with scores
 
-    private bool scoreHasLoaded = false;
     private dreamloLeaderBoard leaderBoard;
     private List<dreamloLeaderBoard.Score> highscores;
+    private bool stopWorking = false;
 
 	// Use this for initialization
 	void Start () {
-        leaderBoard = dreamloPrefab.GetComponent<dreamloLeaderBoard>();
-        leaderBoard.LoadScores();
-
+        // Clear the leadboard
         playerNamesList.text = string.Empty;
         scoresList.text = string.Empty;
-	}
+
+        leaderBoard = dreamloPrefab.GetComponent<dreamloLeaderBoard>();
+
+        // Saved name and score
+        var playerName = PlayerPrefs.GetString("PlayerName");
+        var score = PlayerPrefs.GetInt("SavedScore");
+        
+        // GET or POST & GET.
+        if (addScores && !string.IsNullOrEmpty(playerName))
+        {
+            leaderBoard.AddScore(playerName, score);
+        }
+        else
+        {
+            leaderBoard.LoadScores();
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        if (scoreHasLoaded) return;
+        if (stopWorking) return;
         if (leaderBoard.ToListHighToLow().Count > 0)
         {
-            scoreHasLoaded = true;
+            stopWorking = true;
             highscores = leaderBoard.ToListHighToLow();
             ShowScoreOnLeaderboard();
         }		
 	}
 
-    public void AddScore(int score)
+    public void AddScore(string playerName, int score)
     {
-        var playerName = PlayerPrefs.GetString(MenuManager.playerName);
-        leaderBoard.AddScore(playerName, score);
+        if (!string.IsNullOrEmpty(playerName))
+        {
+            leaderBoard.AddScore(playerName, score);
+        }
     }
 
     public void GetScore()
     {
         leaderBoard.LoadScores();
-        System.Threading.Thread.Sleep(500);
-        ShowScoreOnLeaderboard();
     }
 
     private void ShowScoreOnLeaderboard()
@@ -56,7 +71,7 @@ public class LeaderboardManager : MonoBehaviour {
 
         foreach (var score in highscores)
         {
-            playerNamesList.text += score.playerName + "\n";
+            playerNamesList.text += score.playerName.Replace("+", " ") + "\n";
             scoresList.text += score.score + "\n";
             i++;
             if (i == scoresToShow) break;
