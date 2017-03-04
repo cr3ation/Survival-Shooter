@@ -75,6 +75,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Leaderboard\LeaderBoardSample.cs" />
+    <Compile Include="Assets\Leaderboard\dreamloLeaderBoard.cs" />
+    <Compile Include="Assets\Leaderboard\dreamloPromoCode.cs" />
     <Compile Include="Assets\Models\Buildings\NatureStarterKit\Standard Assets\Effects\ImageEffects\Scripts\Antialiasing.cs" />
     <Compile Include="Assets\Models\Buildings\NatureStarterKit\Standard Assets\Effects\ImageEffects\Scripts\Bloom.cs" />
     <Compile Include="Assets\Models\Buildings\NatureStarterKit\Standard Assets\Effects\ImageEffects\Scripts\BloomAndFlares.cs" />
@@ -117,6 +120,7 @@
     <Compile Include="Assets\Scripts\Lovisa\LovisaPunching.cs" />
     <Compile Include="Assets\Scripts\Managers\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\Managers\GameOverManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\LeaderboardManager.cs" />
     <Compile Include="Assets\Scripts\Managers\MenuManager.cs" />
     <Compile Include="Assets\Scripts\Managers\RageManager.cs" />
     <Compile Include="Assets\Scripts\Managers\ScoreManager.cs" />
@@ -153,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fonts\LuckiestGuy\LICENSE.txt" />
+    <None Include="Assets\Leaderboard\README_FIRST.txt" />
     <None Include="Assets\Models\Buildings\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\Models\Buildings\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
     <None Include="Assets\Models\Buildings\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlur.shader" />
