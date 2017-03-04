@@ -15,7 +15,7 @@ public class MenuManager : MonoBehaviour
     public Button exitButton;
 
     // Used by Player Preferences. Don't like strings :)
-    private const string playerName = "PlayerName";
+    public const string playerName = "PlayerName";
 
 
     void Start()
@@ -78,8 +78,6 @@ public class MenuManager : MonoBehaviour
         playerNameMenu.enabled = false;
         EnableStartMenu(true);
     }
-
-
     #endregion
 
     #region Highscore
@@ -94,8 +92,6 @@ public class MenuManager : MonoBehaviour
         highscoreMenu.enabled = false;
         EnableStartMenu(true);
     }
-
-
     #endregion
 
     #region Exit game
@@ -134,6 +130,5 @@ public class MenuManager : MonoBehaviour
         highscoreButton.enabled = enabled;
         exitButton.enabled = enabled;
     }
-
     #endregion
 }

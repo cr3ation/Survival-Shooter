@@ -156,7 +156,6 @@ public class LovisaPunching : MonoBehaviour
 
     void Shoot()
     {
-
         if (distanceToEnemy <= range)
         {
             // Only do damage if the enemy is in front of the player. 
