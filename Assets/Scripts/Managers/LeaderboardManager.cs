@@ -15,12 +15,11 @@ public class LeaderboardManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
         leaderBoard = dreamloPrefab.GetComponent<dreamloLeaderBoard>();
         leaderBoard.LoadScores();
 
-        playerNamesList.text = "";
-        scoresList.text = "";
+        playerNamesList.text = string.Empty;
+        scoresList.text = string.Empty;
 	}
 	
 	// Update is called once per frame
@@ -34,10 +33,27 @@ public class LeaderboardManager : MonoBehaviour {
         }		
 	}
 
+    public void AddScore(int score)
+    {
+        var playerName = PlayerPrefs.GetString(MenuManager.playerName);
+        leaderBoard.AddScore(playerName, score);
+    }
+
+    public void GetScore()
+    {
+        leaderBoard.LoadScores();
+        System.Threading.Thread.Sleep(500);
+        ShowScoreOnLeaderboard();
+    }
+
     private void ShowScoreOnLeaderboard()
     {
+        playerNamesList.text = string.Empty;
+        scoresList.text = string.Empty;
+
         var scoresToShow = 8;
         var i = 0;
+
         foreach (var score in highscores)
         {
             playerNamesList.text += score.playerName + "\n";
