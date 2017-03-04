@@ -7,9 +7,11 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     public Canvas playerNameMenu;
+    public Canvas highscoreMenu;
     public Canvas quitMenu;
     public Button startButton;
     public Button playerButton;
+    public Button highscoreButton;
     public Button exitButton;
 
     // Used by Player Preferences. Don't like strings :)
@@ -18,15 +20,23 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
+        // Show mouse
         Cursor.visible = true;
-        playerNameMenu = playerNameMenu.GetComponent<Canvas>();
-        quitMenu = quitMenu.GetComponent<Canvas>();
+
+        // Main menu buttons
         startButton = startButton.GetComponent<Button>();
         playerButton = playerButton.GetComponent<Button>();
+        highscoreButton = highscoreButton.GetComponent<Button>();
         exitButton = exitButton.GetComponent<Button>();
+
+        // Popup menus
+        playerNameMenu = playerNameMenu.GetComponent<Canvas>();
+        highscoreMenu = highscoreMenu.GetComponent<Canvas>();
+        quitMenu = quitMenu.GetComponent<Canvas>();
 
         // Disable popup menus
         playerNameMenu.enabled = false;
+        highscoreMenu.enabled = false;
         quitMenu.enabled = false;
     }
 
@@ -72,6 +82,22 @@ public class MenuManager : MonoBehaviour
 
     #endregion
 
+    #region Highscore
+    public void Highscore_Clicked()
+    {
+        highscoreMenu.enabled = true;
+        EnableStartMenu(false);
+    }
+
+    public void CloseHighscore_Clicked()
+    {
+        highscoreMenu.enabled = false;
+        EnableStartMenu(true);
+    }
+
+
+    #endregion
+
     #region Exit game
     /// <summary>
     /// Brings up an "Are you sure you want to exit?"-menu
@@ -88,8 +114,7 @@ public class MenuManager : MonoBehaviour
     public void ExitGameNo_Clicked()
     {
         quitMenu.enabled = false;
-        startButton.enabled = true;
-        exitButton.enabled = true;
+        EnableStartMenu(true);
     }
 
     /// <summary>
@@ -106,6 +131,7 @@ public class MenuManager : MonoBehaviour
     {
         startButton.enabled = enabled;
         playerButton.enabled = enabled;
+        highscoreButton.enabled = enabled;
         exitButton.enabled = enabled;
     }
 
