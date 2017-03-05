@@ -3,6 +3,8 @@ using System.Collections;
 
 public class FantonMovement : MonoBehaviour
 {
+    public bool randomizedPath = true;
+
     private Transform target;
     private int waypointIndex = 0;
 
@@ -27,7 +29,8 @@ public class FantonMovement : MonoBehaviour
 
     void Start()
     {
-        target = Waypoints.points[0];
+        // target = Waypoints.points[0];
+        target = GetNextWaypoint(randomizedPath);
     }
 
 
@@ -35,12 +38,12 @@ public class FantonMovement : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (fantonHealth.currentHealth > 0 && waypointIndex < Waypoints.points.Length)
+        if (fantonHealth.currentHealth > 0)
         {
             nav.SetDestination(target.position);
             if (Vector3.Distance(transform.position, target.position) <= 2f)
             {
-                GetNextWaypoint();
+                target = GetNextWaypoint(randomizedPath);
             }
         }
         else
@@ -76,17 +79,25 @@ public class FantonMovement : MonoBehaviour
         }
     }
 
-    void GetNextWaypoint()
+    Transform GetNextWaypoint(bool random)
     {
-       if (waypointIndex < Waypoints.points.Length - 1)
-       {
+        // Return random waypoint
+        if (random)
+        {
+            waypointIndex = Random.Range(0, Waypoints.points.Length - 1);
+            return Waypoints.points[waypointIndex];
+        }
+
+        // Return next waypoint in array
+        if (waypointIndex < Waypoints.points.Length - 1)
+        {
             waypointIndex++;
-       }
+        }
         else
         {
             waypointIndex = 0;
         }
-        target = Waypoints.points[waypointIndex];
+        return Waypoints.points[waypointIndex];
     }
 
     // Move Fanton with the animation
