@@ -13,7 +13,6 @@ public class EnemyManager : MonoBehaviour
 
     void Start ()
     {
-        InvokeRepeating ("Spawn", spawnTime, spawnTime);
         nextSpawnTime = Random.Range(spawnTime, spawnTime + timeDiff);
     }
 
