@@ -18,7 +18,6 @@ public class SettingsMenu : MonoBehaviour {
         Resolution[] resolutions = Screen.resolutions;
         foreach (Resolution res in resolutions)
         {
-            resolution.options.Add(new Dropdown.OptionData() { text = res.width + "x" + res.height });
             if (res.width > 1024)
             {
                 resolution.options.Add(new Dropdown.OptionData() { text = res.width + "x" + res.height });
@@ -41,11 +40,11 @@ public class SettingsMenu : MonoBehaviour {
         {
             quality.options.Add(new Dropdown.OptionData() { text = qual });
         }
+        quality.value = QualitySettings.GetQualityLevel();
 
         // Window mode
         windowed.isOn = !Screen.fullScreen;
 
-        quality.value = QualitySettings.GetQualityLevel();
         quality.RefreshShownValue();
         resolution.RefreshShownValue();
     }
