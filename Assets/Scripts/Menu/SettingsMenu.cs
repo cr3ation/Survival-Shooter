@@ -14,20 +14,18 @@ public class SettingsMenu : MonoBehaviour {
         resolution.ClearOptions();
         quality.ClearOptions();
 
-        // Resolution
+        // Resolution dropdown
         Resolution[] resolutions = Screen.resolutions;
         foreach (Resolution res in resolutions)
         {
             resolution.options.Add(new Dropdown.OptionData() { text = res.width + "x" + res.height });
-            //print(res.width + "x" + res.height);
         }
 
-        // Graphics quality
+        // Graphics quality drop down
         string[] qualities = QualitySettings.names;
         foreach (var qual in qualities)
         {
             quality.options.Add(new Dropdown.OptionData() { text = qual });
-            //print(res.width + "x" + res.height);
         }
 
         // Window mode
@@ -44,11 +42,21 @@ public class SettingsMenu : MonoBehaviour {
 		
 	}
 
-
-
-    public void ChangeResolution() {
+    public void SetResolution() {
         var res = resolution.options[resolution.value].text.Split('x');
-        print(res[0] + "x" + res[1]);
-        //Screen.SetResolution(640, 480, true)
+        int width = int.Parse(res[0]);
+        int height = int.Parse(res[1]);
+        Screen.SetResolution(width, height, !windowed.isOn);
+    }
+
+    public void SetQuality()
+    {
+        QualitySettings.SetQualityLevel(quality.value);
+    }
+
+    public void Save()
+    {
+        SetQuality();
+        SetResolution();
     }
 }
