@@ -9,8 +9,8 @@ public class SettingsMenu : MonoBehaviour {
     public Toggle windowed;
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         resolution.ClearOptions();
         quality.ClearOptions();
 
@@ -18,21 +18,20 @@ public class SettingsMenu : MonoBehaviour {
         Resolution[] resolutions = Screen.resolutions;
         foreach (Resolution res in resolutions)
         {
-            if (res.width > 1024)
+            if (res.width >= 1024)
             {
                 resolution.options.Add(new Dropdown.OptionData() { text = res.width + "x" + res.height });
             }
         }
-        Resolution currentResolution = Screen.currentResolution;
+        // Select the right resolution in drop down
         for (int i = 0; i < resolution.options.Count; i++)
         {
             var res = resolution.options[i].text.Split('x');
-            if (currentResolution.width == int.Parse(res[0]) && currentResolution.height == int.Parse(res[1]))
+            if (Screen.width == int.Parse(res[0]) && Screen.height == int.Parse(res[1]))
             {
                 resolution.value = i;
             }
         }
-
 
         // Graphics quality drop down
         string[] qualities = QualitySettings.names;
