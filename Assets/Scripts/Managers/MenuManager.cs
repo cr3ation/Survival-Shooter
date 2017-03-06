@@ -8,10 +8,12 @@ public class MenuManager : MonoBehaviour
 {
     public Canvas playerNameMenu;
     public Canvas highscoreMenu;
+    public Canvas settingsMenu;
     public Canvas quitMenu;
     public Button startButton;
     public Button playerButton;
     public Button highscoreButton;
+    public Button settingsButton;
     public Button exitButton;
 
     // Used by Player Preferences. Don't like strings :)
@@ -27,16 +29,19 @@ public class MenuManager : MonoBehaviour
         startButton = startButton.GetComponent<Button>();
         playerButton = playerButton.GetComponent<Button>();
         highscoreButton = highscoreButton.GetComponent<Button>();
+        settingsButton = settingsButton.GetComponent<Button>();
         exitButton = exitButton.GetComponent<Button>();
 
         // Popup menus
         playerNameMenu = playerNameMenu.GetComponent<Canvas>();
         highscoreMenu = highscoreMenu.GetComponent<Canvas>();
+        settingsMenu = settingsMenu.GetComponent<Canvas>();
         quitMenu = quitMenu.GetComponent<Canvas>();
 
         // Disable popup menus
         playerNameMenu.enabled = false;
         highscoreMenu.enabled = false;
+        settingsMenu.enabled = false;
         quitMenu.enabled = false;
     }
 
@@ -94,6 +99,20 @@ public class MenuManager : MonoBehaviour
     }
     #endregion
 
+    #region Settings
+    public void Settings_Clicked()
+    {
+        settingsMenu.enabled = true;
+        EnableStartMenu(false);
+    }
+
+    public void SettingsClose_Clicked()
+    {
+        settingsMenu.enabled = false;
+        EnableStartMenu(true);
+    }
+    #endregion
+
     #region Exit game
     /// <summary>
     /// Brings up an "Are you sure you want to exit?"-menu
@@ -128,6 +147,7 @@ public class MenuManager : MonoBehaviour
         startButton.enabled = enabled;
         playerButton.enabled = enabled;
         highscoreButton.enabled = enabled;
+        settingsButton.enabled = enabled;
         exitButton.enabled = enabled;
     }
     #endregion

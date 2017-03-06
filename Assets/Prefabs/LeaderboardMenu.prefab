@@ -326,6 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec42f9320d4ee04ab5e5b91d816f49e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  addScores: 0
   dreamloPrefab: {fileID: 0}
   playerNamesList: {fileID: 114705400614200814}
   scoresList: {fileID: 114002310177205872}
