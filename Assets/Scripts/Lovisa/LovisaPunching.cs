@@ -7,13 +7,16 @@ public class LovisaPunching : MonoBehaviour
 {
     public int damagePerPunch = 20;                 // The damage inflicted by each bullet.
     public int damagePerKick = 150;
+    public int damageSuperPunch = 200;
     public float timeBetweenPunches = 0.2f;        // The time between each shot.
     public float range = 3f;                        // The distance the gun can fire.
     public float kickRange = 4f;
     public float rotationRange = 4f;                // The distance to an enemy when player starts to rotate
     public Slider rageSlider;                                 // Reference to the UI's rage bar.
+    public Slider superPunchSlider;
     public Text rageText;
     public int currentRage;
+    public float cooldown;
 
 
     float punchTimer;                                    // A punchTimer to determine when to fire.
@@ -22,6 +25,8 @@ public class LovisaPunching : MonoBehaviour
     float distanceToEnemy;                          // Distance to the closest enemy
     //float rotationSpeed = 10f;                      // Speen in witch to rotate
     bool isKicking;
+    bool superPunch;
+    bool hasSuperPunched;
     int kickNumber;
     List<GameObject> enemiesInKickRange;
     Animator animator;                                  // Reference to the anomator controller object
@@ -38,8 +43,11 @@ public class LovisaPunching : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
         Cursor.visible = false;
         isKicking = false;
+        superPunch = false;
         animationTimer = 1000;
         punchTimer = 1000;
+        currentRage = 100;
+        cooldown = 0;
     }
 
     void Update()
@@ -47,8 +55,12 @@ public class LovisaPunching : MonoBehaviour
         // Add the time since Update was last called to the punchTimer.
         punchTimer += Time.deltaTime;
         animationTimer += Time.deltaTime;
+        if(cooldown > 0)
+            cooldown -= Time.deltaTime * 10;
 
+        // Update UI sliders
         rageSlider.value = currentRage;
+        superPunchSlider.value = 100 - cooldown;
 
         // Change color on text when full rage is reached.
         /*if (currentRage == 100)
@@ -86,12 +98,36 @@ public class LovisaPunching : MonoBehaviour
             lovisaMovement.speed = 0f;
             punchTimer = 0;
         }
-        else if (!isKicking)
+        // Initiate a superpunch if the cooldown allows it.
+        else if (!superPunch && Input.GetButton("Fire3") && cooldown < 0.1)
+        {
+            superPunch = true;
+            hasSuperPunched = false;
+            cooldown = 100;
+            punchTimer = 0;
+            animator.SetTrigger("Slash");
+        }
+        // Blend in/out the superpunch animation layer and cause some damage.
+        else if(superPunch)
+        {
+            if (punchTimer < 0.5 / 1.5)
+                animator.SetLayerWeight(2, Mathf.Lerp(0, 1, punchTimer * 2 * 1.5f));
+            if (punchTimer > 1 / 1.5)
+                animator.SetLayerWeight(2, Mathf.Lerp(1, 0, (punchTimer - 1 / 1.5f) * 2 * 1.5f));
+            if (punchTimer > 1.5 / 1.5)
+                superPunch = false;
+            if (punchTimer > 0.75 / 1.5 && !hasSuperPunched)
+            {
+                Shoot(damageSuperPunch);
+                hasSuperPunched = true;
+            }
+        }
+        else if (!isKicking && !superPunch)
         {
             // If Lovisa is not punching at the moment, start punching.
             if (Input.GetButton("Fire1") && !animator.GetBool("IsPunching"))
             {
-                Shoot();
+                Shoot(damagePerPunch);
                 animator.SetBool("IsPunching", true);
                 lovisaMovement.speed = 2f;
                 punchTimer = 0;
@@ -100,7 +136,7 @@ public class LovisaPunching : MonoBehaviour
             // If the punching-animation is running, only cause damage.
             else if (Input.GetButton("Fire1") && punchTimer >= timeBetweenPunches)
             {
-                Shoot();
+                Shoot(damagePerPunch);
                 // Reset the timer managing the damage.
                 punchTimer = 0;
             }
@@ -140,7 +176,7 @@ public class LovisaPunching : MonoBehaviour
             kickNumber++;
         }
         // This is when the third kick lands. Deal damage to the rest of the enemies in range.
-        else if (punchTimer > 0.75f * 2 && kickNumber == 2)
+        else if (punchTimer > 0.75f * 3 && kickNumber == 2)
         {
             enemiesInKickRange = findEnemiesInKickRange();
             for (int i = 0; i < enemiesInKickRange.Count; i++)
@@ -154,7 +190,7 @@ public class LovisaPunching : MonoBehaviour
         }
     }
 
-    void Shoot()
+    void Shoot(int damage)
     {
         if (distanceToEnemy <= range)
         {
@@ -162,7 +198,7 @@ public class LovisaPunching : MonoBehaviour
             Vector3 enemy_direction = Vector3.Normalize(closestEnemy.transform.position - rigidBody.transform.position);
             Vector3 player_direction = Vector3.Normalize(rigidBody.transform.forward);
             float angle = Mathf.Acos(Vector3.Dot(enemy_direction, player_direction));
-            if (angle < 3.14 / 3.0)
+            if (angle < 3.14 / 3.0 || (damage == damageSuperPunch && angle < 3.14 * 0.6))
             {
                 // Try and find an EnemyHealth script on the gameobject hit.
                 EnemyHealth enemyHealth = closestEnemy.GetComponent<EnemyHealth>();
@@ -176,7 +212,7 @@ public class LovisaPunching : MonoBehaviour
                         hitHeight = 2.5f;
                     else
                         hitHeight = 1.2f;
-                    enemyHealth.TakeDamage(damagePerPunch, hitHeight);
+                    enemyHealth.TakeDamage(damage, hitHeight);
                 }
             }
         }
@@ -202,6 +238,7 @@ public class LovisaPunching : MonoBehaviour
 
         return enemiesInRange;
     }
+
 
     // Triggered by the last kick-animation.
     void EndOfKick()
