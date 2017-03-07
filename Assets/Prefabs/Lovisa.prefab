@@ -2355,13 +2355,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePerPunch: 20
   damagePerKick: 50
+  damageSuperPunch: 200
   timeBetweenPunches: 0.2
   range: 5
   kickRange: 4
   rotationRange: 4
   rageSlider: {fileID: 0}
+  superPunchSlider: {fileID: 0}
   rageText: {fileID: 0}
   currentRage: 0
+  cooldown: 0
 --- !u!114 &114878141011766472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2382,12 +2385,12 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1344513674508908}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   m_Radius: 0.35
-  m_Height: 1.6
+  m_Height: 0.87
   m_Direction: 1
-  m_Center: {x: 0, y: 0.79, z: 0}
+  m_Center: {x: 0, y: 0.91, z: 0}
 --- !u!137 &137089582584820428
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
