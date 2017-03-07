@@ -100,6 +100,9 @@ public class EnemyHealth : MonoBehaviour
         // The enemy is dead.
         isDead = true;
 
+        // Remove the "Enemy" tag so that Lovisa does not keep on punching the dead body.
+        this.tag = "Untagged";
+
         GameObject.Find("Lovisa").GetComponent<LovisaPunching>().currentRage += 10;
 
         timer = 10;
