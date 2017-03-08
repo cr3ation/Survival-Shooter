@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEngine.UI;
+using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class EnemyHealth : MonoBehaviour
     CapsuleCollider capsuleCollider;            // Reference to the capsule collider.
     bool isSinking;                             // Whether the enemy has started sinking through the floor.
     float timer;
+    Text money;
 
 
     void Awake()
@@ -26,7 +28,7 @@ public class EnemyHealth : MonoBehaviour
         enemyAudio = GetComponent<AudioSource>();
         hitParticles = GetComponentInChildren<ParticleSystem>();
         capsuleCollider = GetComponent<CapsuleCollider>();
-
+        money = GameObject.Find("MoneyText").GetComponent<Text>();
         timer = 100;
 
         // Setting the current health when the enemy first spawns.
@@ -106,6 +108,13 @@ public class EnemyHealth : MonoBehaviour
         GameObject.Find("Lovisa").GetComponent<LovisaPunching>().currentRage += 10;
 
         timer = 10;
+
+        // Reduce the current money by the damage amount.
+        int moneyLeft = System.Convert.ToInt32(money.text);
+        moneyLeft += 5;
+        if (moneyLeft >= 100)
+            moneyLeft = 100;
+        money.text = System.Convert.ToString(moneyLeft);
 
         // Turn the collider into a trigger so shots can pass through it.
         capsuleCollider.isTrigger = true;
