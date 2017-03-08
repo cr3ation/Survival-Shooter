@@ -2146,7 +2146,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1357493206454512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.5022, y: 0, z: 27.22}
+  m_LocalPosition: {x: -6.5369387, y: 0.0000015640585, z: 13.1202755}
   m_LocalScale: {x: 1.7413284, y: 1.7413286, z: 1.7413286}
   m_Children:
   - {fileID: 4047225768753738}
@@ -2420,6 +2420,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 976870362dff3f945a071943a6a654c7, type: 3}
   - {fileID: 8300000, guid: ddac5916a499e2f49bba50c24c040e57, type: 3}
   - {fileID: 8300000, guid: e389ec6544df8114f899f77496ee3350, type: 3}
+  money: {fileID: 0}
 --- !u!135 &135089620315877720
 SphereCollider:
   m_ObjectHideFlags: 1

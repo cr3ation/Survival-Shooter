@@ -21,6 +21,6 @@ public class ScoreManager : MonoBehaviour
     void Update()
     {
         // Set the displayed text to be the word "Score" followed by the score value.
-        text.text = "Score: " + score;
+        text.text = "Takedowns: " + score;
     }
 }

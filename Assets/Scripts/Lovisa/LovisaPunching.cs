@@ -88,10 +88,10 @@ public class LovisaPunching : MonoBehaviour
         }
 
         // Initiate a kick if the player has enough rage.
-        if (!isKicking && Input.GetButton("Fire2") && currentRage == 100)
+        if (!isKicking && Input.GetButton("Fire2") && currentRage >= 100)
         {
+            print("sparkarå");
             animator.SetTrigger("Kick");
-            //rageText.color = Color.white; //Reset the UI text color 
             currentRage = 0;
             isKicking = true;
             kickNumber = 0;
@@ -101,37 +101,27 @@ public class LovisaPunching : MonoBehaviour
         // Initiate a superpunch if the cooldown allows it.
         else if (!superPunch && Input.GetButton("Fire3") && cooldown < 0.1)
         {
+            animator.SetTrigger("Slash");
+            cooldown = 100;
             superPunch = true;
             hasSuperPunched = false;
-            cooldown = 100;
             punchTimer = 0;
-            animator.SetTrigger("Slash");
         }
         // Blend in/out the superpunch animation layer and cause some damage.
         else if(superPunch)
         {
-            if (punchTimer < 0.5 / 1.5)
-                animator.SetLayerWeight(2, Mathf.Lerp(0, 1, punchTimer * 2 * 1.5f));
-            if (punchTimer > 1 / 1.5)
-                animator.SetLayerWeight(2, Mathf.Lerp(1, 0, (punchTimer - 1 / 1.5f) * 2 * 1.5f));
-            if (punchTimer > 1.5 / 1.5)
-                superPunch = false;
-            if (punchTimer > 0.75 / 1.5 && !hasSuperPunched)
-            {
-                Shoot(damageSuperPunch);
-                hasSuperPunched = true;
-            }
+            executeSuperPunch();
         }
         else if (!isKicking && !superPunch)
         {
             // If Lovisa is not punching at the moment, start punching.
             if (Input.GetButton("Fire1") && !animator.GetBool("IsPunching"))
             {
-                Shoot(damagePerPunch);
                 animator.SetBool("IsPunching", true);
                 lovisaMovement.speed = 2f;
-                punchTimer = 0;
                 animationTimer = 0;
+                punchTimer = 0;
+                Shoot(damagePerPunch);
             }
             // If the punching-animation is running, only cause damage.
             else if (Input.GetButton("Fire1") && punchTimer >= timeBetweenPunches)
@@ -215,6 +205,21 @@ public class LovisaPunching : MonoBehaviour
                     enemyHealth.TakeDamage(damage, hitHeight);
                 }
             }
+        }
+    }
+
+    void executeSuperPunch()
+    {
+        if (punchTimer < 0.5 / 1.5)
+            animator.SetLayerWeight(2, Mathf.Lerp(0, 1, punchTimer * 2 * 1.5f));
+        if (punchTimer > 1 / 1.5)
+            animator.SetLayerWeight(2, Mathf.Lerp(1, 0, (punchTimer - 1 / 1.5f) * 2 * 1.5f));
+        if (punchTimer > 1.5 / 1.5)
+            superPunch = false;
+        if (punchTimer > 0.75 / 1.5 && !hasSuperPunched)
+        {
+            Shoot(damageSuperPunch);
+            hasSuperPunched = true;
         }
     }
 
