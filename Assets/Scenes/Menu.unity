@@ -1638,6 +1638,26 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114220498033319842, guid: ee0d33c01a4ae6d439db0d50f401de1b,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 138839603}
+    - target: {fileID: 114220498033319842, guid: ee0d33c01a4ae6d439db0d50f401de1b,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExitGameYes_Clicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 114204346444737558, guid: ee0d33c01a4ae6d439db0d50f401de1b,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 138839603}
+    - target: {fileID: 114204346444737558, guid: ee0d33c01a4ae6d439db0d50f401de1b,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExitGameYes_Clicked
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee0d33c01a4ae6d439db0d50f401de1b, type: 2}
   m_IsPrefabParent: 0
