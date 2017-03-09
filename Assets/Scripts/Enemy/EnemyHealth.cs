@@ -107,6 +107,12 @@ public class EnemyHealth : MonoBehaviour
 
         GameObject.Find("Lovisa").GetComponent<LovisaPunching>().currentRage += 10;
 
+        // Increase the score by the enemy's score value.
+        ScoreManager.score += scoreValue;
+
+        // Saves the score
+        PlayerPrefs.SetInt("SavedScore", ScoreManager.score);
+
         timer = 10;
 
         // Reduce the current money by the damage amount.
@@ -135,12 +141,6 @@ public class EnemyHealth : MonoBehaviour
 
         // Find the rigidbody component and make it kinematic (since we use Translate to sink the enemy).
         GetComponent<Rigidbody>().isKinematic = true;
-
-        // Increase the score by the enemy's score value.
-        ScoreManager.score += scoreValue;
-
-        // Saves the score
-        PlayerPrefs.SetInt("SavedScore", ScoreManager.score);
 
         // The enemy should no sink.
         isSinking = true;
