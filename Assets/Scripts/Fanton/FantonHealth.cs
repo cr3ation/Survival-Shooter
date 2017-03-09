@@ -4,7 +4,7 @@ using System.Collections;
 
 public class FantonHealth : MonoBehaviour
 {
-    public int startingHealth = 100;                            // The amount of health the player starts the game with.
+    public int startingHealth = 300;                            // The amount of health the player starts the game with.
     public int currentHealth;                                   // The current health the player has.
     //public Slider healthSlider;                                 // Reference to the UI's health bar.
     public Text money;
@@ -23,9 +23,8 @@ public class FantonHealth : MonoBehaviour
     bool damaged = false;                                       // True when the player gets damaged.
     bool noShield = false;
     float noShieldBlinkTimer = 0f;
-    float prevFadeColorItems = 255;
-    float prevFadeColorEuro = 255;
-    int itemsLeft = 7;
+    float prevFadeColor = 255;
+    int itemsLeft = 6;
 
 
     void Awake()
@@ -63,7 +62,13 @@ public class FantonHealth : MonoBehaviour
 
         if(noShield)
         {
-            BlinkItems();
+            BlinkItems(false);
+        }
+
+        if (System.Convert.ToInt32(money.text) > 0)
+        {
+            noShield = false;
+            BlinkItems(true);
         }
     }
 
@@ -72,6 +77,13 @@ public class FantonHealth : MonoBehaviour
     {
         // Set the damaged flag so the screen will flash.
         damaged = true;
+
+        if(noShield)
+        {
+            currentHealth -= amount;
+            itemsLeft = (int)Mathf.Ceil((float)currentHealth / 50.0f);
+            BlinkItems(true);
+        }
 
         // Reduce the current money by the damage amount.
         int moneyLeft = System.Convert.ToInt32(money.text);
@@ -99,61 +111,61 @@ public class FantonHealth : MonoBehaviour
         }
 
         // If the player has lost all it's health and the death flag hasn't been set yet...
-        if (currentHealth <= 0 && !isDead && itemsLeft == 0)
+        if (currentHealth <= 0 && !isDead)
         {
             // ... it should die.
             Death();
         }
     }
 
-    void BlinkItems()
+    void BlinkItems(bool resetColors)
     {
-        // Variables for changing color of items.
-        float fadeFromItems = 60;
-        float fadeToItems = 255;
-        float resultItems = fadeFromItems;
+        // Variables for changing color of items and euro-sign.
+        float fadeFrom = 255;
+        float fadeTo = 50;
+        float result = fadeFrom;
 
-        // Variables for changing color of euro-sign.
-        float fadeFromEuro = 255;
-        float fadeToEuro = 100;
-        float resultEuro = fadeFromEuro;
+        if (!resetColors)
+        {
+            // The length of one cycle in seconds.
+            float blinkInterval = 0.75f;
 
-        // The length of one cycle in seconds.
-        float blinkInterval = 0.75f;
+            // Fade in the color.
+            if (noShieldBlinkTimer < blinkInterval)
+            {
+                result = Mathf.Lerp(fadeFrom, fadeTo, noShieldBlinkTimer);
+                prevFadeColor = result;
 
-        // Fade in the color.
-        if (noShieldBlinkTimer < blinkInterval)
-        {
-            resultItems = Mathf.Lerp(fadeFromItems, fadeToItems, noShieldBlinkTimer);
-            prevFadeColorItems = resultItems;
-            resultEuro = Mathf.Lerp(fadeFromEuro, fadeToEuro, noShieldBlinkTimer);
-            prevFadeColorEuro = resultEuro;
-        }
-        // Fade back to original color.
-        else if (noShieldBlinkTimer < blinkInterval * 2f)
-        {
-            resultItems = Mathf.Lerp(prevFadeColorItems, fadeFromItems, noShieldBlinkTimer - blinkInterval);
-            resultEuro = Mathf.Lerp(prevFadeColorEuro, fadeFromEuro, noShieldBlinkTimer - blinkInterval);
-        }
-        // Restart the cycle.
-        else
-        {
-            noShieldBlinkTimer = 0;
+            }
+            // Fade back to original color.
+            else if (noShieldBlinkTimer < blinkInterval * 2f)
+            {
+                result = Mathf.Lerp(prevFadeColor, fadeFrom, noShieldBlinkTimer - blinkInterval);
+            }
+            // Restart the cycle.
+            else
+            {
+                noShieldBlinkTimer = 0;
+            }
         }
 
         // Create the two new colors.
-        Color newItemColor = new Color(resultItems / 255, fadeFromItems / 255, fadeFromItems / 255, 1);
-        Color newEuroColor = new Color(fadeFromEuro / 255, resultEuro / 255, resultEuro / 255, 0.5f);
+        Color newColor = new Color(fadeFrom / 255, result / 255, result / 255, 200.0f / 255);
+        Color disabledColor = new Color(1, 1, 1, 10.0f / 255);
 
         // Change colors of items.
         GameObject items = GameObject.Find("Items");
-        //for (int i = 0; i < items.transform.GetChild(1).childCount; i++)
-        //  items.transform.GetChild(1).GetChild(i).GetComponent<Image>().color = newItemColor;
-        items.transform.GetChild(0).GetComponent<Image>().color = newEuroColor;
+        for (int i = 0; i < items.transform.GetChild(1).childCount; i++)
+          items.transform.GetChild(1).GetChild(i).GetComponent<Image>().color = newColor;
+
+        for (int i = items.transform.GetChild(1).childCount - 1; i >= itemsLeft; i--)
+          items.transform.GetChild(1).GetChild(i).GetComponent<Image>().color = disabledColor;
+
 
         // Change color of euro-sign.
         GameObject euro = GameObject.Find("Money");
-        euro.transform.GetChild(0).GetComponent<Image>().color = newEuroColor;
+        euro.transform.GetChild(0).GetComponent<Image>().color = newColor;
+        euro.transform.GetChild(1).GetComponent<Text>().color = newColor;
     }
 
 
