@@ -13,6 +13,7 @@ public class FantonHealth : MonoBehaviour
     public AudioClip[] damageTakenClips;                        // The audio clips played when the player takes damage.
     public float flashSpeed = 5f;                               // The speed the damageImage will fade at.
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);     // The colour the damageImage is set to, to flash.
+    public static bool haveDrugs = false;
 
 
     AudioSource audioSource;                                    // Reference to the AudioSource component.
@@ -24,7 +25,9 @@ public class FantonHealth : MonoBehaviour
     bool noShield = false;
     float noShieldBlinkTimer = 0f;
     float prevFadeColor = 255;
-    int itemsLeft = 6;
+    int itemsLeft = 5;
+    float lifePerItem;
+    float drugsLife;
 
 
     void Awake()
@@ -37,6 +40,8 @@ public class FantonHealth : MonoBehaviour
 
         // Set the initial health of the player.
         currentHealth = startingHealth;
+        lifePerItem = (float)startingHealth / 5.0f;
+        drugsLife = lifePerItem;
     }
 
 
@@ -78,10 +83,23 @@ public class FantonHealth : MonoBehaviour
         // Set the damaged flag so the screen will flash.
         damaged = true;
 
+        // If the shield is down start taking damage to inventory
         if(noShield)
         {
-            currentHealth -= amount;
-            itemsLeft = (int)Mathf.Ceil((float)currentHealth / 50.0f);
+            // If there is no drugs in the inventory, start dealing damage to other items.
+            if(!haveDrugs)
+            {
+                currentHealth -= amount;
+                itemsLeft = (int)Mathf.Ceil((float)currentHealth / lifePerItem);
+            }
+            // If the player has drugs, deal damage to those first.
+            else
+            {
+                drugsLife -= amount;
+                if (drugsLife < 1)
+                    haveDrugs = false;
+            }
+
             BlinkItems(true);
         }
 
@@ -158,8 +176,15 @@ public class FantonHealth : MonoBehaviour
         for (int i = 0; i < items.transform.GetChild(1).childCount; i++)
           items.transform.GetChild(1).GetChild(i).GetComponent<Image>().color = newColor;
 
+        // Reset color for disabled items.
         for (int i = items.transform.GetChild(1).childCount - 1; i >= itemsLeft; i--)
           items.transform.GetChild(1).GetChild(i).GetComponent<Image>().color = disabledColor;
+
+        // Set the drugs color.
+        if(haveDrugs && drugsLife > 1)
+        {
+            items.transform.GetChild(1).GetChild(5).GetComponent<Image>().color = newColor;
+        }
 
 
         // Change color of euro-sign.
