@@ -2357,7 +2357,7 @@ MonoBehaviour:
   damagePerKick: 50
   damageSuperPunch: 200
   timeBetweenPunches: 0.2
-  range: 5
+  range: 3
   kickRange: 4
   rotationRange: 4
   rageSlider: {fileID: 0}
@@ -2390,7 +2390,7 @@ CapsuleCollider:
   m_Radius: 0.35
   m_Height: 0.87
   m_Direction: 1
-  m_Center: {x: 0, y: 0.91, z: 0}
+  m_Center: {x: 0, y: 0.76, z: 0}
 --- !u!137 &137089582584820428
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
