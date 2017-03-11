@@ -2354,7 +2354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagePerPunch: 20
-  damagePerKick: 50
+  damagePerKick: 150
   damageSuperPunch: 200
   timeBetweenPunches: 0.2
   range: 3

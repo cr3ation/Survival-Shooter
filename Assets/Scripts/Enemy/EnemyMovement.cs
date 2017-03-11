@@ -7,10 +7,12 @@ public class EnemyMovement : MonoBehaviour
     FantonHealth fantonHealth;
     EnemyHealth enemyHealth;
     UnityEngine.AI.NavMeshAgent nav;
+    Animator anim;                              // Reference to the animator.
 
 
     void Awake ()
     {
+        anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag ("Fanton").transform;
         fantonHealth = player.GetComponent <FantonHealth> ();
         enemyHealth = GetComponent <EnemyHealth> ();
@@ -20,6 +22,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Update ()
     {
+
         if(enemyHealth.currentHealth > 0 && fantonHealth.currentHealth > 0)
         {
             nav.SetDestination (player.position);
@@ -28,5 +31,16 @@ public class EnemyMovement : MonoBehaviour
         {
             nav.enabled = false;
         }
+
+        if(nav.velocity == Vector3.zero)
+        {
+            anim.SetBool("Idle", true);
+        }
+        else
+        {
+            anim.SetBool("Idle", false);
+        }
     }
+
+
 }

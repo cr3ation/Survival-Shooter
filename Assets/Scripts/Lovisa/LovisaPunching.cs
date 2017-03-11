@@ -21,6 +21,7 @@ public class LovisaPunching : MonoBehaviour
 
     float punchTimer;                                    // A punchTimer to determine when to fire.
     float animationTimer;                               // A punchTimer to control the punch animations.
+    float slowMoTimer;
     //bool is_punching = false;                       // True during the punch
     float distanceToEnemy;                          // Distance to the closest enemy
     //float rotationSpeed = 10f;                      // Speen in witch to rotate
@@ -55,24 +56,13 @@ public class LovisaPunching : MonoBehaviour
         // Add the time since Update was last called to the punchTimer.
         punchTimer += Time.deltaTime;
         animationTimer += Time.deltaTime;
+        slowMoTimer += Time.unscaledDeltaTime;
         if(cooldown > 0)
             cooldown -= Time.deltaTime * 10;
 
         // Update UI sliders
         rageSlider.value = currentRage;
         superPunchSlider.value = 100 - cooldown;
-
-        // Change color on text when full rage is reached.
-        /*if (currentRage == 100)
-        {
-            rageText.color = new Color(240f / 255f, 113f / 255f, 231f / 255f, 255 / 255f);
-            Color temp = rageSlider.transform.GetChild(0).GetComponent<Image>().color;
-            temp.a = 1;
-            rageSlider.transform.GetChild(0).GetComponent<Image>().color = temp;
-            temp = rageSlider.transform.GetChild(1).GetChild(0).GetComponent<Image>().color;
-            temp.a = 1;
-            rageSlider.transform.GetChild(1).GetChild(0).GetComponent<Image>().color = temp;
-        }*/
 
         // Find closest enemy
         closestEnemy = FindClosestEnemy();
@@ -87,16 +77,23 @@ public class LovisaPunching : MonoBehaviour
             distanceToEnemy = 10000000f;
         }
 
+        // Change to slow-motion if a kick-session is active.
+        if(slowMoTimer < 5)
+        {
+            RunSlowMotion();
+        }
+
+
         // Initiate a kick if the player has enough rage.
         if (!isKicking && Input.GetButton("Fire2") && currentRage >= 100)
         {
-            print("sparkarå");
             animator.SetTrigger("Kick");
             currentRage = 0;
             isKicking = true;
             kickNumber = 0;
             lovisaMovement.speed = 0f;
             punchTimer = 0;
+            slowMoTimer = 0;
         }
         // Initiate a superpunch if the cooldown allows it.
         else if (!superPunch && Input.GetButton("Fire3") && cooldown < 0.1)
@@ -110,7 +107,7 @@ public class LovisaPunching : MonoBehaviour
         // Blend in/out the superpunch animation layer and cause some damage.
         else if(superPunch)
         {
-            executeSuperPunch();
+            ExecuteSuperPunch();
         }
         else if (!isKicking && !superPunch)
         {
@@ -149,34 +146,9 @@ public class LovisaPunching : MonoBehaviour
                 lovisaMovement.speed = 6f;
             }
         }
-        // This is when the first kick lands. Deal damage to 1/3 of the enemies in range.
-        else if (punchTimer > 0.75f && kickNumber == 0)
-        {
-            enemiesInKickRange = findEnemiesInKickRange();
-            for (int i = 2 * enemiesInKickRange.Count / 3; i < enemiesInKickRange.Count; i++)
-                enemiesInKickRange[i].GetComponent<EnemyHealth>().TakeDamage(damagePerKick, 1.2f);
-            kickNumber++;
-        }
-        // This is when the second kick lands. Deal damage to the second 1/3 of the enemies in range.
-        else if (punchTimer > 0.75f * 2 && kickNumber == 1)
-        {
-            enemiesInKickRange = findEnemiesInKickRange();
-            for (int i = enemiesInKickRange.Count / 3; i < 2 * enemiesInKickRange.Count / 3; i++)
-                enemiesInKickRange[i].GetComponent<EnemyHealth>().TakeDamage(damagePerKick, 1.2f);
-            kickNumber++;
-        }
-        // This is when the third kick lands. Deal damage to the rest of the enemies in range.
-        else if (punchTimer > 0.75f * 3 && kickNumber == 2)
-        {
-            enemiesInKickRange = findEnemiesInKickRange();
-            for (int i = 0; i < enemiesInKickRange.Count; i++)
-                enemiesInKickRange[i].GetComponent<EnemyHealth>().TakeDamage(damagePerKick, 1.2f);
-            kickNumber++;
-        }
-        // During the kick, rotate Lovisa so that the kicks hit in every direction.
         else
         {
-            transform.Rotate(new Vector3(0, -4.5f, 0));
+            ExecuteKicks();
         }
     }
 
@@ -208,18 +180,75 @@ public class LovisaPunching : MonoBehaviour
         }
     }
 
-    void executeSuperPunch()
+    // Slow down the running-time of the game and change music and fanton sound pitches.
+    void RunSlowMotion()
     {
-        if (punchTimer < 0.5 / 1.5)
-            animator.SetLayerWeight(2, Mathf.Lerp(0, 1, punchTimer * 2 * 1.5f));
-        if (punchTimer > 1 / 1.5)
-            animator.SetLayerWeight(2, Mathf.Lerp(1, 0, (punchTimer - 1 / 1.5f) * 2 * 1.5f));
-        if (punchTimer > 1.5 / 1.5)
+        if (isKicking)
+        {
+            float pitch = Mathf.Lerp(1, 0.5f, slowMoTimer);
+            GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().pitch = pitch;
+            GameObject.Find("Fanton").GetComponent<AudioSource>().pitch = pitch;
+            Time.timeScale = Mathf.Lerp(1, 0.25f, slowMoTimer*4);
+        }
+        else
+        {
+            float pitch = Mathf.Lerp(0.5f, 1, slowMoTimer);
+            GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().pitch = pitch;
+            GameObject.Find("Fanton").GetComponent<AudioSource>().pitch = pitch;
+            Time.timeScale = Mathf.Lerp(0.25f, 1, slowMoTimer);
+        }
+    }
+
+    void ExecuteSuperPunch()
+    {
+
+        if (punchTimer < 0.5 / 1.2)
+            animator.SetLayerWeight(2, Mathf.Lerp(0, 1, punchTimer * 2 * 1.2f));
+        if (punchTimer > 1 / 1.2)
+            animator.SetLayerWeight(2, Mathf.Lerp(1, 0, (punchTimer - 1 / 1.2f) * 2 * 1.2f));
+        if (punchTimer > 1.5 / 1.2)
             superPunch = false;
-        if (punchTimer > 0.75 / 1.5 && !hasSuperPunched)
+        if (punchTimer > 0.75 / 1.2 && !hasSuperPunched)
         {
             Shoot(damageSuperPunch);
             hasSuperPunched = true;
+        }
+    }
+
+    void ExecuteKicks()
+    {
+        float animationSpeed = 3f;
+
+        // During the kick, rotate Lovisa so that the kicks hit in every direction.
+        transform.Rotate(new Vector3(0, -4.0f, 0));
+
+        // This is when the first kick lands. Deal damage to 1/3 of the enemies in range.
+        if (punchTimer > 1 / animationSpeed && kickNumber == 0)
+        {
+            enemiesInKickRange = findEnemiesInKickRange();
+            for (int i = 2 * enemiesInKickRange.Count / 3; i < enemiesInKickRange.Count; i++)
+            {
+                enemiesInKickRange[i].GetComponent<EnemyHealth>().TakeDamage(damagePerKick, 1.2f);
+            }
+            kickNumber++;
+        }
+        // This is when the second kick lands. Deal damage to the second 1/3 of the enemies in range.
+        else if (punchTimer > 0.9 * 2.0 / animationSpeed && kickNumber == 1)
+        {
+            for (int i = enemiesInKickRange.Count / 3; i < 2 * enemiesInKickRange.Count / 3; i++)
+            {
+                enemiesInKickRange[i].GetComponent<EnemyHealth>().TakeDamage(damagePerKick, 1.2f);
+            }
+            kickNumber++;
+        }
+        // This is when the third kick lands. Deal damage to the rest of the enemies in range.
+        else if (punchTimer > 0.9 * 3 / animationSpeed && kickNumber == 2)
+        {
+            for (int i = 0; i < enemiesInKickRange.Count; i++)
+            {
+                enemiesInKickRange[i].GetComponent<EnemyHealth>().TakeDamage(damagePerKick, 1.2f);
+            }
+            kickNumber++;
         }
     }
 
@@ -249,6 +278,8 @@ public class LovisaPunching : MonoBehaviour
     void EndOfKick()
     {
         isKicking = false;
+        slowMoTimer = 0;
+
     }
 
     /// <summary>

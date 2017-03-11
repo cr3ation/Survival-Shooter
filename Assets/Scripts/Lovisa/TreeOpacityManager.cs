@@ -23,18 +23,20 @@ public class TreeOpacityManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        float fadeDuration = 1.5f;
+
         // Blend in/out the palm-leaves
-        if(timer < 1.5)
+        if(timer < fadeDuration)
         {
             if(treeIsInvisible)
             {
-                currentMaxCutoff = Mathf.Lerp(currentMinCutoff, 0.26f, timer*1.5f);
+                currentMaxCutoff = Mathf.Lerp(currentMinCutoff, 0.26f, timer * fadeDuration);
                 treeMaterial.SetFloat("_Cutoff", currentMaxCutoff);
                 timer += Time.deltaTime;
             }
             else
             {
-                currentMinCutoff = Mathf.Lerp(currentMaxCutoff, 0.125f, timer*1.5f);
+                currentMinCutoff = Mathf.Lerp(currentMaxCutoff, 0.125f, timer * fadeDuration);
                 treeMaterial.SetFloat("_Cutoff", currentMinCutoff);
                 timer += Time.deltaTime;
             }

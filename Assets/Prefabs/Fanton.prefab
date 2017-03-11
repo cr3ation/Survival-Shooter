@@ -2424,7 +2424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e18833d795b1ff4597139cde863f35b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 300
+  startingHealth: 30000
   currentHealth: 0
   money: {fileID: 0}
   damageImage: {fileID: 0}

@@ -2392,8 +2392,13 @@ MonoBehaviour:
   scoreValue: 1
   deathClip: {fileID: 8300000, guid: e920ef0c211362844a444156c743313f, type: 3}
   damageTakenClips:
-  - {fileID: 8300000, guid: 1a1c3c5b19002aa4a8116c991b725fd9, type: 3}
-  - {fileID: 8300000, guid: 24b84197f1db4644b9c319527f34071b, type: 3}
+  - {fileID: 8300000, guid: 5d481c83d80efca48a993c1852e78733, type: 3}
+  - {fileID: 8300000, guid: 976870362dff3f945a071943a6a654c7, type: 3}
+  - {fileID: 8300000, guid: ddac5916a499e2f49bba50c24c040e57, type: 3}
+  - {fileID: 8300000, guid: e389ec6544df8114f899f77496ee3350, type: 3}
+  - {fileID: 8300000, guid: e8ef70c40f8f49c4f9cf031d9d79bf14, type: 3}
+  - {fileID: 8300000, guid: 1d6bd4f25d06c26409456e4f57990978, type: 3}
+  - {fileID: 8300000, guid: e8047841dc46e7e4087dd1c3a242e90d, type: 3}
 --- !u!114 &114494507178886874
 MonoBehaviour:
   m_ObjectHideFlags: 1

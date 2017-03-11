@@ -11,7 +11,7 @@ public class DrugdealerHandler : MonoBehaviour {
 	void Start () {
         // Randomize the starting position.
         int spawnAt = (int)Mathf.Round(Random.Range(0, spawnPoints.transform.childCount));
-        print(spawnAt);
+        print("Drugdealer spawnpos: " + spawnAt);
         transform.position = spawnPoints.transform.GetChild(spawnAt).position;
         transform.rotation = spawnPoints.transform.GetChild(spawnAt).rotation;
 	}
