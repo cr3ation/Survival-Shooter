@@ -59,7 +59,7 @@ public class VideoManager : MonoBehaviour {
         if (restartTimer >= restartDelay)
         {
             // .. then reload the currently loaded level.
-            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
         }
     }
 }

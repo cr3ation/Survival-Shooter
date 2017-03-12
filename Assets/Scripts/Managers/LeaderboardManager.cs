@@ -44,7 +44,6 @@ public class LeaderboardManager : MonoBehaviour {
         if (addScores && !string.IsNullOrEmpty(playerName))
         {
             StartCoroutine(IAddScore(playerName, score));
-            System.Threading.Thread.Sleep(300);
             StartCoroutine(ILoadScores());
         }
         else

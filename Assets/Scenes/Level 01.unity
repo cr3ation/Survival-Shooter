@@ -945,6 +945,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 224190018407428228, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: -389.04004
+      objectReference: {fileID: 0}
+    - target: {fileID: 224190018407428228, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224190018407428228, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce6957aa73a62884b838330d05fc413e, type: 2}
   m_IsPrefabParent: 0
