@@ -92,14 +92,12 @@ public class InventoryMenu : MonoBehaviour {
 
         //// Stop/continue spawning enemies
         //enemyManager.SetActive(!paused);
-        var audioSource = GameObject.Find("BackgroundMusic").GetComponent<AudioSource>();
         if (paused) {
             Time.timeScale = 0.000001f;
         }
         else {
             Time.timeScale = 1f;
         }
-
     }
 
     void ShowInventoryInspector(int keyPressed)

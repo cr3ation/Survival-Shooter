@@ -50,6 +50,9 @@ public class LovisaPunching : MonoBehaviour
         punchTimer = 1000;
         currentRage = 100;
         cooldown = 0;
+
+        // Don't have the energy to explain why... just belive me...
+        slowMoTimer = 5f;
     }
 
     void Update()
@@ -79,7 +82,6 @@ public class LovisaPunching : MonoBehaviour
         }
 
         // Change to slow-motion if a kick-session is active.
-        //if (slowMoTimer < 5 && inventoryInspector != null)
         if (slowMoTimer < 5)
         {
             RunSlowMotion();
@@ -185,19 +187,22 @@ public class LovisaPunching : MonoBehaviour
     // Slow down the running-time of the game and change music and fanton sound pitches.
     void RunSlowMotion()
     {
-        if (isKicking)
+        if (inventoryInspector == null)
         {
-            float pitch = Mathf.Lerp(1, 0.5f, slowMoTimer);
-            GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().pitch = pitch;
-            GameObject.Find("Fanton").GetComponent<AudioSource>().pitch = pitch;
-            Time.timeScale = Mathf.Lerp(1, 0.25f, slowMoTimer*4);
-        }
-        else
-        {
-            float pitch = Mathf.Lerp(0.5f, 1, slowMoTimer);
-            GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().pitch = pitch;
-            GameObject.Find("Fanton").GetComponent<AudioSource>().pitch = pitch;
-            Time.timeScale = Mathf.Lerp(0.25f, 1, slowMoTimer);
+            if (isKicking)
+            {
+                float pitch = Mathf.Lerp(1, 0.5f, slowMoTimer);
+                GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().pitch = pitch;
+                GameObject.Find("Fanton").GetComponent<AudioSource>().pitch = pitch;
+                Time.timeScale = Mathf.Lerp(1, 0.25f, slowMoTimer * 4);
+            }
+            else
+            {
+                float pitch = Mathf.Lerp(0.5f, 1, slowMoTimer);
+                GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().pitch = pitch;
+                GameObject.Find("Fanton").GetComponent<AudioSource>().pitch = pitch;
+                Time.timeScale = Mathf.Lerp(0.25f, 1, slowMoTimer);
+            }
         }
     }
 
