@@ -91,8 +91,8 @@ public class KeyBindManager : MonoBehaviour {
         keys["Punch"] = KeyCode.H;
         keys["SpecialPunch"] = KeyCode.J;
         keys["RageKick"] = KeyCode.K;
-        keys["ZoomIn"] = KeyCode.KeypadPlus;
-        keys["ZoomOut"] = KeyCode.KeypadMinus;
+        keys["ZoomIn"] = KeyCode.Alpha9;
+        keys["ZoomOut"] = KeyCode.Alpha0;
 
         RefreshKeyBindingText();
     }
@@ -107,8 +107,8 @@ public class KeyBindManager : MonoBehaviour {
         keys.Add("Punch", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Punch", "H")));
         keys.Add("SpecialPunch", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SpecialPunch", "J")));
         keys.Add("RageKick", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("RageKick", "K")));
-        keys.Add("ZoomIn", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("ZoomIn", "KeypadPlus")));
-        keys.Add("ZoomOut", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("ZoomOut", "KeypadMinus")));
+        keys.Add("ZoomIn", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("ZoomIn", "Alpha9")));
+        keys.Add("ZoomOut", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("ZoomOut", "Alpha0")));
 
         RefreshKeyBindingText();
     }
