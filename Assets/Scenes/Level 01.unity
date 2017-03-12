@@ -787,6 +787,128 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 224473903743481716, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 650
+      objectReference: {fileID: 0}
+    - target: {fileID: 114783934753014234, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 114840252025073376, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_EffectColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114840252025073376, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_EffectColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114840252025073376, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_EffectColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114840252025073376, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_EffectColor.a
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 114783934753014234, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.61960787
+      objectReference: {fileID: 0}
+    - target: {fileID: 114783934753014234, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.61960787
+      objectReference: {fileID: 0}
+    - target: {fileID: 114404953635146000, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114404953635146000, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114404953635146000, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114404953635146000, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 114020008022151226, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 114020008022151226, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224899560118286244, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224899560118286244, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 540
+      objectReference: {fileID: 0}
+    - target: {fileID: 114020008022151226, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_FontData.m_Alignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224755817093559502, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224048069283244382, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224541588569318378, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224899560118286244, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 225900706925927894, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114020008022151226, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: b20f139c373fa4555a05cdd0036dfa44,
+        type: 3}
+    - target: {fileID: 114404953635146000, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 46238fb1ad7a7a84ba8954c1c860994c,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce6957aa73a62884b838330d05fc413e, type: 2}
   m_IsPrefabParent: 0
@@ -1291,6 +1413,23 @@ Prefab:
       propertyPath: inventoryUI
       value: 
       objectReference: {fileID: 310647529}
+    - target: {fileID: 114804579208141312, guid: 44364dd53ff284d4e83ac919ee44fdb7,
+        type: 2}
+      propertyPath: texts.Array.data[1]
+      value: Gift from Fantons girlfriend. A quality wristwatch of unknown brand.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114804579208141312, guid: 44364dd53ff284d4e83ac919ee44fdb7,
+        type: 2}
+      propertyPath: texts.Array.data[2]
+      value: 'Cellphone containing all images from the Barcelona visit. Backup is
+        non-existent. Vendor: Apple.                             Place of origin:
+        handbag. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 114804579208141312, guid: 44364dd53ff284d4e83ac919ee44fdb7,
+        type: 2}
+      propertyPath: titles.Array.data[2]
+      value: iPhone 5s
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44364dd53ff284d4e83ac919ee44fdb7, type: 2}
   m_IsPrefabParent: 0
@@ -1802,6 +1941,11 @@ Prefab:
       propertyPath: damageImage
       value: 
       objectReference: {fileID: 450085726}
+    - target: {fileID: 114321126230050602, guid: de66631b88813e64ab63dce05cb04ff2,
+        type: 2}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de66631b88813e64ab63dce05cb04ff2, type: 2}
   m_IsPrefabParent: 0

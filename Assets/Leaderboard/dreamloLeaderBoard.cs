@@ -89,8 +89,9 @@ public class dreamloLeaderBoard : MonoBehaviour {
 	{
 		if (TooManyRequests()) return;
 
-		StartCoroutine(AddScoreWithPipe(playerName, totalScore));
-	}
+        StartCoroutine(AddScoreWithPipe(playerName, totalScore));
+        //AddScoreWithPipe(playerName, totalScore);
+    }
 	
 	public void AddScore(string playerName, int totalScore, int totalSeconds)
 	{
@@ -105,18 +106,27 @@ public class dreamloLeaderBoard : MonoBehaviour {
 
 		StartCoroutine(AddScoreWithPipe(playerName, totalScore, totalSeconds, shortText));
 	}
-	
-	// This function saves a trip to the server. Adds the score and retrieves results in one trip.
-	IEnumerator AddScoreWithPipe(string playerName, int totalScore)
+
+    // Adds the score.
+    IEnumerator AddNewScore(string playerName, int totalScore)
+    {
+        playerName = Clean(playerName);
+
+        WWW www = new WWW(dreamloWebserviceURL + privateCode + "/add/" + WWW.EscapeURL(playerName) + "/" + totalScore.ToString());
+        yield return www;
+    }
+
+
+    IEnumerator AddScoreWithPipe(string playerName, int totalScore)
 	{
 		playerName = Clean(playerName);
 		
 		WWW www = new WWW(dreamloWebserviceURL + privateCode + "/add-pipe/" + WWW.EscapeURL(playerName) + "/" + totalScore.ToString());
-		yield return www;
-		highScores = www.text;
-	}
-	
-	IEnumerator AddScoreWithPipe(string playerName, int totalScore, int totalSeconds)
+        yield return www;
+        highScores = www.text;
+    }
+
+    IEnumerator AddScoreWithPipe(string playerName, int totalScore, int totalSeconds)
 	{
 		playerName = Clean(playerName);
 		
@@ -139,16 +149,16 @@ public class dreamloLeaderBoard : MonoBehaviour {
 	{
 		highScores = "";
 		WWW www = new WWW(dreamloWebserviceURL +  publicCode  + "/pipe/");
-		yield return www;
-		highScores = www.text;
-	}
+        yield return www;
+        highScores = www.text;
+    }
 	
 	IEnumerator GetSingleScore(string playerName)
 	{
 		highScores = "";
 		WWW www = new WWW(dreamloWebserviceURL +  publicCode  + "/pipe-get/" + WWW.EscapeURL(playerName));
-		yield return www;
-		highScores = www.text;
+        highScores = www.text;
+        yield return www;		
 	}
 	
 	public void LoadScores()
