@@ -53,9 +53,11 @@ public class LovisaMovement : MonoBehaviour
         movement = movement.normalized * speed * Time.deltaTime;
 
         // Move the player to it's current position plus the movement.
-        nav.Move(movement);
-        nav.SetDestination(transform.position + movement);
-        
+        if (nav.enabled)
+        {
+            nav.Move(movement);
+            nav.SetDestination(transform.position + movement);
+        }
     }
 
     void Turning(float h, float v)

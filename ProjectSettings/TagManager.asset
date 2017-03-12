@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fanton
   - Enemy
+  - EnemyManager
   layers:
   - Default
   - TransparentFX

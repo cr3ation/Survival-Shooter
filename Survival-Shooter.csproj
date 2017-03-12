@@ -132,6 +132,7 @@
     <Compile Include="Assets\Scripts\Managers\TimeManager.cs" />
     <Compile Include="Assets\Scripts\Managers\VideoManager.cs" />
     <Compile Include="Assets\Scripts\Menu\GraphicsMenu.cs" />
+    <Compile Include="Assets\Scripts\Menu\InventoryMenu.cs" />
     <Compile Include="Assets\SpecialPunchSliderHandler.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\TutorialInfo.cs" />
     <Compile Include="Assets\Waypoints.cs" />

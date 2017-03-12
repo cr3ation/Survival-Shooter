@@ -23,7 +23,7 @@ public class EnemyMovement : MonoBehaviour
     void Update ()
     {
 
-        if(enemyHealth.currentHealth > 0 && fantonHealth.currentHealth > 0)
+        if(enemyHealth.currentHealth > 0 && fantonHealth.currentHealth > 0 && nav.enabled)
         {
             nav.SetDestination (player.position);
         }

@@ -38,7 +38,7 @@ public class FantonMovement : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (fantonHealth.currentHealth > 0)
+        if (fantonHealth.currentHealth > 0 && nav.enabled)
         {
             nav.SetDestination(target.position);
             if (Vector3.Distance(transform.position, target.position) <= 2f)
