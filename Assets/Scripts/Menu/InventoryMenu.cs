@@ -17,8 +17,6 @@ public class InventoryMenu : MonoBehaviour {
     Text title;
     Text text;
 
-    GameObject enemyManager;
-
     // Use this for initialization
     void Start()
     {
@@ -26,8 +24,6 @@ public class InventoryMenu : MonoBehaviour {
         itemNumber = inventoryUI.GetComponentsInChildren<Text>()[0];
         title = inventoryUI.GetComponentsInChildren<Text>()[1];
         text = inventoryUI.GetComponentsInChildren<Text>()[2];
-
-        enemyManager = GameObject.Find("EnemyManager");
     }	
 	// Update is called once per frame
 	void Update () {

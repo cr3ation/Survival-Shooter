@@ -85,7 +85,6 @@ public class LeaderboardManager : MonoBehaviour {
         StartCoroutine(IAddScore(playerName, score));            
     }
 
-
     #region Talk to leaderboard
     IEnumerator IAddScore(string playerName, int score)
     {
@@ -170,10 +169,7 @@ public class LeaderboardManager : MonoBehaviour {
         return scoreList;
     }
 
-
-
     // Keep pipe and slash out of names
-
     string Clean(string s)
     {
         s = s.Replace("/", "");

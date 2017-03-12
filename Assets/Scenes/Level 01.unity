@@ -530,6 +530,7 @@ GameObject:
   - component: {fileID: 298996643}
   - component: {fileID: 298996644}
   - component: {fileID: 298996645}
+  - component: {fileID: 298996646}
   m_Layer: 0
   m_Name: EnemyManager
   m_TagString: EnemyManager
@@ -621,6 +622,23 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 85813328}
   - {fileID: 251578933}
+--- !u!114 &298996646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 298996640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a99222b1e4a384e923ac7e86efc709, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fantonHealth: {fileID: 1669807693}
+  enemy: {fileID: 1393358835538766, guid: 22716803452376f4c972c9c307f748bd, type: 2}
+  spawnTime: 200
+  timeDiff: 200
+  spawnPoints:
+  - {fileID: 1028710499}
 --- !u!114 &308374135 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114811896385697546, guid: ce6957aa73a62884b838330d05fc413e,
@@ -958,6 +976,11 @@ Prefab:
     - target: {fileID: 224190018407428228, guid: ce6957aa73a62884b838330d05fc413e,
         type: 2}
       propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114149316643606204, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1952,7 +1975,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4247305614708456, guid: de66631b88813e64ab63dce05cb04ff2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -18.874
+      value: -17.8
       objectReference: {fileID: 0}
     - target: {fileID: 4247305614708456, guid: de66631b88813e64ab63dce05cb04ff2, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1960,7 +1983,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4247305614708456, guid: de66631b88813e64ab63dce05cb04ff2, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 23.569
+      value: 19.9
       objectReference: {fileID: 0}
     - target: {fileID: 4247305614708456, guid: de66631b88813e64ab63dce05cb04ff2, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1968,7 +1991,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4247305614708456, guid: de66631b88813e64ab63dce05cb04ff2, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.10626421
+      value: -0.73123443
       objectReference: {fileID: 0}
     - target: {fileID: 4247305614708456, guid: de66631b88813e64ab63dce05cb04ff2, type: 2}
       propertyPath: m_LocalRotation.z
@@ -1976,7 +1999,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4247305614708456, guid: de66631b88813e64ab63dce05cb04ff2, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -0.994338
+      value: -0.6821262
       objectReference: {fileID: 0}
     - target: {fileID: 4247305614708456, guid: de66631b88813e64ab63dce05cb04ff2, type: 2}
       propertyPath: m_RootOrder
@@ -1996,6 +2019,10 @@ Prefab:
         type: 2}
       propertyPath: startingHealth
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247305614708456, guid: de66631b88813e64ab63dce05cb04ff2, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 453.98
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de66631b88813e64ab63dce05cb04ff2, type: 2}
