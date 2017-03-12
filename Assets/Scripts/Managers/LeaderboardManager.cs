@@ -85,6 +85,13 @@ public class LeaderboardManager : MonoBehaviour {
         StartCoroutine(IAddScore(playerName, score));            
     }
 
+    public void LoadScore()
+    {
+        highscores.Clear();
+        highScores = "";    
+        StartCoroutine(ILoadScores());
+    }
+
     #region Talk to leaderboard
     IEnumerator IAddScore(string playerName, int score)
     {
