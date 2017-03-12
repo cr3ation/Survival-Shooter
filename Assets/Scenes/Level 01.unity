@@ -765,22 +765,22 @@ Prefab:
     - target: {fileID: 224729927244445556, guid: ce6957aa73a62884b838330d05fc413e,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224729927244445556, guid: ce6957aa73a62884b838330d05fc413e,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224348672450743820, guid: ce6957aa73a62884b838330d05fc413e,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224348672450743820, guid: ce6957aa73a62884b838330d05fc413e,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1097473339703760, guid: ce6957aa73a62884b838330d05fc413e, type: 2}
       propertyPath: m_IsActive
@@ -966,7 +966,7 @@ Prefab:
     - target: {fileID: 224190018407428228, guid: ce6957aa73a62884b838330d05fc413e,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: -389.04004
+      value: -430.27002
       objectReference: {fileID: 0}
     - target: {fileID: 224190018407428228, guid: ce6957aa73a62884b838330d05fc413e,
         type: 2}
@@ -982,6 +982,66 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114437203290211212, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114437203290211212, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114793424290053992, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114793424290053992, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114953431042389256, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114953431042389256, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114042099313172196, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114042099313172196, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114907627357290210, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114907627357290210, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946501913237602, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946501913237602, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce6957aa73a62884b838330d05fc413e, type: 2}
@@ -1487,23 +1547,6 @@ Prefab:
       propertyPath: inventoryUI
       value: 
       objectReference: {fileID: 310647529}
-    - target: {fileID: 114804579208141312, guid: 44364dd53ff284d4e83ac919ee44fdb7,
-        type: 2}
-      propertyPath: texts.Array.data[1]
-      value: Gift from Fantons girlfriend. A quality wristwatch of unknown brand.
-      objectReference: {fileID: 0}
-    - target: {fileID: 114804579208141312, guid: 44364dd53ff284d4e83ac919ee44fdb7,
-        type: 2}
-      propertyPath: texts.Array.data[2]
-      value: 'Cellphone containing all images from the Barcelona visit. Backup is
-        non-existent. Vendor: Apple.                             Place of origin:
-        handbag. '
-      objectReference: {fileID: 0}
-    - target: {fileID: 114804579208141312, guid: 44364dd53ff284d4e83ac919ee44fdb7,
-        type: 2}
-      propertyPath: titles.Array.data[2]
-      value: iPhone 5s
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44364dd53ff284d4e83ac919ee44fdb7, type: 2}
   m_IsPrefabParent: 0
