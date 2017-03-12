@@ -254,6 +254,7 @@ GameObject:
   m_Component:
   - component: {fileID: 171338234}
   - component: {fileID: 171338233}
+  - component: {fileID: 171338235}
   m_Layer: 0
   m_Name: BackgroundMusic
   m_TagString: Untagged
@@ -378,6 +379,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 64.08, z: 0}
+--- !u!114 &171338235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 171338232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f76695588669f041914594624f0afe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundMusic:
+  - {fileID: 8300000, guid: caffb6e0223c82b4a9fc97649e729ea1, type: 3}
+  - {fileID: 8300000, guid: bfcde8a78ca342a43ae515ba05bc91ff, type: 3}
+  - {fileID: 8300000, guid: 39b412c1c56790d47987bafc045ab187, type: 3}
 --- !u!1 &183616848
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,22 +781,22 @@ Prefab:
     - target: {fileID: 224729927244445556, guid: ce6957aa73a62884b838330d05fc413e,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224729927244445556, guid: ce6957aa73a62884b838330d05fc413e,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224348672450743820, guid: ce6957aa73a62884b838330d05fc413e,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224348672450743820, guid: ce6957aa73a62884b838330d05fc413e,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1097473339703760, guid: ce6957aa73a62884b838330d05fc413e, type: 2}
       propertyPath: m_IsActive
