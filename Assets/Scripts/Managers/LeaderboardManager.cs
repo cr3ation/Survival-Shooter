@@ -93,7 +93,6 @@ public class LeaderboardManager : MonoBehaviour {
         var url = dreamloWebserviceURL + privateKey + "/add/" + WWW.EscapeURL(playerName) + "/" + score.ToString();
         WWW www = new WWW(url);
         yield return www;
-        highScores = www.text;
     }
 
     IEnumerator ILoadScores()
