@@ -44,7 +44,6 @@ public class LeaderboardManager : MonoBehaviour {
         if (addScores && !string.IsNullOrEmpty(playerName))
         {
             StartCoroutine(IAddScore(playerName, score));
-            System.Threading.Thread.Sleep(300);
             StartCoroutine(ILoadScores());
         }
         else
@@ -93,7 +92,6 @@ public class LeaderboardManager : MonoBehaviour {
         var url = dreamloWebserviceURL + privateKey + "/add/" + WWW.EscapeURL(playerName) + "/" + score.ToString();
         WWW www = new WWW(url);
         yield return www;
-        highScores = www.text;
     }
 
     IEnumerator ILoadScores()
