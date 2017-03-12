@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class LovisaMovement : MonoBehaviour
 {
@@ -9,13 +10,19 @@ public class LovisaMovement : MonoBehaviour
     Animator anim;                      // Reference to the animator component.
     UnityEngine.AI.NavMeshAgent nav;    // Reference to the NavMeshAgent connected to the player.
     float timer;
-
+    private Dictionary<string, KeyCode> keys = new Dictionary<string, KeyCode>();
 
     void Awake()
     {
         // Set up references.
         anim = GetComponent<Animator>();
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
+
+
+        keys.Add("Up", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Up", "W")));
+        keys.Add("Down", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Down", "S")));
+        keys.Add("Left", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left", "A")));
+        keys.Add("Right", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right", "D")));
     }
 
 
@@ -31,8 +38,27 @@ public class LovisaMovement : MonoBehaviour
         timer += Time.deltaTime;
 
         // Store the input axes.
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+        //float h = Input.GetAxisRaw("Horizontal");
+        //float v = Input.GetAxisRaw("Vertical");
+        float h = 0f;
+        float v = 0f;
+
+        if (Input.GetKey(keys["Left"]))
+        {
+            h = h -1f;
+        }
+        if (Input.GetKey(keys["Right"]))
+        {
+            h = h + 1f;
+        }
+        if (Input.GetKey(keys["Up"]))
+        {
+            v = v + 1f;
+        }
+        if (Input.GetKey(keys["Down"]))
+        {
+            v = v - 1f;
+        }
 
         // Move the player around the scene.
         Move(h, v);

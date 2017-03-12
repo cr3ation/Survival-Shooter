@@ -35,6 +35,7 @@ public class LovisaPunching : MonoBehaviour
     Rigidbody rigidBody;                            // Reference to the rigidBody object
     GameObject closestEnemy;                        // Refrencee to the closest enemy
     GameObject inventoryInspector;
+    private Dictionary<string, KeyCode> keys = new Dictionary<string, KeyCode>();       //Contains stored input keys
 
     void Awake()
     {
@@ -50,6 +51,14 @@ public class LovisaPunching : MonoBehaviour
         punchTimer = 1000;
         currentRage = 100;
         cooldown = 0;
+
+        // Don't have the energy to explain why... just belive me...
+        slowMoTimer = 5f;
+
+        // Key kontroller
+        keys.Add("Punch", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Punch", "H")));
+        keys.Add("SpecialPunch", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SpecialPunch", "J")));
+        keys.Add("RageKick", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("RageKick", "K")));
     }
 
     void Update()
@@ -79,15 +88,13 @@ public class LovisaPunching : MonoBehaviour
         }
 
         // Change to slow-motion if a kick-session is active.
-        //if (slowMoTimer < 5 && inventoryInspector != null)
         if (slowMoTimer < 5)
         {
             RunSlowMotion();
         }
 
-
         // Initiate a kick if the player has enough rage.
-        if (!isKicking && Input.GetButton("Fire2") && currentRage >= 100)
+        if (!isKicking && (Input.GetButton("Fire2") || Input.GetKey(keys["RageKick"])) && currentRage >= 100)
         {
             animator.SetTrigger("Kick");
             currentRage = 0;
@@ -98,7 +105,7 @@ public class LovisaPunching : MonoBehaviour
             slowMoTimer = 0;
         }
         // Initiate a superpunch if the cooldown allows it.
-        else if (!superPunch && Input.GetButton("Fire3") && cooldown < 0.1)
+        else if (!superPunch && (Input.GetButton("Fire3") || Input.GetKey(keys["SpecialPunch"])) && cooldown < 0.1)
         {
             animator.SetTrigger("Slash");
             cooldown = 100;
@@ -114,7 +121,7 @@ public class LovisaPunching : MonoBehaviour
         else if (!isKicking && !superPunch)
         {
             // If Lovisa is not punching at the moment, start punching.
-            if (Input.GetButton("Fire1") && !animator.GetBool("IsPunching"))
+            if ((Input.GetButton("Fire1") || Input.GetKey(keys["Punch"])) && !animator.GetBool("IsPunching"))
             {
                 animator.SetBool("IsPunching", true);
                 lovisaMovement.speed = 2f;
@@ -123,7 +130,7 @@ public class LovisaPunching : MonoBehaviour
                 Shoot(damagePerPunch);
             }
             // If the punching-animation is running, only cause damage.
-            else if (Input.GetButton("Fire1") && punchTimer >= timeBetweenPunches)
+            else if ((Input.GetButton("Fire1") || Input.GetKey(keys["Punch"])) && punchTimer >= timeBetweenPunches)
             {
                 Shoot(damagePerPunch);
                 // Reset the timer managing the damage.
@@ -185,19 +192,22 @@ public class LovisaPunching : MonoBehaviour
     // Slow down the running-time of the game and change music and fanton sound pitches.
     void RunSlowMotion()
     {
-        if (isKicking)
+        if (inventoryInspector == null)
         {
-            float pitch = Mathf.Lerp(1, 0.5f, slowMoTimer);
-            GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().pitch = pitch;
-            GameObject.Find("Fanton").GetComponent<AudioSource>().pitch = pitch;
-            Time.timeScale = Mathf.Lerp(1, 0.25f, slowMoTimer*4);
-        }
-        else
-        {
-            float pitch = Mathf.Lerp(0.5f, 1, slowMoTimer);
-            GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().pitch = pitch;
-            GameObject.Find("Fanton").GetComponent<AudioSource>().pitch = pitch;
-            Time.timeScale = Mathf.Lerp(0.25f, 1, slowMoTimer);
+            if (isKicking)
+            {
+                float pitch = Mathf.Lerp(1, 0.5f, slowMoTimer);
+                GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().pitch = pitch;
+                GameObject.Find("Fanton").GetComponent<AudioSource>().pitch = pitch;
+                Time.timeScale = Mathf.Lerp(1, 0.25f, slowMoTimer * 4);
+            }
+            else
+            {
+                float pitch = Mathf.Lerp(0.5f, 1, slowMoTimer);
+                GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().pitch = pitch;
+                GameObject.Find("Fanton").GetComponent<AudioSource>().pitch = pitch;
+                Time.timeScale = Mathf.Lerp(0.25f, 1, slowMoTimer);
+            }
         }
     }
 
