@@ -1487,23 +1487,6 @@ Prefab:
       propertyPath: inventoryUI
       value: 
       objectReference: {fileID: 310647529}
-    - target: {fileID: 114804579208141312, guid: 44364dd53ff284d4e83ac919ee44fdb7,
-        type: 2}
-      propertyPath: texts.Array.data[1]
-      value: Gift from Fantons girlfriend. A quality wristwatch of unknown brand.
-      objectReference: {fileID: 0}
-    - target: {fileID: 114804579208141312, guid: 44364dd53ff284d4e83ac919ee44fdb7,
-        type: 2}
-      propertyPath: texts.Array.data[2]
-      value: 'Cellphone containing all images from the Barcelona visit. Backup is
-        non-existent. Vendor: Apple.                             Place of origin:
-        handbag. '
-      objectReference: {fileID: 0}
-    - target: {fileID: 114804579208141312, guid: 44364dd53ff284d4e83ac919ee44fdb7,
-        type: 2}
-      propertyPath: titles.Array.data[2]
-      value: iPhone 5s
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44364dd53ff284d4e83ac919ee44fdb7, type: 2}
   m_IsPrefabParent: 0
