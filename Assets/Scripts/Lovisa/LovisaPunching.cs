@@ -34,7 +34,7 @@ public class LovisaPunching : MonoBehaviour
     LovisaMovement lovisaMovement;                  // Reference to the LovsaMovement object
     Rigidbody rigidBody;                            // Reference to the rigidBody object
     GameObject closestEnemy;                        // Refrencee to the closest enemy
-    
+    GameObject inventoryInspector;
 
     void Awake()
     {
@@ -42,6 +42,7 @@ public class LovisaPunching : MonoBehaviour
         animator = GetComponent<Animator>();
         lovisaMovement = GetComponent<LovisaMovement>();
         rigidBody = GetComponent<Rigidbody>();
+        inventoryInspector = GameObject.FindGameObjectWithTag("InventoryInspector");
         Cursor.visible = false;
         isKicking = false;
         superPunch = false;
@@ -78,7 +79,8 @@ public class LovisaPunching : MonoBehaviour
         }
 
         // Change to slow-motion if a kick-session is active.
-        if(slowMoTimer < 5)
+        //if (slowMoTimer < 5 && inventoryInspector != null)
+        if (slowMoTimer < 5)
         {
             RunSlowMotion();
         }

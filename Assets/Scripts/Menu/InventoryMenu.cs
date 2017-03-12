@@ -13,6 +13,7 @@ public class InventoryMenu : MonoBehaviour {
     public string[] texts;
 
     Image image;
+    Text itemNumber;
     Text title;
     Text text;
 
@@ -22,6 +23,7 @@ public class InventoryMenu : MonoBehaviour {
     void Start()
     {
         image = inventoryUI.GetComponentsInChildren<Image>()[1];
+        itemNumber = inventoryUI.GetComponentsInChildren<Text>()[0];
         title = inventoryUI.GetComponentsInChildren<Text>()[1];
         text = inventoryUI.GetComponentsInChildren<Text>()[2];
 
@@ -75,34 +77,42 @@ public class InventoryMenu : MonoBehaviour {
     /// <param name="paused"></param>
     void PauseGame(bool paused)
     {
-        // Stop/continue enemy movevemt
-        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enemy in enemies)
-        {
-            enemy.GetComponent<NavMeshAgent>().enabled = !paused;
+        //// Stop/continue enemy movevemt
+        //var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        //foreach (GameObject enemy in enemies)
+        //{
+        //    enemy.GetComponent<NavMeshAgent>().enabled = !paused;
+        //}
+
+        //// Stop/resume Fanton movement
+        //GameObject.FindGameObjectWithTag("Fanton").GetComponent<NavMeshAgent>().enabled = !paused;
+
+        //// Stop/resume Lovisa movement
+        //GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().enabled = !paused;
+
+        //// Stop/continue spawning enemies
+        //enemyManager.SetActive(!paused);
+        var audioSource = GameObject.Find("BackgroundMusic").GetComponent<AudioSource>();
+        if (paused) {
+            Time.timeScale = 0.000001f;
+        }
+        else {
+            Time.timeScale = 1f;
         }
 
-        // Stop/resume Fanton movement
-        GameObject.FindGameObjectWithTag("Fanton").GetComponent<NavMeshAgent>().enabled = !paused;
-
-        // Stop/resume Lovisa movement
-        GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().enabled = !paused;
-
-        // Stop/continue spawning enemies
-        enemyManager.SetActive(!paused);
     }
 
     void ShowInventoryInspector(int keyPressed)
     {
         PauseGame(true);
-        Cursor.visible = true;
-
+        
         // Brings up the inventory window
         inventoryUI.SetActive(true);
 
         // Set the windows image and text
         int i = keyPressed - 1;
         image.sprite = images[i];
+        itemNumber.text = "Iventory item " + keyPressed.ToString();
         title.text = titles[i];
         text.text = texts[i];
     }

@@ -60,16 +60,17 @@ MonoBehaviour:
   - {fileID: 21300000, guid: aa78f550ab62a0f4ea4d1a3de2da5274, type: 3}
   - {fileID: 21300000, guid: a7182197c719977468cdcf6a74f74488, type: 3}
   titles:
-  - Drivelicense
+  - Drivers license
   - Watch
   - iPhone
   - Credit card
   - Gold chain
   - Weed
   texts:
-  - Don't wanna lose the fucking drivelicense!
-  - Don't wanna lose the fucking clock!
-  - Don't wanna lose the fucking iPhone!
+  - A genuine drivers license issued by the Swedish goverment agency Transportstyrelsen.
+    Belongs to Lovisa Martinsson.
+  - 'Vale: 250 euro              Place: vrist'
+  - 'Place of origin: handbag          Value: 390 euro'
   - Don't wanna lose the fucking credit card!
   - Don't wanna lose the fucking credit card!
   - Don't wanna lose the fucking credit card!
