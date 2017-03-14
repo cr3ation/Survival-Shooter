@@ -14,6 +14,7 @@ public class FantonHealth : MonoBehaviour
     public float flashSpeed = 5f;                               // The speed the damageImage will fade at.
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);     // The colour the damageImage is set to, to flash.
     public static bool haveDrugs = false;
+    public static bool haveShirt = false;
 
 
     AudioSource audioSource;                                    // Reference to the AudioSource component.
@@ -28,6 +29,7 @@ public class FantonHealth : MonoBehaviour
     int itemsLeft = 5;
     float lifePerItem;
     float drugsLife;
+    float shirtLife;
 
 
     void Awake()
@@ -42,6 +44,7 @@ public class FantonHealth : MonoBehaviour
         currentHealth = startingHealth;
         lifePerItem = (float)startingHealth / 5.0f;
         drugsLife = lifePerItem;
+        shirtLife = lifePerItem;
         isDead = false;
     }
 
@@ -87,11 +90,18 @@ public class FantonHealth : MonoBehaviour
         // If the shield is down start taking damage to inventory
         if(noShield)
         {
-            // If there is no drugs in the inventory, start dealing damage to other items.
-            if(!haveDrugs)
+            // If there is no drugs or shirt in the inventory, start dealing damage to other items.
+            if(!haveDrugs && !haveShirt)
             {
                 currentHealth -= amount;
                 itemsLeft = (int)Mathf.Ceil((float)currentHealth / lifePerItem);
+            }
+            // If the player has shirt, deal damage to that first.
+            else if(haveShirt)
+            {
+                shirtLife -= amount;
+                if (shirtLife < 1)
+                    haveShirt = false;
             }
             // If the player has drugs, deal damage to those first.
             else
@@ -185,6 +195,11 @@ public class FantonHealth : MonoBehaviour
         if(haveDrugs && drugsLife > 1)
         {
             items.transform.GetChild(1).GetChild(5).GetComponent<Image>().color = newColor;
+        }
+        // Set the shirt color.
+        if(haveShirt && shirtLife > 1)
+        {
+            items.transform.GetChild(1).GetChild(6).GetComponent<Image>().color = newColor;
         }
 
 
