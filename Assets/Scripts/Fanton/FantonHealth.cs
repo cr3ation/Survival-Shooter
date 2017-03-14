@@ -19,7 +19,7 @@ public class FantonHealth : MonoBehaviour
     AudioSource audioSource;                                    // Reference to the AudioSource component.
     FantonMovement fantonMovement;                              // Reference to the fanton's movement.
     UnityEngine.AI.NavMeshAgent nav;
-    bool isDead;                                                // Whether the player is dead.
+    public static bool isDead;                                                // Whether the player is dead.
     Animator animator;
     bool damaged = false;                                       // True when the player gets damaged.
     bool noShield = false;
@@ -42,6 +42,7 @@ public class FantonHealth : MonoBehaviour
         currentHealth = startingHealth;
         lifePerItem = (float)startingHealth / 5.0f;
         drugsLife = lifePerItem;
+        isDead = false;
     }
 
 

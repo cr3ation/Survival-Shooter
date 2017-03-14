@@ -10,7 +10,6 @@ public class GoToMenuScene : MonoBehaviour {
     Text txt;
     bool change;
     bool startChange;
-    bool startBlink;
     bool fadeIn;
 
     float timerChange;
@@ -24,7 +23,6 @@ public class GoToMenuScene : MonoBehaviour {
     // Use this for initialization
     void Start () {
         startChange = false;
-        startBlink = false;
         fadeIn = true;
         timerChange = 0;
         timerAnyKey = 0;
