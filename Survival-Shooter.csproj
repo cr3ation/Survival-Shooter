@@ -123,6 +123,7 @@
     <Compile Include="Assets\Scripts\Managers\BackgroundMusicManager.cs" />
     <Compile Include="Assets\Scripts\Managers\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\Managers\GameOverManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\JohanManager.cs" />
     <Compile Include="Assets\Scripts\Managers\KeyBindManager.cs" />
     <Compile Include="Assets\Scripts\Managers\KickSliderManager.cs" />
     <Compile Include="Assets\Scripts\Managers\LeaderboardManager.cs" />
