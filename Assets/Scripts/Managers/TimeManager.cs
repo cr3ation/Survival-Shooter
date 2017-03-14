@@ -21,7 +21,10 @@ public class TimeManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        seconds += Time.deltaTime;
+        if(!FantonHealth.isDead)
+        {
+            seconds += Time.deltaTime;
+        }
         if (seconds >= 60)
         {
             seconds = 0;
