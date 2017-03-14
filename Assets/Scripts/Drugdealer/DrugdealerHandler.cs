@@ -7,17 +7,22 @@ public class DrugdealerHandler : MonoBehaviour {
     public GameObject spawnPoints;
     private bool hasDrugs = true;
 
-	// Use this for initialization
-	void Start () {
+    AudioSource audioSource;                                    // Reference to the AudioSource component.
+    public AudioClip weedClip;                                 
+
+    // Use this for initialization
+    void Start () {
         // Randomize the starting position.
         int spawnAt = (int)Mathf.Round(Random.Range(0, spawnPoints.transform.childCount));
-        print("Drugdealer spawnpos: " + spawnAt);
+        //print("Drugdealer spawnpos: " + spawnAt);
         transform.position = spawnPoints.transform.GetChild(spawnAt).position;
         transform.rotation = spawnPoints.transform.GetChild(spawnAt).rotation;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    // Update is called once per frame
+    void Update () {
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,6 +32,10 @@ public class DrugdealerHandler : MonoBehaviour {
         {
             FantonHealth.haveDrugs = true;
             hasDrugs = false;
+
+            // Set the audiosource to play the death clip and play it
+            audioSource.clip = weedClip;
+            audioSource.Play();
         }
     }
 }
