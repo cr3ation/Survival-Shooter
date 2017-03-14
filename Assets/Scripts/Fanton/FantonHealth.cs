@@ -32,6 +32,7 @@ public class FantonHealth : MonoBehaviour
     float shirtLife;
 
     float moneyBlinkTimer = 9999.9f;
+    float deadTimer = 0;
 
 
     void Awake()
@@ -89,7 +90,20 @@ public class FantonHealth : MonoBehaviour
             float greenBlueValue = Mathf.Lerp(0.0f, 1.0f, moneyBlinkTimer*2);
             money.color = new Color(1.0f, greenBlueValue, greenBlueValue);
         }
-        
+
+        if(isDead)
+        {
+            if(deadTimer > 2 && deadTimer < 100)
+            {
+                // Set the audiosource to play the death clip and play it (this will stop the hurt sound from playing).
+                audioSource.clip = deathClip;
+                audioSource.Play();
+                deadTimer = 1000;
+            }
+            deadTimer += Time.unscaledDeltaTime;
+        }
+
+
     }
 
 
@@ -234,10 +248,6 @@ public class FantonHealth : MonoBehaviour
 
         // Tell the animator that the player is dead.
         animator.SetTrigger("Dead");
-
-        // Set the audiosource to play the death clip and play it (this will stop the hurt sound from playing).
-        audioSource.clip = deathClip;
-        audioSource.Play();
 
         // Turn off the movement
         fantonMovement.enabled = false;
