@@ -20,6 +20,8 @@ public class EnemyHealth : MonoBehaviour
     float timer;
     Text money;
 
+    float moneyBlinkTimer = 9999.9f;
+
 
     void Awake()
     {
@@ -53,6 +55,14 @@ public class EnemyHealth : MonoBehaviour
                 anim.SetLayerWeight(2, Mathf.Lerp(0, 1, timer * 3));
             else
                 anim.SetLayerWeight(2, Mathf.Lerp(1, 0, (timer - 1.3f) / 2));
+        }
+
+        // Start a green blink-animation of the money-text.
+        if(isDead)
+        {
+            float redBlueValue = Mathf.Lerp(0.0f, 1.0f, moneyBlinkTimer * 3);
+            money.color = new Color(redBlueValue, 1.0f, redBlueValue);
+            moneyBlinkTimer += Time.deltaTime;
         }
     }
 
@@ -101,6 +111,8 @@ public class EnemyHealth : MonoBehaviour
     {
         // The enemy is dead.
         isDead = true;
+
+        moneyBlinkTimer = 0.0f;
 
         // Remove the "Enemy" tag so that Lovisa does not keep on punching the dead body.
         this.tag = "Untagged";

@@ -31,6 +31,8 @@ public class FantonHealth : MonoBehaviour
     float drugsLife;
     float shirtLife;
 
+    float moneyBlinkTimer = 9999.9f;
+
 
     void Awake()
     {
@@ -52,6 +54,7 @@ public class FantonHealth : MonoBehaviour
     void Update()
     {
         noShieldBlinkTimer += Time.deltaTime;
+        moneyBlinkTimer += Time.deltaTime;
 
         if (damageImage == null) return;
         // If the player has just been damaged...
@@ -79,6 +82,14 @@ public class FantonHealth : MonoBehaviour
             noShield = false;
             BlinkItems(true);
         }
+
+        // Blink the color of the money-text in red.
+        if(moneyBlinkTimer < 0.5f)
+        {
+            float greenBlueValue = Mathf.Lerp(0.0f, 1.0f, moneyBlinkTimer*2);
+            money.color = new Color(1.0f, greenBlueValue, greenBlueValue);
+        }
+        
     }
 
 
@@ -87,8 +98,11 @@ public class FantonHealth : MonoBehaviour
         // Set the damaged flag so the screen will flash.
         damaged = true;
 
+        // Start the red blink-animation of money-text.
+        moneyBlinkTimer = 0;
+
         // If the shield is down start taking damage to inventory
-        if(noShield)
+        if (noShield)
         {
             // If there is no drugs or shirt in the inventory, start dealing damage to other items.
             if(!haveDrugs && !haveShirt)
