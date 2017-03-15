@@ -8,7 +8,7 @@ public class GraphicsMenu : MonoBehaviour {
     public Dropdown quality;
     public Toggle windowed;
     public GameObject keyBindings;
-
+    public Slider audioSlider;
 
 	// Use this for initialization
 	void Start () {
@@ -45,6 +45,11 @@ public class GraphicsMenu : MonoBehaviour {
         // Window mode
         windowed.isOn = !Screen.fullScreen;
 
+        // Audio slider
+        audioSlider.value = PlayerPrefs.GetFloat("Volume", 1);
+
+        // Reference to the Audio Source
+
         quality.RefreshShownValue();
         resolution.RefreshShownValue();
     }
@@ -65,6 +70,14 @@ public class GraphicsMenu : MonoBehaviour {
     public void SetQuality()
     {
         QualitySettings.SetQualityLevel(quality.value);
+    }
+
+    public void SetMasterVolume(Slider volume)
+    {
+        var audioSource = GameObject.Find("BackgroundMusic").GetComponent<AudioSource>();
+        audioSource.volume = volume.value;
+        PlayerPrefs.SetFloat("Volume", volume.value);
+
     }
 
     public void Save()
