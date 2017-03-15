@@ -131,6 +131,7 @@
     <Compile Include="Assets\Scripts\Managers\PunchSliderManager.cs" />
     <Compile Include="Assets\Scripts\Managers\RageManager.cs" />
     <Compile Include="Assets\Scripts\Managers\ScoreManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\TequilaHandler.cs" />
     <Compile Include="Assets\Scripts\Managers\TimeManager.cs" />
     <Compile Include="Assets\Scripts\Managers\VideoFrameManager.cs" />
     <Compile Include="Assets\Scripts\Managers\VideoManager.cs" />
