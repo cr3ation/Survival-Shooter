@@ -300,7 +300,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 70096a4d020c83c46bbdb2ae94b83045, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -419,9 +419,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundMusic:
-  - {fileID: 0}
-  - {fileID: 8300000, guid: bfcde8a78ca342a43ae515ba05bc91ff, type: 3}
-  - {fileID: 8300000, guid: 39b412c1c56790d47987bafc045ab187, type: 3}
+  - {fileID: 8300000, guid: 70096a4d020c83c46bbdb2ae94b83045, type: 3}
+  - {fileID: 8300000, guid: a57bc9eb082cd0947a86f524dfd04709, type: 3}
+  - {fileID: 8300000, guid: ab6265fd08fe3474a8081f46b36f778b, type: 3}
+  - {fileID: 8300000, guid: f432caa4fc84b1f42a8ff51308abb2fe, type: 3}
+  - {fileID: 8300000, guid: 745386f1aa8babd49ab8fe3dc3c7694a, type: 3}
+  - {fileID: 8300000, guid: e983296a8b43b5a4c96542357fffad0d, type: 3}
+  - {fileID: 8300000, guid: bc270f7ec6e3a3f40bd568814100d188, type: 3}
+  - {fileID: 8300000, guid: 4405f1e1b3fa79e42b7bad4101123ce6, type: 3}
+  - {fileID: 8300000, guid: a48aae2c9168fe3479ea6aee1d98ceea, type: 3}
 --- !u!1 &183616848
 GameObject:
   m_ObjectHideFlags: 0
