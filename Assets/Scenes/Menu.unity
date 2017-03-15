@@ -269,7 +269,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 70096a4d020c83c46bbdb2ae94b83045, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -388,9 +388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundMusic:
-  - {fileID: 8300000, guid: caffb6e0223c82b4a9fc97649e729ea1, type: 3}
-  - {fileID: 8300000, guid: bfcde8a78ca342a43ae515ba05bc91ff, type: 3}
-  - {fileID: 8300000, guid: 39b412c1c56790d47987bafc045ab187, type: 3}
+  - {fileID: 8300000, guid: 45ac2064b154335488505e6a1c0b38e6, type: 3}
 --- !u!114 &192668759 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114193245788329728, guid: 0389d54ed9c03084d944e0bba6109930,
