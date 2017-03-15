@@ -8,9 +8,12 @@ public class BackgroundMusicManager : MonoBehaviour {
     public AudioClip[] backgroundMusic;
 
     AudioSource source;
-	// Use this for initialization
+	
+    // Use this for initialization
 	void Start () {
+        var volume = PlayerPrefs.GetFloat("Volume", 1f);
         source = GetComponent<AudioSource>();
+        source.volume = volume;
 	}
 	
 	// Update is called once per frame
