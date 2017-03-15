@@ -5,12 +5,12 @@ using UnityEngine;
 public class JohanManager : MonoBehaviour {
 
     public GameObject spawnPoints;
+    public AudioClip[] voices;
+
     private bool hasShirt = true;
     private Animator anim;
 
     AudioSource audioSource;                                    // Reference to the AudioSource component.
-    public AudioClip lovisaClip1;
-    public AudioClip lovisaClip2;
 
     // Use this for initialization
     void Start () {
@@ -42,16 +42,9 @@ public class JohanManager : MonoBehaviour {
             anim.SetTrigger("LostShirt");
 
             // Choose the right flirt-sound to play
-            int rand = Random.Range(1, 100);
-            if (rand < 1)
-            {
-                audioSource.clip = lovisaClip2;
-            }
-            else
-            {
-                audioSource.clip = lovisaClip1;
-                audioSource.volume = 0.5f;
-            }
+            var i = Random.Range(0, voices.Length - 1);
+            audioSource.Stop();
+            audioSource.clip = voices[i];
             audioSource.Play();
 
             // Inactivate the object containing the shirt.
