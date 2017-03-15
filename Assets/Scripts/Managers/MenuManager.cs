@@ -9,11 +9,13 @@ public class MenuManager : MonoBehaviour
     public Canvas playerNameMenu;
     public Canvas highscoreMenu;
     public Canvas settingsMenu;
+    public Canvas tutorialMenu;
     public Canvas quitMenu;
     public Button startButton;
     public Button playerButton;
     public Button highscoreButton;
     public Button settingsButton;
+    public Button tutorialButton;
     public Button exitButton;
 
     // Used by Player Preferences. Don't like strings :)
@@ -30,18 +32,21 @@ public class MenuManager : MonoBehaviour
         playerButton = playerButton.GetComponent<Button>();
         highscoreButton = highscoreButton.GetComponent<Button>();
         settingsButton = settingsButton.GetComponent<Button>();
+        tutorialButton = tutorialButton.GetComponent<Button>();
         exitButton = exitButton.GetComponent<Button>();
 
         // Popup menus
         playerNameMenu = playerNameMenu.GetComponent<Canvas>();
         highscoreMenu = highscoreMenu.GetComponent<Canvas>();
         settingsMenu = settingsMenu.GetComponent<Canvas>();
+        tutorialMenu = tutorialMenu.GetComponent<Canvas>();
         quitMenu = quitMenu.GetComponent<Canvas>();
 
         // Disable popup menus
         playerNameMenu.enabled = false;
         highscoreMenu.enabled = false;
         settingsMenu.enabled = false;
+        tutorialMenu.enabled = false;
         quitMenu.enabled = false;
     }
 
@@ -53,6 +58,11 @@ public class MenuManager : MonoBehaviour
         if (string.IsNullOrEmpty(name))
         {
             PlayerName_Clicked();
+            return;
+        }
+        if (PlayerPrefs.GetInt("Tutorial") == 0)
+        {
+            Tutorial_Clicked();
             return;
         }
         SceneManager.LoadScene(newGameLevel);
@@ -113,6 +123,24 @@ public class MenuManager : MonoBehaviour
     }
     #endregion
 
+    #region Tutorial
+    public void Tutorial_Clicked()
+    {
+        tutorialMenu.enabled = true;
+        EnableStartMenu(false);
+
+        // Store that the tutorial has been opened
+        PlayerPrefs.SetInt("Tutorial", 1);
+    }
+
+    public void CloseTutorial_Clicked()
+    {
+        tutorialMenu.enabled = false;
+        EnableStartMenu(true);
+    }
+
+    #endregion
+
     #region Exit game
     /// <summary>
     /// Brings up an "Are you sure you want to exit?"-menu
@@ -148,6 +176,7 @@ public class MenuManager : MonoBehaviour
         playerButton.enabled = enabled;
         highscoreButton.enabled = enabled;
         settingsButton.enabled = enabled;
+        tutorialButton.enabled = enabled;
         exitButton.enabled = enabled;
     }
     #endregion
