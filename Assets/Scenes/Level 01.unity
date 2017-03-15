@@ -2534,6 +2534,12 @@ Prefab:
       propertyPath: rageText
       value: 
       objectReference: {fileID: 1721433646}
+    - target: {fileID: 114082122927457752, guid: 300bba49a80d30e4c9e11fad614cc85f,
+        type: 2}
+      propertyPath: tequila
+      value: 
+      objectReference: {fileID: 1765864066201350, guid: 72aa84b6efb51d147a96b1d324fe9983,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 300bba49a80d30e4c9e11fad614cc85f, type: 2}
   m_IsPrefabParent: 0

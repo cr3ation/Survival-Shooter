@@ -17,14 +17,17 @@ public class LovisaPunching : MonoBehaviour
     public Text rageText;
     public int currentRage;
     public float cooldown;
+    public GameObject tequila;
 
 
     float punchTimer;                                    // A punchTimer to determine when to fire.
     float animationTimer;                               // A punchTimer to control the punch animations.
     float slowMoTimer;
+    float tequilaTimer;
     //bool is_punching = false;                       // True during the punch
     float distanceToEnemy;                          // Distance to the closest enemy
     //float rotationSpeed = 10f;                      // Speen in witch to rotate
+    bool isTequila;
     bool isKicking;
     bool superPunch;
     bool hasSuperPunched;
@@ -47,6 +50,7 @@ public class LovisaPunching : MonoBehaviour
         Cursor.visible = false;
         isKicking = false;
         superPunch = false;
+        isTequila = false;
         animationTimer = 1000;
         punchTimer = 1000;
         currentRage = 100;
@@ -67,6 +71,7 @@ public class LovisaPunching : MonoBehaviour
         punchTimer += Time.deltaTime;
         animationTimer += Time.deltaTime;
         slowMoTimer += Time.unscaledDeltaTime;
+        tequilaTimer += Time.deltaTime;
         if(cooldown > 0)
             cooldown -= Time.deltaTime * 10;
 
@@ -93,14 +98,35 @@ public class LovisaPunching : MonoBehaviour
             RunSlowMotion();
         }
 
+        // Stop the tequila-phase for Lovisa.
+        if (isTequila && tequilaTimer > 1.31f)
+        {
+            isTequila = false;
+            lovisaMovement.speed = 6.0f;
+        }
+        // Place the tequila object.
+        else if(isTequila && tequilaTimer > 0.7f)
+        {
+            tequila.SetActive(true);
+            tequila.transform.position = transform.position;
+        }
+        
+        // Initiate the tequila-attack.
+        if(Input.GetButton("Submit") && tequilaTimer > 1)
+        {
+            tequilaTimer = 0;
+            animator.SetTrigger("PutDown");
+            lovisaMovement.speed = 0.0f;
+            Instantiate(tequila, transform.position, transform.rotation);
+            isTequila = true;
+        }
         // Initiate a kick if the player has enough rage.
-        if (!isKicking && (Input.GetButton("Fire2") || Input.GetKey(keys["RageKick"])) && currentRage >= 100)
+        else if (!isKicking && (Input.GetButton("Fire2") || Input.GetKey(keys["RageKick"])) && currentRage >= 100)
         {
             animator.SetTrigger("Kick");
             currentRage = 0;
             isKicking = true;
             kickNumber = 0;
-            lovisaMovement.speed = 0f;
             punchTimer = 0;
             slowMoTimer = 0;
         }
@@ -155,7 +181,7 @@ public class LovisaPunching : MonoBehaviour
                 lovisaMovement.speed = 6f;
             }
         }
-        else
+        else if(!isTequila)
         {
             ExecuteKicks();
         }
