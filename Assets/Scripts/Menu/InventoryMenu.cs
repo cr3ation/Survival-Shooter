@@ -53,6 +53,10 @@ public class InventoryMenu : MonoBehaviour {
         {
             ShowInventoryInspector(6);
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            ShowInventoryInspector(7);
+        }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
             CloseInventory();

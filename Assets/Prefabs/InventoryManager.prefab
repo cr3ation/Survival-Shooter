@@ -59,6 +59,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2ab45f522b9e99346bf5c32e16888d56, type: 3}
   - {fileID: 21300000, guid: aa78f550ab62a0f4ea4d1a3de2da5274, type: 3}
   - {fileID: 21300000, guid: a7182197c719977468cdcf6a74f74488, type: 3}
+  - {fileID: 21300000, guid: b387b834f3914b347996aba49a3cf795, type: 3}
   titles:
   - Drivers license
   - Watch
@@ -66,6 +67,7 @@ MonoBehaviour:
   - Credit card
   - Golden necklace
   - Weed
+  - Shirt of Canada
   texts:
   - A genuine drivers license issued by the Swedish goverment agency Transportstyrelsen.
     Belongs to Lovisa Martinsson.
@@ -78,3 +80,5 @@ MonoBehaviour:
   - Special item. Make life easier and adds additional HP. Not always in Fantons possesion.
     Can be bought by random mystic figure somewhere in Barcelona. One need to find
     tobacco and a lighter to use item. Can be found no where.
+  - Special item. Adds additional HP when warn. Can be achived if Lovisa finds the
+    Canadian lover Johan who spawns somwhere in Barcelona.
