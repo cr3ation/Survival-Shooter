@@ -2363,6 +2363,7 @@ MonoBehaviour:
   rageSlider: {fileID: 0}
   superPunchSlider: {fileID: 0}
   tequilaSlider: {fileID: 0}
+  tequilaCooldown: 120
   rageText: {fileID: 0}
   currentRage: 0
   cooldown: 0
