@@ -58,5 +58,6 @@ MonoBehaviour:
   punch: {fileID: 0}
   specialPunch: {fileID: 0}
   rageKick: {fileID: 0}
+  tequila: {fileID: 0}
   zoomIn: {fileID: 0}
   zoomOut: {fileID: 0}

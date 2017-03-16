@@ -15,6 +15,7 @@ public class LovisaPunching : MonoBehaviour
     public Slider rageSlider;                                 // Reference to the UI's rage bar.
     public Slider superPunchSlider;
     public Slider tequilaSlider;
+    public float tequilaCooldown;                   // Cooldown time for the tequila
     public Text rageText;
     public int currentRage;
     public float cooldown;
@@ -64,6 +65,7 @@ public class LovisaPunching : MonoBehaviour
         keys.Add("Punch", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Punch", "H")));
         keys.Add("SpecialPunch", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SpecialPunch", "J")));
         keys.Add("RageKick", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("RageKick", "K")));
+        keys.Add("Tequila", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Tequila", "T")));
     }
 
     void Update()
@@ -80,7 +82,7 @@ public class LovisaPunching : MonoBehaviour
         // Update UI sliders
         rageSlider.value = currentRage;
         superPunchSlider.value = 100 - cooldown;
-        tequilaSlider.value = (tequilaTimer / 120.0f) * 100.0f;
+        tequilaSlider.value = (tequilaTimer / tequilaCooldown) * 100.0f;
 
         // Find closest enemy
         closestEnemy = FindClosestEnemy();
@@ -116,7 +118,7 @@ public class LovisaPunching : MonoBehaviour
         }
 
         // Initiate the tequila-attack.
-        if (Input.GetButton("Jump") && tequilaTimer > 1)
+        if ((Input.GetButton("Jump") || Input.GetKey(keys["Tequila"])) && tequilaTimer > 1)
         {
             tequilaTimer = 0;
             animator.SetTrigger("PutDown");
