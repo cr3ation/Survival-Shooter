@@ -30,7 +30,7 @@ public class TequilaHandler : MonoBehaviour {
         // Cause damage to enemies.
         else if(destroy && !enemiesKilled)
         {
-            if(particleTimer >= (activateTime + 0.5f))
+            if(particleTimer >= (activateTime + 0.25f))
             {
                 GameObject[] tequilaEnemies = GameObject.FindGameObjectsWithTag("Enemy");
                 foreach (GameObject enemy in tequilaEnemies)

@@ -42,7 +42,7 @@ public class EnemyMovement : MonoBehaviour
         {
             nav.SetDestination (player.position);
         }
-        else if(!goToTequila)
+        else if(enemyHealth.currentHealth <= 0 || fantonHealth.currentHealth <= 0)
         {
             nav.enabled = false;
         }
