@@ -41,11 +41,13 @@ MonoBehaviour:
   playerNameMenu: {fileID: 0}
   highscoreMenu: {fileID: 0}
   settingsMenu: {fileID: 0}
+  tutorialMenu: {fileID: 0}
   quitMenu: {fileID: 0}
   startButton: {fileID: 0}
   playerButton: {fileID: 0}
   highscoreButton: {fileID: 0}
   settingsButton: {fileID: 0}
+  tutorialButton: {fileID: 0}
   exitButton: {fileID: 0}
 --- !u!224 &224079543614454508
 RectTransform:
