@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
     EnemyHealth enemyHealth;
     UnityEngine.AI.NavMeshAgent nav;
     Animator anim;                              // Reference to the animator.
+    bool goToTequila = false;
 
 
     void Awake ()
@@ -22,12 +23,26 @@ public class EnemyMovement : MonoBehaviour
 
     void Update ()
     {
+        GameObject tequila = GameObject.FindGameObjectWithTag("Tequila");
+        if(tequila != null)
+        {
+            if(Vector3.Distance(tequila.transform.position, transform.position) < 10)
+            {
+                goToTequila = true;
+                if(nav.enabled)
+                    nav.SetDestination(tequila.transform.position);
+            }
+        }
+        else
+        {
+            goToTequila = false;
+        }
 
-        if(enemyHealth.currentHealth > 0 && fantonHealth.currentHealth > 0 && nav.enabled)
+        if(enemyHealth.currentHealth > 0 && fantonHealth.currentHealth > 0 && nav.enabled && !goToTequila)
         {
             nav.SetDestination (player.position);
         }
-        else
+        else if(!goToTequila)
         {
             nav.enabled = false;
         }
