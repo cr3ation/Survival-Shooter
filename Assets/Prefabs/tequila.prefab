@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 114101982807395268}
   m_Layer: 0
   m_Name: tequila
-  m_TagString: Untagged
+  m_TagString: Tequila
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,9 +94,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1765864066201350}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -6.7410936, y: -0.2495222, z: 6.7270975}
-  m_LocalScale: {x: 19.65391, y: 19.65391, z: 19.65391}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.252838, y: -0.2495222, z: 10.5503235}
+  m_LocalScale: {x: 12, y: 12, z: 12}
   m_Children:
   - {fileID: 4540525421654462}
   - {fileID: 4275531139542842}
