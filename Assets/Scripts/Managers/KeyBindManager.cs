@@ -17,9 +17,9 @@ public class KeyBindManager : MonoBehaviour {
         keys.Add("Down", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Down", "S")));
         keys.Add("Left", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left", "A")));
         keys.Add("Right", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right", "D")));
-        keys.Add("Punch", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Punch", "H")));
-        keys.Add("SpecialPunch", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SpecialPunch", "J")));
-        keys.Add("RageKick", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("RageKick", "K")));
+        keys.Add("Punch", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Punch", "Space")));
+        keys.Add("SpecialPunch", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SpecialPunch", "LeftAlt")));
+        keys.Add("RageKick", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("RageKick", "LeftControl")));
         keys.Add("Tequila", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Tequila", "T")));
         keys.Add("ZoomIn", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("ZoomIn", "Alpha9")));
         keys.Add("ZoomOut", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("ZoomOut", "Alpha0")));
@@ -90,9 +90,9 @@ public class KeyBindManager : MonoBehaviour {
         keys["Down"] = KeyCode.S;
         keys["Left"] = KeyCode.A;
         keys["Right"] = KeyCode.D;
-        keys["Punch"] = KeyCode.H;
-        keys["SpecialPunch"] = KeyCode.J;
-        keys["RageKick"] = KeyCode.K;
+        keys["Punch"] = KeyCode.Space;
+        keys["SpecialPunch"] = KeyCode.LeftAlt;
+        keys["RageKick"] = KeyCode.LeftControl;
         keys["Tequila"] = KeyCode.T;
         keys["ZoomIn"] = KeyCode.Alpha9;
         keys["ZoomOut"] = KeyCode.Alpha0;
@@ -107,9 +107,9 @@ public class KeyBindManager : MonoBehaviour {
         keys.Add("Down", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Down", "S")));
         keys.Add("Left", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left", "A")));
         keys.Add("Right", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right", "D")));
-        keys.Add("Punch", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Punch", "H")));
-        keys.Add("SpecialPunch", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SpecialPunch", "J")));
-        keys.Add("RageKick", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("RageKick", "K")));
+        keys.Add("Punch", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Punch", "Space")));
+        keys.Add("SpecialPunch", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SpecialPunch", "LeftAlt")));
+        keys.Add("RageKick", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("RageKick", "LeftControl")));
         keys.Add("Tequila", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Tequila", "T")));
         keys.Add("ZoomIn", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("ZoomIn", "Alpha9")));
         keys.Add("ZoomOut", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("ZoomOut", "Alpha0")));
