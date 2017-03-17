@@ -29,9 +29,12 @@ public class LeaderboardManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        // Clear the leadboard
-        playerNamesList.text = string.Empty;
-        scoresList.text = string.Empty;
+        // Clear the leadboard. No need if only adding score
+        if (!addScores)
+        {
+            playerNamesList.text = string.Empty;
+            scoresList.text = string.Empty;
+        }
 
         // Saved name and score
         var playerName = PlayerPrefs.GetString("PlayerName");
@@ -44,17 +47,16 @@ public class LeaderboardManager : MonoBehaviour {
         if (addScores && !string.IsNullOrEmpty(playerName))
         {
             StartCoroutine(IAddScore(playerName, score));
-            StartCoroutine(ILoadScores());
         }
         else
         {
-            StartCoroutine(ILoadScores());
+            StartCoroutine(IGetScore());
         }
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (stopWorking == true) return;
+        if (addScores == true || stopWorking == true) return;
         if (ToListHighToLow().Count > 0)
         {
             stopWorking = true;
@@ -89,7 +91,7 @@ public class LeaderboardManager : MonoBehaviour {
     {
         highscores.Clear();
         highScores = "";    
-        StartCoroutine(ILoadScores());
+        StartCoroutine(IGetScore());
     }
 
     #region Talk to leaderboard
@@ -100,7 +102,7 @@ public class LeaderboardManager : MonoBehaviour {
         yield return www;
     }
 
-    IEnumerator ILoadScores()
+    IEnumerator IGetScore()
     {
         var url = dreamloWebserviceURL + publicKey + "/pipe";
         WWW www = new WWW(url);
