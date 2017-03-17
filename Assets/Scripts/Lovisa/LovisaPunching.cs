@@ -62,9 +62,9 @@ public class LovisaPunching : MonoBehaviour
         slowMoTimer = 5f;
 
         // Key kontroller
-        keys.Add("Punch", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Punch", "H")));
-        keys.Add("SpecialPunch", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SpecialPunch", "J")));
-        keys.Add("RageKick", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("RageKick", "K")));
+        keys.Add("Punch", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Punch", "Space")));
+        keys.Add("SpecialPunch", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SpecialPunch", "LeftAlt")));
+        keys.Add("RageKick", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("RageKick", "LeftControl")));
         keys.Add("Tequila", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Tequila", "T")));
     }
 
