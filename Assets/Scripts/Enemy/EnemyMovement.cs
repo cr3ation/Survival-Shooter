@@ -9,6 +9,7 @@ public class EnemyMovement : MonoBehaviour
     UnityEngine.AI.NavMeshAgent nav;
     Animator anim;                              // Reference to the animator.
     bool goToTequila = false;
+    public static float tequilaRange = 10;
 
 
     void Awake ()
@@ -26,7 +27,7 @@ public class EnemyMovement : MonoBehaviour
         GameObject tequila = GameObject.FindGameObjectWithTag("Tequila");
         if(tequila != null)
         {
-            if(Vector3.Distance(tequila.transform.position, transform.position) < 10)
+            if(Vector3.Distance(tequila.transform.position, transform.position) < tequilaRange)
             {
                 goToTequila = true;
                 if(nav.enabled)
