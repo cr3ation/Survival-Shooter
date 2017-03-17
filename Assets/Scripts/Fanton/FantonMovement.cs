@@ -41,7 +41,7 @@ public class FantonMovement : MonoBehaviour
         if (fantonHealth.currentHealth > 0 && nav.enabled)
         {
             nav.SetDestination(target.position);
-            if (Vector3.Distance(transform.position, target.position) <= 2f)
+            if (Vector3.Distance(transform.position, target.position) <= 3.5f)
             {
                 target = GetNextWaypoint(randomizedPath);
             }

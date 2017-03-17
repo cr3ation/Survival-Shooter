@@ -140,6 +140,7 @@
     <Compile Include="Assets\Scripts\Menu\InventoryMenu.cs" />
     <Compile Include="Assets\Scripts\Menu\TutorialMenu.cs" />
     <Compile Include="Assets\SpecialPunchSliderHandler.cs" />
+    <Compile Include="Assets\TequilaSliderManager.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\TutorialInfo.cs" />
     <Compile Include="Assets\Waypoints.cs" />
     <Compile Include="Assets\_CompletedAssets\MobileInput\Scripts\CrossPlatformInputManager.cs" />

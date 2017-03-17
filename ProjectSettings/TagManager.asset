@@ -9,6 +9,7 @@ TagManager:
   - EnemyManager
   - InventoryInspector
   - VideoCanvas
+  - Tequila
   layers:
   - Default
   - TransparentFX

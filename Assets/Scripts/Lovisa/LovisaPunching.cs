@@ -14,6 +14,8 @@ public class LovisaPunching : MonoBehaviour
     public float rotationRange = 4f;                // The distance to an enemy when player starts to rotate
     public Slider rageSlider;                                 // Reference to the UI's rage bar.
     public Slider superPunchSlider;
+    public Slider tequilaSlider;
+    public float tequilaCooldown;                   // Cooldown time for the tequila
     public Text rageText;
     public int currentRage;
     public float cooldown;
@@ -63,6 +65,7 @@ public class LovisaPunching : MonoBehaviour
         keys.Add("Punch", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Punch", "H")));
         keys.Add("SpecialPunch", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SpecialPunch", "J")));
         keys.Add("RageKick", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("RageKick", "K")));
+        keys.Add("Tequila", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Tequila", "T")));
     }
 
     void Update()
@@ -71,13 +74,15 @@ public class LovisaPunching : MonoBehaviour
         punchTimer += Time.deltaTime;
         animationTimer += Time.deltaTime;
         slowMoTimer += Time.unscaledDeltaTime;
-        tequilaTimer += Time.deltaTime;
+        if(tequilaTimer < 120)
+            tequilaTimer += Time.deltaTime;
         if(cooldown > 0)
             cooldown -= Time.deltaTime * 10;
 
         // Update UI sliders
         rageSlider.value = currentRage;
         superPunchSlider.value = 100 - cooldown;
+        tequilaSlider.value = (tequilaTimer / tequilaCooldown) * 100.0f;
 
         // Find closest enemy
         closestEnemy = FindClosestEnemy();
@@ -98,26 +103,27 @@ public class LovisaPunching : MonoBehaviour
             RunSlowMotion();
         }
 
+
+        // Place the tequila object.
+        else if(isTequila && tequilaTimer > 0.7f && GameObject.FindGameObjectWithTag("Tequila") == null)
+        {
+            Vector3 pos = transform.position + new Vector3(0, 0.16f, 0);
+            Instantiate(tequila, pos, Quaternion.Euler(new Vector3(-90,0,0)));
+        }
         // Stop the tequila-phase for Lovisa.
         if (isTequila && tequilaTimer > 1.31f)
         {
             isTequila = false;
             lovisaMovement.speed = 6.0f;
         }
-        // Place the tequila object.
-        else if(isTequila && tequilaTimer > 0.7f)
-        {
-            tequila.SetActive(true);
-            tequila.transform.position = transform.position;
-        }
-        
+
         // Initiate the tequila-attack.
-        if(Input.GetButton("Submit") && tequilaTimer > 1)
+        if ((Input.GetButton("Jump") || Input.GetKey(keys["Tequila"])) && tequilaTimer >= tequilaCooldown - 0.5f)
         {
             tequilaTimer = 0;
             animator.SetTrigger("PutDown");
             lovisaMovement.speed = 0.0f;
-            Instantiate(tequila, transform.position, transform.rotation);
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             isTequila = true;
         }
         // Initiate a kick if the player has enough rage.
@@ -144,7 +150,7 @@ public class LovisaPunching : MonoBehaviour
         {
             ExecuteSuperPunch();
         }
-        else if (!isKicking && !superPunch)
+        else if (!isKicking && !superPunch && !isTequila)
         {
             // If Lovisa is not punching at the moment, start punching.
             if ((Input.GetButton("Fire1") || Input.GetKey(keys["Punch"])) && !animator.GetBool("IsPunching"))

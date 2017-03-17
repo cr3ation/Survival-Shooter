@@ -2358,13 +2358,16 @@ MonoBehaviour:
   damageSuperPunch: 200
   timeBetweenPunches: 0.2
   range: 3
-  kickRange: 4
+  kickRange: 5
   rotationRange: 4
   rageSlider: {fileID: 0}
   superPunchSlider: {fileID: 0}
+  tequilaSlider: {fileID: 0}
+  tequilaCooldown: 120
   rageText: {fileID: 0}
   currentRage: 0
   cooldown: 0
+  tequila: {fileID: 1765864066201350, guid: 72aa84b6efb51d147a96b1d324fe9983, type: 2}
 --- !u!114 &114878141011766472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2376,7 +2379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 049f04140be5da442a4846ba541f410c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 6
   rotationSpeed: 10
 --- !u!136 &136327377477450516
 CapsuleCollider:

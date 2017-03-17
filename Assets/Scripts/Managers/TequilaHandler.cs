@@ -5,6 +5,8 @@ using UnityEngine;
 public class TequilaHandler : MonoBehaviour {
 
     float particleTimer = 0.0f;
+    bool destroy = false;
+    bool enemiesKilled = false;
     public GameObject particles;
 
 	// Use this for initialization
@@ -15,15 +17,34 @@ public class TequilaHandler : MonoBehaviour {
 	void Update () {
 
         particleTimer += Time.deltaTime;
-
-        if (particleTimer >= 15)
+        float activateTime = 5.0f;
+        
+        // Activate the particle effect
+        if (particleTimer >= activateTime && !destroy)
         {
             particles.SetActive(true);
+            destroy = true;
+            //Destroy object after 1 second.
+            Destroy(gameObject, 1);
         }
-        else if(particleTimer >= 18)
+        // Cause damage to enemies.
+        else if(destroy && !enemiesKilled)
         {
-            particles.SetActive(false);
-            Destroy(gameObject, 0.1f);
+            if(particleTimer >= (activateTime + 0.25f))
+            {
+                GameObject[] tequilaEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+                foreach (GameObject enemy in tequilaEnemies)
+                {
+                    var curDistance = Vector3.Distance(enemy.transform.position, transform.position);
+
+                    if (curDistance < 4)
+                    {
+                        EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
+                        enemyHealth.TakeDamage(120, 1.2f);
+                    }
+                }
+                enemiesKilled = true;
+            }
         }
 
     }
