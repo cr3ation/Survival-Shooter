@@ -1263,22 +1263,22 @@ Prefab:
     - target: {fileID: 224729927244445556, guid: ce6957aa73a62884b838330d05fc413e,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224729927244445556, guid: ce6957aa73a62884b838330d05fc413e,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224348672450743820, guid: ce6957aa73a62884b838330d05fc413e,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224348672450743820, guid: ce6957aa73a62884b838330d05fc413e,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114661003862534414, guid: ce6957aa73a62884b838330d05fc413e,
         type: 2}
@@ -3409,11 +3409,6 @@ Prefab:
       propertyPath: rageText
       value: 
       objectReference: {fileID: 1721433646}
-    - target: {fileID: 114082122927457752, guid: 300bba49a80d30e4c9e11fad614cc85f,
-        type: 2}
-      propertyPath: tequilaCooldown
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 300bba49a80d30e4c9e11fad614cc85f, type: 2}
   m_IsPrefabParent: 0

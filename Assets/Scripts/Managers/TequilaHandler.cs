@@ -8,9 +8,16 @@ public class TequilaHandler : MonoBehaviour {
     bool destroy = false;
     bool enemiesKilled = false;
     public GameObject particles;
+    AudioSource audioSource;
+    MeshRenderer meshRenderer;
+    Light pointLight;
+    
 
 	// Use this for initialization
 	void Start () {
+        audioSource = gameObject.GetComponent<AudioSource>();
+        meshRenderer = gameObject.GetComponent<MeshRenderer>();
+        pointLight = transform.GetChild(1).GetComponent<Light>();
     }
 	
 	// Update is called once per frame
@@ -18,11 +25,14 @@ public class TequilaHandler : MonoBehaviour {
 
         particleTimer += Time.deltaTime;
         float activateTime = 5.0f;
+
+        audioSource.volume = Mathf.Lerp(0, 1, particleTimer * 0.5f);
         
         // Activate the particle effect
         if (particleTimer >= activateTime && !destroy)
         {
             particles.SetActive(true);
+
             destroy = true;
             //Destroy object after 1 second.
             Destroy(gameObject, 3);
@@ -45,6 +55,11 @@ public class TequilaHandler : MonoBehaviour {
                 }
                 enemiesKilled = true;
             }
+        }
+        if (particleTimer >= activateTime + 0.2f && meshRenderer.enabled)
+        {
+            meshRenderer.enabled = false;
+            pointLight.enabled = false;
         }
 
     }
