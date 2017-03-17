@@ -1296,6 +1296,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 26d313f5e3ea65248a642ab9eab9cc3c, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &649245296 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114360397117376106, guid: ce6957aa73a62884b838330d05fc413e,
+    type: 2}
+  m_PrefabInternal: {fileID: 824774640}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &668318806
 GameObject:
   m_ObjectHideFlags: 0
@@ -1612,6 +1618,28 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716113860850282, guid: ce6957aa73a62884b838330d05fc413e, type: 2}
+      propertyPath: m_Name
+      value: FlashingImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 114644281696420928, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 649245296}
+    - target: {fileID: 114092258520104978, guid: ce6957aa73a62884b838330d05fc413e,
+        type: 2}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 1508206136}
+    - target: {fileID: 1233796049615708, guid: ce6957aa73a62884b838330d05fc413e, type: 2}
+      propertyPath: m_Name
+      value: FlashingImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560712943158052, guid: ce6957aa73a62884b838330d05fc413e, type: 2}
+      propertyPath: m_Name
+      value: FlashingImage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce6957aa73a62884b838330d05fc413e, type: 2}
@@ -2539,6 +2567,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4040266967310728, guid: 26d313f5e3ea65248a642ab9eab9cc3c,
     type: 2}
   m_PrefabInternal: {fileID: 1681186155}
+--- !u!114 &1508206136 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114091889912405356, guid: ce6957aa73a62884b838330d05fc413e,
+    type: 2}
+  m_PrefabInternal: {fileID: 824774640}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!4 &1589241565 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4040266967310728, guid: 26d313f5e3ea65248a642ab9eab9cc3c,
