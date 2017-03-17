@@ -32,6 +32,10 @@ public class InventoryMenu : MonoBehaviour {
     }	
 	// Update is called once per frame
 	void Update () {
+        
+        // Don't do anything if Pause menu is open
+        if (pauseGameUI.activeSelf) { return; }
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             if (showingItem == 1)

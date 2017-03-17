@@ -12,16 +12,23 @@ public class PauseMenu : MonoBehaviour {
 	
     // Use this for initialization
 	void Start () {
-        Cursor.visible = true;
         audioSlider = transform.GetComponentInChildren<Slider>();
         audioSlider.value = PlayerPrefs.GetFloat("Volume", 1);
     }
 	
 	// Update is called once per frame
 	void Update () {
+        if (gameObject.activeSelf)
+        {
+            Cursor.visible = true;
+        }
 		
 	}
 
+    /// <summary>
+    /// Loads a scene
+    /// </summary>
+    /// <param name="newGameLevel">Name if the scene to load</param>
     public void LoadScene(string newGameLevel)
     {
         if (string.IsNullOrEmpty(newGameLevel))
@@ -30,6 +37,12 @@ public class PauseMenu : MonoBehaviour {
         }
         Time.timeScale = 1f;
         SceneManager.LoadScene(newGameLevel);
+    }
+
+    public void ResumeGame() {
+        Cursor.visible = false;
+        Time.timeScale = 1f;
+        gameObject.SetActive(false);
     }
 
     /// <summary>
