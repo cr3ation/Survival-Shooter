@@ -25,7 +25,7 @@ public class TequilaHandler : MonoBehaviour {
             particles.SetActive(true);
             destroy = true;
             //Destroy object after 1 second.
-            Destroy(gameObject, 1);
+            Destroy(gameObject, 3);
         }
         // Cause damage to enemies.
         else if(destroy && !enemiesKilled)
