@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class InventoryMenu : MonoBehaviour {
 
     public GameObject inventoryUI;
+    public GameObject pauseGameUI;
 
     public Sprite[] images;
     public string[] titles;
@@ -16,6 +17,10 @@ public class InventoryMenu : MonoBehaviour {
     Text itemNumber;
     Text title;
     Text text;
+
+    int showingItem = 0;
+    bool gameIsPaused = false;
+    bool inventoryActive = false;
 
     // Use this for initialization
     void Start()
@@ -29,35 +34,67 @@ public class InventoryMenu : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            ShowInventoryInspector(1);
+            if (showingItem == 1)
+                CloseInventory();
+            else
+                ShowInventoryInspector(1);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            ShowInventoryInspector(2);
-
+            if (showingItem == 2)
+                CloseInventory();
+            else
+                ShowInventoryInspector(2);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            ShowInventoryInspector(3);
-
+            if (showingItem == 3)
+                CloseInventory();
+            else
+                ShowInventoryInspector(3);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            ShowInventoryInspector(4);
+            if (showingItem == 4)
+                CloseInventory();
+            else
+                ShowInventoryInspector(4);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            ShowInventoryInspector(5);
+            if (showingItem == 5)
+                CloseInventory();
+            else
+                ShowInventoryInspector(5);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            ShowInventoryInspector(6);
+            if (showingItem == 6)
+                CloseInventory();
+            else
+                ShowInventoryInspector(6);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha7))
         {
-            ShowInventoryInspector(7);
+            if (showingItem == 7)
+                CloseInventory();
+            else
+                ShowInventoryInspector(7);
         }
-        else if (Input.GetKeyDown(KeyCode.Escape))
+        else if (Input.GetKeyDown(KeyCode.Escape) && !inventoryActive)
+        {
+            if (!gameIsPaused)
+            {
+                pauseGameUI.SetActive(true);
+                PauseGame(true);
+            }
+            else
+            {
+                pauseGameUI.SetActive(false);
+                PauseGame(false);
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && inventoryActive)
         {
             CloseInventory();
         }
@@ -67,7 +104,9 @@ public class InventoryMenu : MonoBehaviour {
     {
         PauseGame(false);
         inventoryUI.SetActive(false);
-        Cursor.visible = true;
+        //Cursor.visible = false;
+        inventoryActive = false;
+        showingItem = -1;
     }
 
 
@@ -77,6 +116,10 @@ public class InventoryMenu : MonoBehaviour {
     /// <param name="paused"></param>
     void PauseGame(bool paused)
     {
+        if (paused)
+            gameIsPaused = true;
+        else
+            gameIsPaused = false;
         //// Stop/continue enemy movevemt
         //var enemies = GameObject.FindGameObjectsWithTag("Enemy");
         //foreach (GameObject enemy in enemies)
@@ -102,10 +145,14 @@ public class InventoryMenu : MonoBehaviour {
 
     void ShowInventoryInspector(int keyPressed)
     {
+        showingItem = keyPressed;
         PauseGame(true);
-        
+        inventoryActive = true;
+
         // Brings up the inventory window
         inventoryUI.SetActive(true);
+
+        //Cursor.visible = true;
 
         // Set the windows image and text
         int i = keyPressed - 1;

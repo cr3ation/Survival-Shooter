@@ -42,7 +42,7 @@ public class TimeManager : MonoBehaviour {
         }
         else
         {
-            text.text += "00";
+            text.text += System.Convert.ToString(minutes);
         }
         text.text += ":";
         if(seconds < 10)

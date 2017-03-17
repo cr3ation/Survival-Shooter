@@ -18,6 +18,7 @@ public class EnemyAttack : MonoBehaviour
     float anim_timer;
     float prev_anim_timer;
     float walk_speed;
+    bool tequilaTime = false;
 
 
     void Awake()
@@ -67,7 +68,18 @@ public class EnemyAttack : MonoBehaviour
             Attack();
         }
 
-        if(playerInRange)
+        // Check if there is a tequila on the map and if it is within range.
+        GameObject tequila = GameObject.FindGameObjectWithTag("Tequila");
+        if (tequila != null)
+        {
+            float dist = Vector3.Distance(transform.position, tequila.transform.position);
+            if (dist < EnemyMovement.tequilaRange)
+                tequilaTime = true;
+            else
+                tequilaTime = false;
+        }
+
+        if(playerInRange && !tequilaTime)
         {
             anim.SetLayerWeight(1, Mathf.Lerp(0, 1, anim_timer));
             anim_timer += Time.deltaTime;
