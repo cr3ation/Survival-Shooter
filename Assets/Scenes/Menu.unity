@@ -2948,29 +2948,6 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 138839603}
-    - target: {fileID: 1160455002515566, guid: 51283ff6fef4faa4a9cdcb02d4838f96, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1509305518322834, guid: 51283ff6fef4faa4a9cdcb02d4838f96, type: 2}
-      propertyPath: m_Name
-      value: Save
-      objectReference: {fileID: 0}
-    - target: {fileID: 114066321367169688, guid: 51283ff6fef4faa4a9cdcb02d4838f96,
-        type: 2}
-      propertyPath: m_Text
-      value: Save
-      objectReference: {fileID: 0}
-    - target: {fileID: 114211163094292858, guid: 51283ff6fef4faa4a9cdcb02d4838f96,
-        type: 2}
-      propertyPath: m_Text
-      value: Fanton
-      objectReference: {fileID: 0}
-    - target: {fileID: 114718616030138688, guid: 51283ff6fef4faa4a9cdcb02d4838f96,
-        type: 2}
-      propertyPath: m_Text
-      value: Player name
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51283ff6fef4faa4a9cdcb02d4838f96, type: 2}
   m_IsPrefabParent: 0
