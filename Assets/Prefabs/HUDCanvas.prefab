@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 222944085077340514}
   - component: {fileID: 114446761879145688}
   m_Layer: 5
-  m_Name: AttackReady
+  m_Name: FlashingImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -710,7 +710,7 @@ GameObject:
   - component: {fileID: 222297083702023492}
   - component: {fileID: 114819653529653492}
   m_Layer: 5
-  m_Name: AttackReady
+  m_Name: FlashingImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -827,7 +827,7 @@ GameObject:
   - component: {fileID: 222695986236469726}
   - component: {fileID: 114659760012475960}
   m_Layer: 5
-  m_Name: AttackReady
+  m_Name: FlashingImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1525,9 +1525,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackActive: {fileID: 21300000, guid: 2a45dc11cff3f704083139eca75845d2, type: 3}
   attackNormal: {fileID: 21300000, guid: 50af6d4504033fd46b91f43ba8cd7f3e, type: 3}
-  image: {fileID: 114819653529653492}
+  image: {fileID: 114091889912405356}
   slider: {fileID: 114811896385697546}
-  animator: {fileID: 95265326432514870}
 --- !u!114 &114139404918011668
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1576,7 +1575,6 @@ MonoBehaviour:
   attackNormal: {fileID: 21300000, guid: 1b95496cb0d089d43845c5a448eed376, type: 3}
   image: {fileID: 114017967470692116}
   slider: {fileID: 114982459892430568}
-  animator: {fileID: 95058950491391658}
 --- !u!114 &114149316643606204
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2254,9 +2252,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackActive: {fileID: 21300000, guid: 87a45b636f132fe4598fc02e72fa36df, type: 3}
   attackNormal: {fileID: 21300000, guid: fa1a4ac1d59c2d14eac594f5c5bb5807, type: 3}
-  image: {fileID: 114659760012475960}
+  image: {fileID: 114360397117376106}
   slider: {fileID: 114297443363591136}
-  animator: {fileID: 95800818730348086}
 --- !u!114 &114659399624676818
 MonoBehaviour:
   m_ObjectHideFlags: 1

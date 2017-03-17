@@ -24,10 +24,9 @@ public class AttackSliderManager : MonoBehaviour {
         // Prevent the animation trigger from constantly getting triggered.
         if (slider.value > 99.5f && !hasChangedImage)
         {
+            animator.SetTrigger("AttackReady");
             hasChangedImage = true;
             image.sprite = attackActive;
-            animator.SetTrigger("AttackReady");
-            print("HEJJ");
         }
         else if(slider.value < 90)
         {
