@@ -18,6 +18,8 @@ public class MenuManager : MonoBehaviour
     public Button tutorialButton;
     public Button exitButton;
 
+    bool playerNameWasMissingAtStart = false;
+
     // Used by Player Preferences. Don't like strings :)
     public const string playerName = "PlayerName";
 
@@ -57,6 +59,8 @@ public class MenuManager : MonoBehaviour
         var name = PlayerPrefs.GetString(playerName);
         if (string.IsNullOrEmpty(name))
         {
+            // Begin new level when "OK" is clicked in PlayerName Menu
+            playerNameWasMissingAtStart = true;
             PlayerName_Clicked();
             return;
         }
@@ -75,6 +79,7 @@ public class MenuManager : MonoBehaviour
     /// </summary>
     public void PlayerName_Clicked()
     {
+
         playerNameMenu.enabled = true;
         EnableStartMenu(false);
 
@@ -92,6 +97,16 @@ public class MenuManager : MonoBehaviour
         }
         playerNameMenu.enabled = false;
         EnableStartMenu(true);
+
+        // Start new game if menu was brought up by "Start" button
+        if (playerNameWasMissingAtStart)
+        {
+            // Reset value
+            playerNameWasMissingAtStart = false;
+
+            // Start new game
+            NewGame("Level 01");
+        }
     }
     #endregion
 
