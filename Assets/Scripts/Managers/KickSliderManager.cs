@@ -17,13 +17,13 @@ public class KickSliderManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (transform.GetChild(1).GetComponent<Slider>().value > 99.5f)
+        if (transform.GetChild(2).GetComponent<Slider>().value > 99.5f)
         {
-            transform.GetChild(0).GetComponent<Image>().sprite = kickActive;
+            transform.GetChild(1).GetComponent<Image>().sprite = kickActive;
         }
         else
         {
-            transform.GetChild(0).GetComponent<Image>().sprite = kickNormal;
+            transform.GetChild(1).GetComponent<Image>().sprite = kickNormal;
         }
 
     }

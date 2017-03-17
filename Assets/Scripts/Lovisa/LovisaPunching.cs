@@ -103,19 +103,19 @@ public class LovisaPunching : MonoBehaviour
             RunSlowMotion();
         }
 
-
-        // Place the tequila object.
-        else if(isTequila && tequilaTimer > 0.7f && GameObject.FindGameObjectWithTag("Tequila") == null)
-        {
-            Vector3 pos = transform.position + new Vector3(0, 0.16f, 0);
-            Instantiate(tequila, pos, Quaternion.Euler(new Vector3(-90,0,0)));
-        }
         // Stop the tequila-phase for Lovisa.
         if (isTequila && tequilaTimer > 1.31f)
         {
             isTequila = false;
             lovisaMovement.speed = 6.0f;
         }
+        // Place the tequila object.
+        else if(isTequila && tequilaTimer > 0.7f && GameObject.FindGameObjectWithTag("Tequila") == null)
+        {
+            Vector3 pos = transform.position + new Vector3(0, 0.16f, 0);
+            Instantiate(tequila, pos, Quaternion.Euler(new Vector3(-90,0,0)));
+        }
+
 
         // Initiate the tequila-attack.
         if ((Input.GetButton("Jump") || Input.GetKey(keys["Tequila"])) && tequilaTimer >= tequilaCooldown - 0.5f)

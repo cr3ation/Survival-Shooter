@@ -17,13 +17,13 @@ public class TequilaSliderManager : MonoBehaviour {
 	void Update () {
 
 
-        if (transform.GetChild(1).GetComponent<Slider>().value > 99.5f)
+        if (transform.GetChild(2).GetComponent<Slider>().value > 99.5f)
         {
-            transform.GetChild(0).GetComponent<Image>().sprite = tequilaActive;
+            transform.GetChild(1).GetComponent<Image>().sprite = tequilaActive;
         }
         else
         {
-            transform.GetChild(0).GetComponent<Image>().sprite = tequilaNormal;
+            transform.GetChild(1).GetComponent<Image>().sprite = tequilaNormal;
         }
 
     }
