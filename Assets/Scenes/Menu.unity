@@ -2249,6 +2249,11 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 550
       objectReference: {fileID: 0}
+    - target: {fileID: 114437452923530008, guid: ac58734f5f99ab942be630c4457fa160,
+        type: 2}
+      propertyPath: m_Text
+      value: Kills
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac58734f5f99ab942be630c4457fa160, type: 2}
   m_IsPrefabParent: 0
@@ -2946,6 +2951,25 @@ Prefab:
     - target: {fileID: 1160455002515566, guid: 51283ff6fef4faa4a9cdcb02d4838f96, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509305518322834, guid: 51283ff6fef4faa4a9cdcb02d4838f96, type: 2}
+      propertyPath: m_Name
+      value: Save
+      objectReference: {fileID: 0}
+    - target: {fileID: 114066321367169688, guid: 51283ff6fef4faa4a9cdcb02d4838f96,
+        type: 2}
+      propertyPath: m_Text
+      value: Save
+      objectReference: {fileID: 0}
+    - target: {fileID: 114211163094292858, guid: 51283ff6fef4faa4a9cdcb02d4838f96,
+        type: 2}
+      propertyPath: m_Text
+      value: Fanton
+      objectReference: {fileID: 0}
+    - target: {fileID: 114718616030138688, guid: 51283ff6fef4faa4a9cdcb02d4838f96,
+        type: 2}
+      propertyPath: m_Text
+      value: Player name
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51283ff6fef4faa4a9cdcb02d4838f96, type: 2}
