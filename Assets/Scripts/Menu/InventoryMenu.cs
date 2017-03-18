@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class InventoryMenu : MonoBehaviour {
 
+    public FantonHealth health;
     public GameObject inventoryUI;
     public GameObject pauseGameUI;
 
@@ -85,7 +86,7 @@ public class InventoryMenu : MonoBehaviour {
             else
                 ShowInventoryInspector(7);
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) && !inventoryActive)
+        else if (Input.GetKeyDown(KeyCode.Escape) && !inventoryActive && health.currentHealth > 0)
         {
             if (!gameIsPaused)
             {
@@ -98,8 +99,13 @@ public class InventoryMenu : MonoBehaviour {
                 PauseGame(false);
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) && inventoryActive)
+        else if (Input.GetKeyDown(KeyCode.Escape) && inventoryActive && health.currentHealth > 0)
         {
+            CloseInventory();
+        }
+        if (health.currentHealth <= 0)
+        {
+            pauseGameUI.SetActive(false);
             CloseInventory();
         }
     }

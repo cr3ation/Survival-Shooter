@@ -22,8 +22,11 @@ public class PauseMenu : MonoBehaviour {
         {
             Cursor.visible = true;
         }
-		
-	}
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ResumeGame();
+        }
+    }
 
     /// <summary>
     /// Loads a scene

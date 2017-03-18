@@ -2372,7 +2372,7 @@ Prefab:
     - target: {fileID: 114204346444737558, guid: ee0d33c01a4ae6d439db0d50f401de1b,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ExitGameYes_Clicked
+      value: ExitGameNo_Clicked
       objectReference: {fileID: 0}
     - target: {fileID: 1016043751147156, guid: ee0d33c01a4ae6d439db0d50f401de1b, type: 2}
       propertyPath: m_IsActive

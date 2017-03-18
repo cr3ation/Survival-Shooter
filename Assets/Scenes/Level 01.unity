@@ -838,7 +838,6 @@ GameObject:
   - component: {fileID: 298996644}
   - component: {fileID: 298996645}
   - component: {fileID: 298996646}
-  - component: {fileID: 298996647}
   m_Layer: 0
   m_Name: EnemyManager
   m_TagString: EnemyManager
@@ -944,27 +943,8 @@ MonoBehaviour:
   fantonHealth: {fileID: 1669807693}
   enemy: {fileID: 1393358835538766, guid: 22716803452376f4c972c9c307f748bd, type: 2}
   spawnTime: 200
-  timeDiff: 200
+  timeDiff: 500
   spawnPoints:
-  - {fileID: 1028710499}
---- !u!114 &298996647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 298996640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76a99222b1e4a384e923ac7e86efc709, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fantonHealth: {fileID: 1669807693}
-  enemy: {fileID: 1818423832634682, guid: 50d123eca63b76849963848f1aa6ce37, type: 2}
-  spawnTime: 30
-  timeDiff: 30
-  spawnPoints:
-  - {fileID: 251578933}
-  - {fileID: 85813328}
   - {fileID: 1028710499}
 --- !u!114 &308374135 stripped
 MonoBehaviour:
@@ -1652,47 +1632,27 @@ Prefab:
     - target: {fileID: 224729927244445556, guid: ce6957aa73a62884b838330d05fc413e,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224729927244445556, guid: ce6957aa73a62884b838330d05fc413e,
-        type: 2}
-      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224348672450743820, guid: ce6957aa73a62884b838330d05fc413e,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224348672450743820, guid: ce6957aa73a62884b838330d05fc413e,
-        type: 2}
-      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224640557957491486, guid: ce6957aa73a62884b838330d05fc413e,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224640557957491486, guid: ce6957aa73a62884b838330d05fc413e,
-        type: 2}
-      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114297443363591136, guid: ce6957aa73a62884b838330d05fc413e,
+    - target: {fileID: 224614380594892688, guid: ce6957aa73a62884b838330d05fc413e,
         type: 2}
-      propertyPath: m_Value
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114811896385697546, guid: ce6957aa73a62884b838330d05fc413e,
+    - target: {fileID: 224614380594892688, guid: ce6957aa73a62884b838330d05fc413e,
         type: 2}
-      propertyPath: m_Value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114982459892430568, guid: ce6957aa73a62884b838330d05fc413e,
-        type: 2}
-      propertyPath: m_Value
-      value: 0
+      propertyPath: m_AnchoredPosition.y
+      value: -73.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce6957aa73a62884b838330d05fc413e, type: 2}
@@ -1746,6 +1706,11 @@ Prefab:
       propertyPath: pauseGameUI
       value: 
       objectReference: {fileID: 397524533}
+    - target: {fileID: 114804579208141312, guid: 44364dd53ff284d4e83ac919ee44fdb7,
+        type: 2}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 1669807693}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44364dd53ff284d4e83ac919ee44fdb7, type: 2}
   m_IsPrefabParent: 0
