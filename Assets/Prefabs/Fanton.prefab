@@ -2424,11 +2424,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e18833d795b1ff4597139cde863f35b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  startingHealth: 50
   currentHealth: 0
   money: {fileID: 0}
   damageImage: {fileID: 0}
-  deathClip: {fileID: 8300000, guid: d36a393bca4582043982db9089e1694f, type: 3}
+  deathClip: {fileID: 8300000, guid: fc510aa6c07e068408037db3cfcba82b, type: 3}
   damageTakenClips:
   - {fileID: 8300000, guid: 5aa219604470c7a43a6db1e87b45a3ab, type: 3}
   - {fileID: 8300000, guid: 712c411e4248e9c41abf30ea393761d5, type: 3}

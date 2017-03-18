@@ -129,7 +129,7 @@ public class EnemyHealth : MonoBehaviour
 
         // Reduce the current money by the damage amount.
         int moneyLeft = System.Convert.ToInt32(money.text);
-        moneyLeft += 5;
+        moneyLeft += 2;
         if (moneyLeft >= 100)
             moneyLeft = 100;
         money.text = System.Convert.ToString(moneyLeft);

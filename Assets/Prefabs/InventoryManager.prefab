@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryUI: {fileID: 0}
+  pauseGameUI: {fileID: 0}
   images:
   - {fileID: 21300000, guid: 26c9b3e7c900bb6458ffcfe5d4bb3ddf, type: 3}
   - {fileID: 21300000, guid: 291b8229fcf695c49a018e140f05dfe8, type: 3}
@@ -77,8 +78,9 @@ MonoBehaviour:
   - Don't wanna lose the fucking credit card!
   - "Value: \u20AC3250. Length: 50 cm. Width: 4.2 mm. Weight: 33.5 g. Graduation gift
     from family. Worn since june 2004."
-  - Special item. Make life easier and adds additional HP. Not always in Fantons possesion.
-    Can be bought by random mystic figure somewhere in Barcelona. One need to find
-    tobacco and a lighter to use item. Can be found no where.
-  - Special item. Adds additional HP when warn. Can be achived if Lovisa finds the
-    Canadian lover Johan who spawns somwhere in Barcelona.
+  - Special item. Makes life easier and adds additional HP. Not always in Fantons
+    possesion. Can be bought by random mystic figure somewhere in Barcelona. One needs
+    to find tobacco and a lighter to use item. Can be found nowhere.
+  - Girls just wanna have fun! Flirt with the Canadian lover Johan who spawns somwhere
+    in Barcelona and he will give you his shirt. This special item adds additional
+    HP to Fanton.

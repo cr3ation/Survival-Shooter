@@ -55,8 +55,8 @@ public class LovisaPunching : MonoBehaviour
         isTequila = false;
         animationTimer = 1000;
         punchTimer = 1000;
-        currentRage = 100;
-        cooldown = 0;
+        currentRage = 0;
+        cooldown = 100;
 
         // Don't have the energy to explain why... just belive me...
         slowMoTimer = 5f;
