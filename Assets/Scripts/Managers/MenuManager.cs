@@ -50,6 +50,9 @@ public class MenuManager : MonoBehaviour
         settingsMenu.enabled = false;
         tutorialMenu.enabled = false;
         quitMenu.enabled = false;
+
+        // Set normal time
+        Time.timeScale = 1f;
     }
 
 

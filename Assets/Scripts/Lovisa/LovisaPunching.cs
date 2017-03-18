@@ -118,7 +118,7 @@ public class LovisaPunching : MonoBehaviour
 
 
         // Initiate the tequila-attack.
-        if ((Input.GetButton("Jump") || Input.GetKey(keys["Tequila"])) && tequilaTimer >= tequilaCooldown - 0.5f)
+        if ((Input.GetButton("Jump") || Input.GetKey(keys["Tequila"])) && tequilaTimer >= tequilaCooldown - 0.5f && !isKicking)
         {
             tequilaTimer = 0;
             animator.SetTrigger("PutDown");
