@@ -22,7 +22,7 @@ public class LeaderboardManager : MonoBehaviour {
     private bool stopWorking = false;
 
     string dreamloWebserviceURL = "http://dreamlo.com/lb/";
-    string privateKey = "p3J2getC6USe5LnsuQPGkQP4joL4S_zk23ublv8DQQSQ";
+    string privateKey = "";
     string publicKey = "58b9ee3768fc0c0c4c878d54";
 
     string highScores = "";
@@ -34,6 +34,12 @@ public class LeaderboardManager : MonoBehaviour {
         {
             playerNamesList.text = string.Empty;
             scoresList.text = string.Empty;
+        }
+
+        // Warn if private key is missing
+        if (string.IsNullOrEmpty(privateKey))
+        {
+            Debug.LogError("Private key is missing. Please enter leaderboard private key. A new leaderboard can also be created at http://dreamlo.com");
         }
 
         // Saved name and score

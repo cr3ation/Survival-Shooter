@@ -61,15 +61,17 @@ public class EnemyAttack : MonoBehaviour
         // Add the time since Update was last called to the punchTimer.
         timer += Time.deltaTime;
 
-        // If the punchTimer exceeds the time between attacks, the player is in range and this enemy is alive...
-        if (timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
+        // Reference to the tequila object
+        GameObject tequila = GameObject.FindGameObjectWithTag("Tequila");
+
+        // If the punchTimer exceeds the time between attacks, the player is in range, this enemy is alive and there is no tequila placed...
+        if (timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0 && tequila == null)
         {
             // ... attack.
             Attack();
         }
 
         // Check if there is a tequila on the map and if it is within range.
-        GameObject tequila = GameObject.FindGameObjectWithTag("Tequila");
         if (tequila != null)
         {
             float dist = Vector3.Distance(transform.position, tequila.transform.position);
@@ -90,11 +92,6 @@ public class EnemyAttack : MonoBehaviour
             anim.SetLayerWeight(1, Mathf.Lerp(0, 1, prev_anim_timer - anim_timer + 1));
             anim_timer -= Time.deltaTime;
         }
-        //else
-        //{
-        //  animator.SetLayerWeight(1, Mathf.Lerp(0, 1, animationTimer * 5));
-        //animationTimer -= Time.deltaTime;
-        //}
 
         // If the player has zero or less health...
         if (fantonHealth.currentHealth <= 0)
