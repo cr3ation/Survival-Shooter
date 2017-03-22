@@ -27,7 +27,7 @@ public class MenuManager : MonoBehaviour
     void Start()
     {
         // Show mouse
-        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
 
         // Main menu buttons
         startButton = startButton.GetComponent<Button>();

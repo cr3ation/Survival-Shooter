@@ -5,37 +5,35 @@ using System.Collections;
 
 public class LovisaPunching : MonoBehaviour
 {
-    public int damagePerPunch = 20;                 // The damage inflicted by each bullet.
-    public int damagePerKick = 150;
+    public int damagePerPunch = 20;                 // The damage inflicted by each punch.
+    public int damagePerKick = 150;                 // The damage inflicted by each kick.
     public int damageSuperPunch = 200;
-    public float timeBetweenPunches = 0.2f;        // The time between each shot.
+    public float timeBetweenPunches = 0.2f;         // The time between each shot.
     public float range = 3f;                        // The distance the gun can fire.
     public float kickRange = 4f;
     public float rotationRange = 4f;                // The distance to an enemy when player starts to rotate
-    public Slider rageSlider;                                 // Reference to the UI's rage bar.
-    public Slider superPunchSlider;
-    public Slider tequilaSlider;
+    public Slider rageSlider;                       // Reference to the UI's rage bar.
+    public Slider superPunchSlider;                 // Reference to the UI's punch bar.
+    public Slider tequilaSlider;                    // Reference to the UI's tequila bar
     public float tequilaCooldown;                   // Cooldown time for the tequila
     public Text rageText;
-    public int currentRage;
-    public float cooldown;
+    public int currentRage;                         // Current range
+    public float cooldown;                             
     public GameObject tequila;
 
 
-    float punchTimer;                                    // A punchTimer to determine when to fire.
-    float animationTimer;                               // A punchTimer to control the punch animations.
+    float punchTimer;                               // A punchTimer to determine when to fire.
+    float animationTimer;                           // A timer to control the punch animations.
     float slowMoTimer;
     float tequilaTimer;
-    //bool is_punching = false;                       // True during the punch
     float distanceToEnemy;                          // Distance to the closest enemy
-    //float rotationSpeed = 10f;                      // Speen in witch to rotate
     bool isTequila;
     bool isKicking;
     bool superPunch;
     bool hasSuperPunched;
     int kickNumber;
     List<GameObject> enemiesInKickRange;
-    Animator animator;                                  // Reference to the anomator controller object
+    Animator animator;                              // Reference to the anomator controller object
     LovisaMovement lovisaMovement;                  // Reference to the LovsaMovement object
     Rigidbody rigidBody;                            // Reference to the rigidBody object
     GameObject closestEnemy;                        // Refrencee to the closest enemy
@@ -49,7 +47,7 @@ public class LovisaPunching : MonoBehaviour
         lovisaMovement = GetComponent<LovisaMovement>();
         rigidBody = GetComponent<Rigidbody>();
         inventoryInspector = GameObject.FindGameObjectWithTag("InventoryInspector");
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         isKicking = false;
         superPunch = false;
         isTequila = false;

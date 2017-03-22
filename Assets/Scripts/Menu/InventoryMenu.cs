@@ -114,7 +114,6 @@ public class InventoryMenu : MonoBehaviour {
     {
         PauseGame(false);
         inventoryUI.SetActive(false);
-        //Cursor.visible = false;
         inventoryActive = false;
         showingItem = -1;
     }
@@ -127,28 +126,13 @@ public class InventoryMenu : MonoBehaviour {
     void PauseGame(bool paused)
     {
         if (paused)
+        {
             gameIsPaused = true;
-        else
-            gameIsPaused = false;
-        //// Stop/continue enemy movevemt
-        //var enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        //foreach (GameObject enemy in enemies)
-        //{
-        //    enemy.GetComponent<NavMeshAgent>().enabled = !paused;
-        //}
-
-        //// Stop/resume Fanton movement
-        //GameObject.FindGameObjectWithTag("Fanton").GetComponent<NavMeshAgent>().enabled = !paused;
-
-        //// Stop/resume Lovisa movement
-        //GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().enabled = !paused;
-
-        //// Stop/continue spawning enemies
-        //enemyManager.SetActive(!paused);
-        if (paused) {
             Time.timeScale = 0.000001f;
         }
-        else {
+        else
+        {
+            gameIsPaused = false;
             Time.timeScale = 1f;
         }
     }
@@ -161,8 +145,6 @@ public class InventoryMenu : MonoBehaviour {
 
         // Brings up the inventory window
         inventoryUI.SetActive(true);
-
-        //Cursor.visible = true;
 
         // Set the windows image and text
         int i = keyPressed - 1;

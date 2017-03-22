@@ -63,7 +63,7 @@ public class LovisaMovement : MonoBehaviour
         // Move the player around the scene.
         Move(h, v);
 
-        // Turn the player to face the mouse cursor.
+        // Turn the player
         Turning(h, v);
         
         // Animate the player.
